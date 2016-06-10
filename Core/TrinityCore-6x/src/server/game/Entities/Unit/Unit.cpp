@@ -13509,12 +13509,16 @@ void Unit::SetRooted(bool apply, bool packetOnly /*= false*/)
         { SMSG_MOVE_SPLINE_ROOT, SMSG_MOVE_ROOT }
     };
 
-    if (GetTypeId() == TYPEID_PLAYER && ToPlayer()->m_mover->GetTypeId() == TYPEID_PLAYER)
+    if (Player* playerMover = GetPlayerMover()) // unit controlled by a player.
     {
         WorldPackets::Movement::MoveSetFlag packet(rootOpcodeTable[apply][1]);
         packet.MoverGUID = GetGUID();
         packet.SequenceIndex = m_movementCounter++;
-        SendMessageToSet(packet.Write(), true);
+        playerMover->SendDirectMessage(packet.Write());
+
+        WorldPackets::Movement::MoveUpdate moveUpdate;
+        moveUpdate.movementInfo = &m_movementInfo;
+        playerMover->SendMessageToSet(moveUpdate.Write(), false);
     }
     else
     {
@@ -15197,8 +15201,9 @@ void Unit::SendTeleportPacket(Position& pos)
 
     WorldPackets::Movement::MoveUpdateTeleport moveUpdateTeleport;
     moveUpdateTeleport.movementInfo = &m_movementInfo;
+    Unit* broadcastSource = this;
 
-    if (GetTypeId() == TYPEID_PLAYER)
+    if (Player* playerMover = GetPlayerMover())
     {
         WorldPackets::Movement::MoveTeleport moveTeleport;
         moveTeleport.MoverGUID = GetGUID();
@@ -15208,7 +15213,9 @@ void Unit::SendTeleportPacket(Position& pos)
         moveTeleport.TransportGUID = GetTransGUID();
         moveTeleport.Facing = pos.GetOrientation();
         moveTeleport.SequenceIndex = m_movementCounter++;
-        ToPlayer()->SendDirectMessage(moveTeleport.Write());
+        playerMover->SendDirectMessage(moveTeleport.Write());
+
+        broadcastSource = playerMover;
     }
     else
     {
@@ -15220,7 +15227,7 @@ void Unit::SendTeleportPacket(Position& pos)
     }
 
     // Broadcast the packet to everyone except self.
-    SendMessageToSet(moveUpdateTeleport.Write(), false);
+    broadcastSource->SendMessageToSet(moveUpdateTeleport.Write(), false);
 }
 
 bool Unit::UpdatePosition(float x, float y, float z, float orientation, bool teleport)
@@ -15601,14 +15608,16 @@ bool Unit::SetDisableGravity(bool disable, bool packetOnly /*= false*/)
         { SMSG_MOVE_SPLINE_DISABLE_GRAVITY, SMSG_MOVE_DISABLE_GRAVITY }
     };
 
-    bool player = GetTypeId() == TYPEID_PLAYER && ToPlayer()->m_mover->GetTypeId() == TYPEID_PLAYER;
-
-    if (player)
+    if (Player* playerMover = GetPlayerMover())
     {
         WorldPackets::Movement::MoveSetFlag packet(gravityOpcodeTable[disable][1]);
         packet.MoverGUID = GetGUID();
         packet.SequenceIndex = m_movementCounter++;
-        SendMessageToSet(packet.Write(), true);
+        playerMover->SendDirectMessage(packet.Write());
+
+        WorldPackets::Movement::MoveUpdate moveUpdate;
+        moveUpdate.movementInfo = &m_movementInfo;
+        playerMover->SendMessageToSet(moveUpdate.Write(), false);
     }
     else
     {
@@ -15679,16 +15688,19 @@ bool Unit::SetCanFly(bool enable)
         { SMSG_MOVE_SPLINE_SET_FLYING,   SMSG_MOVE_SET_CAN_FLY   }
     };
 
-    bool player = GetTypeId() == TYPEID_PLAYER && ToPlayer()->m_mover->GetTypeId() == TYPEID_PLAYER;
-    if (!enable && player)
+    if (!enable && GetTypeId() == TYPEID_PLAYER)
         ToPlayer()->SetFallInformation(0, GetPositionZ());
 
-    if (player)
+    if (Player* playerMover = GetPlayerMover())
     {
         WorldPackets::Movement::MoveSetFlag packet(flyOpcodeTable[enable][1]);
         packet.MoverGUID = GetGUID();
         packet.SequenceIndex = m_movementCounter++;
-        SendMessageToSet(packet.Write(), true);
+        playerMover->SendDirectMessage(packet.Write());
+
+        WorldPackets::Movement::MoveUpdate moveUpdate;
+        moveUpdate.movementInfo = &m_movementInfo;
+        playerMover->SendMessageToSet(moveUpdate.Write(), false);
     }
     else
     {
@@ -15719,14 +15731,16 @@ bool Unit::SetWaterWalking(bool enable, bool packetOnly /*= false */)
         { SMSG_MOVE_SPLINE_SET_WATER_WALK, SMSG_MOVE_SET_WATER_WALK }
     };
 
-    bool player = GetTypeId() == TYPEID_PLAYER && ToPlayer()->m_mover->GetTypeId() == TYPEID_PLAYER;
-
-    if (player)
+    if (Player* playerMover = GetPlayerMover())
     {
         WorldPackets::Movement::MoveSetFlag packet(waterWalkingOpcodeTable[enable][1]);
         packet.MoverGUID = GetGUID();
         packet.SequenceIndex = m_movementCounter++;
-        SendMessageToSet(packet.Write(), true);
+        playerMover->SendDirectMessage(packet.Write());
+
+        WorldPackets::Movement::MoveUpdate moveUpdate;
+        moveUpdate.movementInfo = &m_movementInfo;
+        playerMover->SendMessageToSet(moveUpdate.Write(), false);
     }
     else
     {
@@ -15757,14 +15771,16 @@ bool Unit::SetFeatherFall(bool enable, bool packetOnly /*= false */)
         { SMSG_MOVE_SPLINE_SET_FEATHER_FALL, SMSG_MOVE_SET_FEATHER_FALL }
     };
 
-    bool player = GetTypeId() == TYPEID_PLAYER && ToPlayer()->m_mover->GetTypeId() == TYPEID_PLAYER;
-
-    if (player)
+    if (Player* playerMover = GetPlayerMover())
     {
         WorldPackets::Movement::MoveSetFlag packet(featherFallOpcodeTable[enable][1]);
         packet.MoverGUID = GetGUID();
         packet.SequenceIndex = m_movementCounter++;
-        SendMessageToSet(packet.Write(), true);
+        playerMover->SendDirectMessage(packet.Write());
+
+        WorldPackets::Movement::MoveUpdate moveUpdate;
+        moveUpdate.movementInfo = &m_movementInfo;
+        playerMover->SendMessageToSet(moveUpdate.Write(), false);
     }
     else
     {
@@ -15810,14 +15826,16 @@ bool Unit::SetHover(bool enable, bool packetOnly /*= false*/)
         { SMSG_MOVE_SPLINE_SET_HOVER,   SMSG_MOVE_SET_HOVERING   }
     };
 
-    bool player = GetTypeId() == TYPEID_PLAYER && ToPlayer()->m_mover->GetTypeId() == TYPEID_PLAYER;
-
-    if (player)
+    if (Player* playerMover = GetPlayerMover())
     {
         WorldPackets::Movement::MoveSetFlag packet(hoverOpcodeTable[enable][1]);
         packet.MoverGUID = GetGUID();
         packet.SequenceIndex = m_movementCounter++;
-        SendMessageToSet(packet.Write(), true);
+        playerMover->SendDirectMessage(packet.Write());
+
+        WorldPackets::Movement::MoveUpdate moveUpdate;
+        moveUpdate.movementInfo = &m_movementInfo;
+        playerMover->SendMessageToSet(moveUpdate.Write(), false);
     }
     else
     {
@@ -15845,20 +15863,56 @@ bool Unit::SetCollision(bool disable)
         { SMSG_MOVE_SPLINE_DISABLE_COLLISION, SMSG_MOVE_DISABLE_COLLISION }
     };
 
-    bool player = GetTypeId() == TYPEID_PLAYER && ToPlayer()->m_mover->GetTypeId() == TYPEID_PLAYER;
-
-    if (player)
+    if (Player* playerMover = GetPlayerMover())
     {
         WorldPackets::Movement::MoveSetFlag packet(collisionOpcodeTable[disable][1]);
         packet.MoverGUID = GetGUID();
         packet.SequenceIndex = m_movementCounter++;
-        SendMessageToSet(packet.Write(), true);
+        playerMover->SendDirectMessage(packet.Write());
+
+        WorldPackets::Movement::MoveUpdate moveUpdate;
+        moveUpdate.movementInfo = &m_movementInfo;
+        playerMover->SendMessageToSet(moveUpdate.Write(), false);
     }
     else
     {
         WorldPackets::Movement::MoveSplineSetFlag packet(collisionOpcodeTable[disable][0]);
         packet.MoverGUID = GetGUID();
         SendMessageToSet(packet.Write(), true);
+    }
+
+    return true;
+}
+
+bool Unit::SetCanTransitionBetweenSwimAndFly(bool enable)
+{
+    if (GetTypeId() != TYPEID_PLAYER)
+        return false;
+
+    if (enable == HasExtraUnitMovementFlag(MOVEMENTFLAG2_CAN_SWIM_TO_FLY_TRANS))
+        return false;
+
+    if (enable)
+        AddExtraUnitMovementFlag(MOVEMENTFLAG2_CAN_SWIM_TO_FLY_TRANS);
+    else
+        RemoveExtraUnitMovementFlag(MOVEMENTFLAG2_CAN_SWIM_TO_FLY_TRANS);
+
+    static OpcodeServer const swimToFlyTransOpcodeTable[2] =
+    {
+        SMSG_MOVE_ENABLE_TRANSITION_BETWEEN_SWIM_AND_FLY,
+        SMSG_MOVE_DISABLE_TRANSITION_BETWEEN_SWIM_AND_FLY
+    };
+
+    if (Player* playerMover = GetPlayerMover())
+    {
+        WorldPackets::Movement::MoveSetFlag packet(swimToFlyTransOpcodeTable[enable]);
+        packet.MoverGUID = GetGUID();
+        packet.SequenceIndex = m_movementCounter++;
+        playerMover->SendDirectMessage(packet.Write());
+
+        WorldPackets::Movement::MoveUpdate moveUpdate;
+        moveUpdate.movementInfo = &m_movementInfo;
+        playerMover->SendMessageToSet(moveUpdate.Write(), false);
     }
 
     return true;
