@@ -13518,7 +13518,7 @@ void Unit::SetRooted(bool apply, bool packetOnly /*= false*/)
 
         WorldPackets::Movement::MoveUpdate moveUpdate;
         moveUpdate.movementInfo = &m_movementInfo;
-        playerMover->SendMessageToSet(moveUpdate.Write(), false);
+        SendMessageToSet(moveUpdate.Write(), playerMover);
     }
     else
     {
@@ -15617,7 +15617,7 @@ bool Unit::SetDisableGravity(bool disable, bool packetOnly /*= false*/)
 
         WorldPackets::Movement::MoveUpdate moveUpdate;
         moveUpdate.movementInfo = &m_movementInfo;
-        playerMover->SendMessageToSet(moveUpdate.Write(), false);
+        SendMessageToSet(moveUpdate.Write(), playerMover);
     }
     else
     {
@@ -15700,7 +15700,7 @@ bool Unit::SetCanFly(bool enable)
 
         WorldPackets::Movement::MoveUpdate moveUpdate;
         moveUpdate.movementInfo = &m_movementInfo;
-        playerMover->SendMessageToSet(moveUpdate.Write(), false);
+        SendMessageToSet(moveUpdate.Write(), playerMover);
     }
     else
     {
@@ -15740,7 +15740,7 @@ bool Unit::SetWaterWalking(bool enable, bool packetOnly /*= false */)
 
         WorldPackets::Movement::MoveUpdate moveUpdate;
         moveUpdate.movementInfo = &m_movementInfo;
-        playerMover->SendMessageToSet(moveUpdate.Write(), false);
+        SendMessageToSet(moveUpdate.Write(), playerMover);
     }
     else
     {
@@ -15780,7 +15780,7 @@ bool Unit::SetFeatherFall(bool enable, bool packetOnly /*= false */)
 
         WorldPackets::Movement::MoveUpdate moveUpdate;
         moveUpdate.movementInfo = &m_movementInfo;
-        playerMover->SendMessageToSet(moveUpdate.Write(), false);
+        SendMessageToSet(moveUpdate.Write(), playerMover);
     }
     else
     {
@@ -15835,7 +15835,7 @@ bool Unit::SetHover(bool enable, bool packetOnly /*= false*/)
 
         WorldPackets::Movement::MoveUpdate moveUpdate;
         moveUpdate.movementInfo = &m_movementInfo;
-        playerMover->SendMessageToSet(moveUpdate.Write(), false);
+        SendMessageToSet(moveUpdate.Write(), playerMover);
     }
     else
     {
@@ -15872,7 +15872,7 @@ bool Unit::SetCollision(bool disable)
 
         WorldPackets::Movement::MoveUpdate moveUpdate;
         moveUpdate.movementInfo = &m_movementInfo;
-        playerMover->SendMessageToSet(moveUpdate.Write(), false);
+        SendMessageToSet(moveUpdate.Write(), playerMover);
     }
     else
     {
@@ -15912,7 +15912,7 @@ bool Unit::SetCanTransitionBetweenSwimAndFly(bool enable)
 
         WorldPackets::Movement::MoveUpdate moveUpdate;
         moveUpdate.movementInfo = &m_movementInfo;
-        playerMover->SendMessageToSet(moveUpdate.Write(), false);
+        SendMessageToSet(moveUpdate.Write(), playerMover);
     }
 
     return true;
