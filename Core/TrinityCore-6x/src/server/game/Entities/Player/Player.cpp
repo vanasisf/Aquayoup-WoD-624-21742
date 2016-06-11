@@ -22066,7 +22066,7 @@ void Player::UpdateTriggerVisibility()
             creature->BuildValuesUpdateBlockForPlayer(&udata, this);
             creature->RemoveFieldNotifyFlag(UF_FLAG_PUBLIC);
         }
-        else if (itr->IsGameObject())
+        else if (itr->IsAnyTypeGameObject())
         {
             GameObject* go = GetMap()->GetGameObject(*itr);
             if (!go)
