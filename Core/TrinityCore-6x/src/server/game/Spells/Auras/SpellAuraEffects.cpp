@@ -4011,6 +4011,7 @@ void AuraEffect::HandleOverrideAttackPowerBySpellPower(AuraApplication const* au
 
     target->ApplyModSignedFloatValue(PLAYER_FIELD_OVERRIDE_AP_BY_SPELL_POWER_PERCENT, float(m_amount), apply);
     target->UpdateAttackPowerAndDamage();
+    target->UpdateAttackPowerAndDamage(true);
 }
 
 /********************************/
