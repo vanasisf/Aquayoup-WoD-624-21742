@@ -70,7 +70,6 @@
 #include "VehiclePackets.h"
 #include "LootPackets.h"
 #include "PartyPackets.h"
-#include <boost/dynamic_bitset.hpp>
 #include <cmath>
 
 float baseMoveSpeed[MAX_MOVE_TYPE] =
@@ -15965,7 +15964,7 @@ void Unit::BuildValuesUpdate(uint8 updateType, ByteBuffer* data, Player* target)
     else if (GetTypeId() == TYPEID_PLAYER)
         valCount = PLAYER_FIELD_END_NOT_SELF;
 
-    boost::dynamic_bitset<uint32> updateMask(valCount);
+    std::size_t blockCount = UpdateMask::GetBlockCount(valCount);
 
     Player* plr = GetCharmerOrOwnerPlayerOrPlayerItself();
     if (GetOwnerGUID() == target->GetGUID())
@@ -15980,9 +15979,9 @@ void Unit::BuildValuesUpdate(uint8 updateType, ByteBuffer* data, Player* target)
 
     Creature const* creature = ToCreature();
 
-    *data << uint8(updateMask.num_blocks());
+    *data << uint8(blockCount);
     std::size_t maskPos = data->wpos();
-    data->resize(data->size() + updateMask.num_blocks() * sizeof(uint32));
+    data->resize(data->size() + blockCount * sizeof(UpdateMask::BlockType));
 
     for (uint16 index = 0; index < valCount; ++index)
     {
@@ -15991,7 +15990,7 @@ void Unit::BuildValuesUpdate(uint8 updateType, ByteBuffer* data, Player* target)
             ((updateType == UPDATETYPE_VALUES ? _changesMask[index] : m_uint32Values[index]) && (flags[index] & visibleFlag)) ||
             (index == UNIT_FIELD_AURASTATE && HasFlag(UNIT_FIELD_AURASTATE, PER_CASTER_AURA_STATE_MASK)))
         {
-            updateMask.set(index);
+            UpdateMask::SetUpdateBit(data->contents() + maskPos, index);
 
             if (index == UNIT_NPC_FLAGS)
             {
@@ -16110,8 +16109,6 @@ void Unit::BuildValuesUpdate(uint8 updateType, ByteBuffer* data, Player* target)
             }
         }
     }
-
-    boost::to_block_range(updateMask, reinterpret_cast<uint32*>(data->contents() + maskPos));
 }
 
 void Unit::DestroyForPlayer(Player* target) const
