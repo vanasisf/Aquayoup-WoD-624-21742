@@ -527,7 +527,7 @@ enum AuraType
     SPELL_AURA_MOD_STAT_BONUS_PCT                           = 467, // Affects stat gain from all sources except base stats
     SPELL_AURA_468                                          = 468,
     SPELL_AURA_469                                          = 469,
-	SPELL_AURA_MOD_VERSATILITY = 471,  // NYI
+    SPELL_AURA_MOD_VERSATILITY = 471,  // NYI
     SPELL_AURA_472                                          = 472,
     SPELL_AURA_PREVENT_DURABILITY_LOSS_FROM_COMBAT          = 473, // Prevents durability loss from dealing/taking damage
     SPELL_AURA_474                                          = 474,
