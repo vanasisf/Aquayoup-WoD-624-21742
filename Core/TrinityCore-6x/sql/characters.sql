@@ -6955,6 +6955,7 @@ CREATE TABLE `character_pet` (
   `curmana` int(10) unsigned NOT NULL DEFAULT '0',
   `savetime` int(10) unsigned NOT NULL DEFAULT '0',
   `abdata` text,
+  `specialization` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `owner` (`owner`),
   KEY `idx_slot` (`slot`)
@@ -14878,7 +14879,8 @@ insert  into `updates`(`name`,`hash`,`state`,`timestamp`,`speed`) values
 ('2016_04_05_00_characters_2016_02_10_00_characters.sql','F1B4DA202819CABC7319A4470A2D224A34609E97','ARCHIVED','2016-04-05 22:34:41',0),
 ('2016_04_11_00_characters.sql','0ACDD35EC9745231BCFA701B78056DEF94D0CC53','ARCHIVED','2016-04-11 04:24:14',30),
 ('2016_04_11_01_characters.sql','CA90F6D99C1EEA7B25BD58BC8368A8D78234BBEF','ARCHIVED','2016-04-11 20:14:18',0),
-('2016_05_07_00_characters.sql','D1DB5557B21A552C935564D829B4E98B98149077','ARCHIVED','2016-05-07 02:00:00',0);
+('2016_05_07_00_characters.sql','D1DB5557B21A552C935564D829B4E98B98149077','ARCHIVED','2016-05-07 02:00:00',0),
+('2016_05_26_00_characters.sql','4179ADC32B96FD8D7D4CF5509A470B1ACE00BE85','RELEASED','2016-05-26 17:06:16',0);
 
 /*Table structure for table `updates_include` */
 
