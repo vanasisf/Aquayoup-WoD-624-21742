@@ -3755,40 +3755,47 @@ void Unit::RemoveNotOwnSingleTargetAuras(uint32 newPhase, bool phaseid)
     // Such situation occurs when player is logging in inside an instance and fails the entry check for any reason.
     // The aura that was loaded from db (indirectly, via linked casts) gets removed before it has a chance
     // to register in m_appliedAuras
-    for (AuraMap::iterator iter = m_ownedAuras.begin(); iter != m_ownedAuras.end();)
-    {
-        Aura const* aura = iter->second;
 
-        if (aura->GetCasterGUID() != GetGUID() && aura->IsSingleTarget())
-        {
-            if (!newPhase && !phaseid)
-                RemoveOwnedAura(iter);
-            else
-            {
-                Unit* caster = aura->GetCaster();
-                if (!caster || (newPhase && !caster->IsInPhase(newPhase)) || (!newPhase && !caster->IsInPhase(this)))
-                    RemoveOwnedAura(iter);
-                else
-                    ++iter;
-            }
-        }
-        else
-            ++iter;
-    }
+		for (AuraMap::iterator iter = m_ownedAuras.begin(); iter != m_ownedAuras.end();)
+		{
+			Aura const* aura = iter->second;
 
-    // single target auras at other targets
-    AuraList& scAuras = GetSingleCastAuras();
-    for (AuraList::iterator iter = scAuras.begin(); iter != scAuras.end();)
-    {
-        Aura* aura = *iter;
-        if (aura->GetUnitOwner() != this && !aura->GetUnitOwner()->IsInPhase(newPhase))
-        {
-            aura->Remove();
-            iter = scAuras.begin();
-        }
-        else
-            ++iter;
-    }
+			if (aura->GetCasterGUID() != GetGUID() && aura->IsSingleTarget())
+			{
+				if (!newPhase && !phaseid)
+					RemoveOwnedAura(iter);
+				else
+				{
+					Unit* caster = aura->GetCaster();
+					if (!caster || (newPhase && !caster->IsInPhase(newPhase)) || (!newPhase && !caster->IsInPhase(this)))
+						RemoveOwnedAura(iter);
+					else
+						++iter;
+				}
+			}
+			else
+				++iter;
+		}
+
+		// single target auras at other targets
+		AuraList& scAuras = GetSingleCastAuras();
+		for (AuraList::iterator iter = scAuras.begin(); iter != scAuras.end();)
+		{
+			Aura* aura = *iter;
+			if (aura->GetUnitOwner() && aura->GetUnitOwner() != this && !aura->GetUnitOwner()->IsInPhase(newPhase))
+			{
+				if ((newPhase == 0x0 && !phaseid) ||
+					(!aura->GetEffect(0) || aura->GetEffect(0)->GetAuraType() != SPELL_AURA_CONTROL_VEHICLE) &&
+					(!aura->GetEffect(1) || aura->GetEffect(1)->GetAuraType() != SPELL_AURA_CONTROL_VEHICLE))
+				{
+					aura->Remove();
+					iter = scAuras.begin();
+				}
+				else ++iter;
+			}
+			else
+				++iter;
+		}
 }
 
 void Unit::RemoveAurasWithInterruptFlags(uint32 flag, uint32 except)
