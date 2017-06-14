@@ -14581,7 +14581,7 @@ uint32 Unit::GetModelForForm(ShapeshiftForm form) const
                     return 37730;
                 return 21244;
 //STITCH toutes les classes pour toutes les races change form MOONKIN
-			case FORM_MOONKIN:
+            case FORM_MOONKIN:
                 switch (getRace())
                 {
                     case RACE_NIGHTELF:
