@@ -30,15 +30,16 @@ enum MonkSpells
 {
     SPELL_MONK_CRACKLING_JADE_LIGHTNING_CHANNEL = 117952,
     SPELL_MONK_CRACKLING_JADE_LIGHTNING_CHI_PROC = 123333,
-    SPELL_MONK_STANCE_OF_THE_SPIRITED_CRANE = 154436,
 	SPELL_MONK_CRACKLING_JADE_LIGHTNING_KNOCKBACK = 117962,
     SPELL_MONK_CRACKLING_JADE_LIGHTNING_KNOCKBACK_CD = 117953,
 
+	SPELL_MONK_GLYPH_OF_SURGING_MIST = 120483,
 	SPELL_MONK_PROVOKE_SINGLE_TARGET = 116189,	//STITCH Spell Monk
 	SPELL_MONK_PROVOKE_AOE = 118635,			//STITCH Spell Monk
+	SPELL_MONK_STANCE_OF_THE_SPIRITED_CRANE = 154436,
 	SPELL_MONK_SOOTHING_MIST = 115175,			//STITCH Spell Monk
 	SPELL_MONK_SURGING_MIST_HEAL = 116995,		//STITCH Spell Monk
-
+	SPELL_MONK_SURGING_MIST_HEAL_GLYPHED = 123273,
 };
 
 // 117952 - Crackling Jade Lightning
@@ -193,45 +194,45 @@ public:
 // 116694 - Surging Mist	//STITCH Spell Monk
 class spell_monk_surging_mist : public SpellScriptLoader
 {
-public:
-	spell_monk_surging_mist() : SpellScriptLoader("spell_monk_surging_mist") { }
+	public:
+		spell_monk_surging_mist() : SpellScriptLoader("spell_monk_surging_mist") { }
 
-	class spell_monk_surging_mist_SpellScript : public SpellScript
-	{
-		PrepareSpellScript(spell_monk_surging_mist_SpellScript);
-
-		bool Validate(SpellInfo const* /*spellInfo*/) override
+		class spell_monk_surging_mist_SpellScript : public SpellScript
 		{
-			if (!sSpellMgr->GetSpellInfo(SPELL_MONK_SURGING_MIST_HEAL))
-				return false;
-			return true;
-		}
+			PrepareSpellScript(spell_monk_surging_mist_SpellScript);
 
-		void SelectTarget(WorldObject*& target)
+			bool Validate(SpellInfo const* /*spellInfo*/) override
+			{
+				if (!sSpellMgr->GetSpellInfo(SPELL_MONK_SURGING_MIST_HEAL))
+					return false;
+				if (!sSpellMgr->GetSpellInfo(SPELL_MONK_SURGING_MIST_HEAL_GLYPHED))
+					return false;
+				if (!sSpellMgr->GetSpellInfo(SPELL_MONK_GLYPH_OF_SURGING_MIST))
+					return false;
+				return true;
+			}
+
+			void HandleDummy(SpellEffIndex effIndex)
+			{
+				PreventHitDefaultEffect(effIndex);
+				Unit* caster = GetCaster();
+				Unit* target = GetHitUnit();
+				if (caster->GetShapeshiftForm() == FORM_CRANE_STANCE && caster->HasAura(SPELL_MONK_GLYPH_OF_SURGING_MIST))
+					caster->CastSpell(target, SPELL_MONK_SURGING_MIST_HEAL_GLYPHED, true);
+				else
+					caster->CastSpell(target, SPELL_MONK_SURGING_MIST_HEAL, true);
+			}
+
+			void Register() override
+			{
+				OnEffectHitTarget += SpellEffectFn(spell_monk_surging_mist_SpellScript::HandleDummy, EFFECT_0, SPELL_EFFECT_DUMMY);
+			}
+		};
+
+		SpellScript* GetSpellScript() const override
 		{
-			Unit* caster = GetCaster();
-			if (caster->GetUInt32Value(UNIT_CHANNEL_SPELL) == SPELL_MONK_SOOTHING_MIST)
-				if (Unit* soothingMistTarget = ObjectAccessor::GetUnit(*caster, caster->GetChannelObjectGuid()))
-					target = soothingMistTarget;
+			return new spell_monk_surging_mist_SpellScript();
 		}
-
-		void HandleDummy(SpellEffIndex effIndex)
-		{
-			PreventHitDefaultEffect(effIndex);
-			GetCaster()->CastSpell(GetHitUnit(), SPELL_MONK_SURGING_MIST_HEAL, true);
-		}
-
-		void Register() override
-		{
-			OnObjectTargetSelect += SpellObjectTargetSelectFn(spell_monk_surging_mist_SpellScript::SelectTarget, EFFECT_0, TARGET_UNIT_TARGET_ALLY);
-			OnEffectHitTarget += SpellEffectFn(spell_monk_surging_mist_SpellScript::HandleDummy, EFFECT_0, SPELL_EFFECT_DUMMY);
-		}
-	};
-
-	SpellScript* GetSpellScript() const override
-	{
-		return new spell_monk_surging_mist_SpellScript();
-	}
 };
 
 // 123273 - Surging Mist (Glyphed)	//STITCH Spell Monk
