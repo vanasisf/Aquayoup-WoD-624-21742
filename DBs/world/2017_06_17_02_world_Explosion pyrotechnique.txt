@@ -1,2 +1,0 @@
-DELETE FROM `world`.`spell_linked_spell` WHERE `spell_linked_spell`.`spell_trigger` = 11366;
-INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (11366,33975 , 1, "Stitch : mage  -  [Explosion pyrotechnique]"); 
