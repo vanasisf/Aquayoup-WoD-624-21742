@@ -1,0 +1,1 @@
+DELETE FROM `world`.`command` WHERE `command`.`name` = 'scene';
