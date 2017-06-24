@@ -39,20 +39,20 @@ EndContentData */
 ###*/
 
 //gossip item text best guess
-#define GOSSIP_ITEM1 "I seek information about Natalia"
+#define GOSSIP_ITEM1 "Je recherche des informations sur Natalia"
 
-#define GOSSIP_ITEM2 "That sounds dangerous!"
-#define GOSSIP_ITEM3 "What did you do?"
-#define GOSSIP_ITEM4 "Who?"
-#define GOSSIP_ITEM5 "Women do that. What did she demand?"
-#define GOSSIP_ITEM6 "What do you mean?"
-#define GOSSIP_ITEM7 "What happened next?"
+#define GOSSIP_ITEM2 "Cela semble dangereux!"
+#define GOSSIP_ITEM3 "Qu'as-tu fait?"
+#define GOSSIP_ITEM4 "Qui?"
+#define GOSSIP_ITEM5 "Les femmes font cela. Qu'est-ce qu'elle a demandé?"
+#define GOSSIP_ITEM6 "Qu'est-ce que vous voulez dire?"
+#define GOSSIP_ITEM7 "Qu'est-ce qui s'est passé ensuite?"
 
-#define GOSSIP_ITEM11 "Yes, please continue"
-#define GOSSIP_ITEM12 "What language?"
-#define GOSSIP_ITEM13 "The Priestess attacked you?!"
-#define GOSSIP_ITEM14 "I should ask the monkey about this"
-#define GOSSIP_ITEM15 "Then what..."
+#define GOSSIP_ITEM11 "Oui, continuez"
+#define GOSSIP_ITEM12 "Quelle langue?"
+#define GOSSIP_ITEM13 "La prêtresse vous a attaqué?"
+#define GOSSIP_ITEM14 "e devrais demander au singe à propos de ceci"
+#define GOSSIP_ITEM15 "Ensuite, quoi ..."
 
 enum RutgarAndFrankal //trigger creatures to kill
 {
