@@ -33,7 +33,7 @@ DELETE FROM `world`.`creature` WHERE `creature`.`id` = 1100040;
 DELETE FROM `world`.`creature` WHERE `creature`.`id` = 1100050;
 DELETE FROM `world`.`creature` WHERE `creature`.`id` = 1100051;
 DELETE FROM `world`.`creature` WHERE `creature`.`id` = 1100056;
-
+DELETE FROM `world`.`creature` WHERE `creature`.`id` = 15000210;
 
 DELETE FROM `world`.`gameobject` WHERE `gameobject`.`guid` = 612076;
 DELETE FROM `world`.`gameobject` WHERE `gameobject`.`guid` = 601517;
