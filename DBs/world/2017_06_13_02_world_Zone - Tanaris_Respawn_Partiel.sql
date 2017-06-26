@@ -651,19 +651,3 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `P
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` =  ;
