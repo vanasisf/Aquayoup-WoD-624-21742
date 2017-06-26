@@ -924,10 +924,10 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (44873, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 44873);       #  Voler
-#UPDATE `creature` SET `position_z` = `position_z` +2 WHERE `creature`.`id` = 44873;       #  Voler
+UPDATE `creature` SET `position_z` = `position_z` +2 WHERE `creature`.`id` = 44873;       #  Voler
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (5455, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 5455);       #  Voler
-#UPDATE `creature` SET `position_z` = `position_z` +4 WHERE `creature`.`id` = 5455;       #  Voler
+UPDATE `creature` SET `position_z` = `position_z` +4 WHERE `creature`.`id` = 5455;       #  Voler
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (5430, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 7 WHERE (entry = 5430);       #  Voler
 UPDATE `creature` SET `position_z` = `position_z` +4 WHERE `creature`.`id` = 5430;       #  Voler
