@@ -98,9 +98,9 @@ REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `
 
 
 # Arene
-DELETE FROM `sau 2017-06-11`.`creature` WHERE `creature`.`guid` = 254662;
-DELETE FROM `sau 2017-06-11`.`creature` WHERE `creature`.`guid` = 254663;
-DELETE FROM `sau 2017-06-11`.`creature` WHERE `creature`.`guid` = 254664;
+DELETE FROM `creature` WHERE `creature`.`guid` = 254662;
+DELETE FROM `creature` WHERE `creature`.`guid` = 254663;
+DELETE FROM `creature` WHERE `creature`.`guid` = 254664;
 REPLACE INTO `creature_template_locale` (`entry`, `locale`, `Name`, `NameAlt`, `Title`, `TitleAlt`, `VerifiedBuild`) VALUES
 (54654, 'frFR', 'Ecton Briquedouille', '', 'Intendant de l''honneur', NULL, 18019),
 (54655, 'frFR', 'Evee Cuivressort', '', 'Intendante de conquête', NULL, 18019),
@@ -129,7 +129,7 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 (254660, 19859, 1, 440, 976, 1, 0, 0, 0, 1, -7124.24, -3803.94, 8.74067, 0.912622, 300, 0, 0, 1, 0, 0, 0, 0, 0, 0);
 
 #---
-DELETE FROM `sau 2017-06-11`.`creature` WHERE `creature`.`guid` = 21070189;
+DELETE FROM `creature` WHERE `creature`.`guid` = 21070189;
 
 ## Réfugié de Gentepression
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
