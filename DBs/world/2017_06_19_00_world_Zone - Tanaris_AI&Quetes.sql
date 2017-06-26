@@ -1486,7 +1486,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 /* Le dôme du Tonnerre : Sarinexx ! 25095 */
 UPDATE `quest_template_addon` SET `PrevQuestID` = 25094 WHERE (ID = 25095);
 UPDATE `quest_template` SET `RewardNextQuest` = 25095 WHERE (ID = 25095);
-UPDATE `quest_template_addon` SET `NextQuestID` = 25095 WHERE (ID = 25095
+UPDATE `quest_template_addon` SET `NextQuestID` = 25095 WHERE (ID = 25095);
 DELETE FROM `quest_objectives` WHERE (QuestID = 25095);
 INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `ObjectID`, `Amount`, `Flags`, `UnkFloat`, `Description`, `VerifiedBuild`) VALUES
 (15500007, 25095, 0, 0, 39149, 1, 0, 0, '', 0);
