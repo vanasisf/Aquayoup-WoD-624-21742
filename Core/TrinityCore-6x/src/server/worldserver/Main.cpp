@@ -219,7 +219,7 @@ extern int main(int argc, char** argv)
     // Launch CliRunnable thread
     std::thread* cliThread = nullptr;
 #ifdef _WIN32
-    if (sConfigMgr->GetBoolDefault("Console.Enable", true) && (m_ServiceStatus == -1)/* need disable console in service mode*/)
+ //   if (sConfigMgr->GetBoolDefault("Console.Enable", true) && (m_ServiceStatus == -1)/* need disable console in service mode*/)//STITCH console activé
 #else
     if (sConfigMgr->GetBoolDefault("Console.Enable", true))
 #endif
