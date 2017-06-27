@@ -2684,6 +2684,10 @@ void Creature::UpdateMovementFlags()
         SetFall(false);
 
     SetSwim(GetCreatureTemplate()->InhabitType & INHABIT_WATER && IsInWater());
+
+
+
+
 }
 
 void Creature::SetObjectScale(float scale)
