@@ -56,28 +56,40 @@ void RandomMovementGenerator<Creature>::_setRandomLocation(Creature* creature)
 
     travelDistZ = range;                                    // sin^2+cos^2=1, so travelDistZ=range^2; no need for sqrt below
 
+	//Got that out of air condition, since we might also need it to check if we're under water
+    float levelZ = map->GetWaterOrGroundLevel(destX, destY, respZ-2.0f);
+
     if (is_air_ok)                                          // 3D system above ground and above water (flying mode)
     {
         // Limit height change
         const float distanceZ = float(rand_norm()) * travelDistZ/2.0f;
         destZ = respZ + distanceZ;
-        float levelZ = map->GetWaterOrGroundLevel(destX, destY, destZ-2.0f);
 
         // Problem here, we must fly above the ground and water, not under. Let's try on next tick
         if (levelZ >= destZ)
             return;
     }
-    //else if (is_water_ok)                                 // 3D system under water and above ground (swimming mode)
-    else                                                    // 2D only
-    {
-        // 10.0 is the max that vmap high can check (MAX_CAN_FALL_DISTANCE)
+	else 
+	{
+		// 10.0 is the max that vmap high can check (MAX_CAN_FALL_DISTANCE)
         travelDistZ = travelDistZ >= 10.0f ? 10.0f : travelDistZ;
 
         // The fastest way to get an accurate result 90% of the time.
         // Better result can be obtained like 99% accuracy with a ray light, but the cost is too high and the code is too long.
         destZ = map->GetHeight(creature->GetPhaseMask(), destX, destY, respZ+travelDistZ-2.0f, false);
 
-        if (std::fabs(destZ - respZ) > travelDistZ)              // Map check
+		//We're under water and creature can swim, We need to define a proper Z coord instead of sticking to the ground
+		if ( (creature->CanSwim() ) && (respZ < levelZ) )
+		{
+			//Define the max and min height at which our creature can wander, according to its starting height (respZ), water level height (levelZ) and ground height (destZ)
+			float	fWaterLineMargin = 1.0f,
+					fHalfAllowedZRange = 5.0f,
+					fMinDestZ = ( ( (respZ - fHalfAllowedZRange) < destZ) ? destZ : (respZ - fHalfAllowedZRange) ),
+					fMaxDestZ = ( ( (respZ + fHalfAllowedZRange) > (levelZ - fWaterLineMargin) ) ? (levelZ - fWaterLineMargin) : (respZ + fHalfAllowedZRange) );
+
+			destZ = fMinDestZ + (float(rand_norm()) * (fMaxDestZ - fMinDestZ) );
+		}
+		else if (std::fabs(destZ - respZ) > travelDistZ)              // Map check
         {
             // Vmap Horizontal or above
             destZ = map->GetHeight(creature->GetPhaseMask(), destX, destY, respZ - 2.0f, true);
@@ -92,7 +104,7 @@ void RandomMovementGenerator<Creature>::_setRandomLocation(Creature* creature)
                     return;
             }
         }
-    }
+	}
 
     if (is_air_ok)
         i_nextMoveTime.Reset(0);
