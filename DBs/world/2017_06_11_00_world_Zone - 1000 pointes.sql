@@ -680,7 +680,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 
 
 
-UPDATE `creature_template` SET `type_flags` = 2147483648,`faction` = 103, `unit_flags` = 0, `HealthModifier` = 4, `ArmorModifier` = 2, `DamageModifier` = 4,, `InhabitType` = 3 WHERE (entry = 41236);
+UPDATE `creature_template` SET `type_flags` = 2147483648,`faction` = 103, `unit_flags` = 0, `HealthModifier` = 4, `ArmorModifier` = 2, `DamageModifier` = 4, `InhabitType` = 3 WHERE (entry = 41236);
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (41236, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 41236);       #  Voler
 -- Aquarian SAI
