@@ -679,9 +679,8 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 
 
 
-UPDATE `creature_template` SET `type_flags` = 2147483648, `InhabitType` = -1 WHERE (entry = 41236);
 
-UPDATE `creature_template` SET `faction` = 103, `unit_flags` = 0, `HealthModifier` = 4, `ArmorModifier` = 2, `DamageModifier` = 4,, `InhabitType` = -1 WHERE (entry = 41236);
+UPDATE `creature_template` SET `type_flags` = 2147483648,`faction` = 103, `unit_flags` = 0, `HealthModifier` = 4, `ArmorModifier` = 2, `DamageModifier` = 4,, `InhabitType` = 3 WHERE (entry = 41236);
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (41236, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 41236);       #  Voler
 -- Aquarian SAI
@@ -763,7 +762,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 
 UPDATE `creature_template` SET `HealthModifier` = 2, `ArmorModifier` = 2, `DamageModifier` = 3 WHERE (entry = 45442);
 
-UPDATE `creature_template` SET `InhabitType` = -1, `HealthModifier` = 1.5, `DamageModifier` = 3,`speed_walk` = 1.5, `speed_run` = 1.5 WHERE (entry = 40449);
+UPDATE `creature_template` SET `InhabitType` = 3, `HealthModifier` = 1.5, `DamageModifier` = 3,`speed_walk` = 1.5, `speed_run` = 1.5 WHERE (entry = 40449);
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (40449, 0, 0, 33554432, 1, 0, NULL);         #  Voler/nager
 -- Southsea Treasure Hunter SAI
 SET @ENTRY := 40449;
