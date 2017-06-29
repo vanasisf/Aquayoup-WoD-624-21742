@@ -16,32 +16,27 @@
 /* affecté a : Mulgore, CI de la mesa de Nuage rouge (34) */
 INSERT IGNORE INTO `graveyard_zone` (`ID`, `GhostZone`, `Faction`, `Comment`) VALUES (34 , 221, 0, "Stitch : Mulgore - Camp narache");
 
-
-
 # respirer sous l'eau
-DELETE FROM `world`.`spell_area` WHERE `spell_area`.`spell` = 75627 AND (`spell_area`.`area` = 485 OR `spell_area`.`area` = 2097 OR `spell_area`.`area` = 5675 OR `spell_area`.`area` = 481 OR `spell_area`.`area` = 5092 OR `spell_area`.`area` = 1557 OR `spell_area`.`area` = 484 OR `spell_area`.`area` = 2237 OR `spell_area`.`area` = 482 OR `spell_area`.`area` = 5011 OR `spell_area`.`area` = 5590 OR `spell_area`.`area` = 5025 OR `spell_area`.`area` = 5591 OR `spell_area`.`area` = 5048 OR `spell_area`.`area` = 5046 OR `spell_area`.`area` = 5091);
+DELETE FROM `spell_area` WHERE `spell` = 75627 AND (`area` = 485 OR `area` = 2097 OR `area` = 5675 OR `area` = 481 OR `area` = 5092 OR `area` = 1557 OR `area` = 484 OR `area` = 2237 OR `area` = 482 OR `area` = 5011 OR `area` = 5590 OR `area` = 5025 OR `area` = 5591 OR `area` = 5048 OR `area` = 5046 OR `area` = 5091);
 
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '485', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '2097', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5675', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '481', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5092', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '1557', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '484', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '2237', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '482', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5011', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5590', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5025', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5591', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5048', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5046', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5091', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '400', '0', '0', '0', '0', '2', '1', '64', '11');
-REPLACE INTO `world`.`spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5028', '0', '0', '0', '0', '2', '1', '64', '11');
-
-
-
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '485', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '2097', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5675', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '481', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5092', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '1557', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '484', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '2237', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '482', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5011', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5590', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5025', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5591', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5048', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5046', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5091', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '400', '0', '0', '0', '0', '2', '1', '64', '11');
+REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES ('75627', '5028', '0', '0', '0', '0', '2', '1', '64', '11');
 
 /****************************************************************************************/
 /* 				Divers & AI																										*/
@@ -162,7 +157,7 @@ SET @Z := 4.193545;
 SET @O :=  0.8750;
 
 REPLACE INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `femaleName`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `exp_unk`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `dmgschool`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `type_flags2`, `lootid`, `pickpocketloot`, `skinloot`, `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`, `spell1`, `spell2`, `spell3`, `spell4`, `spell5`, `spell6`, `spell7`, `spell8`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HoverHeight`, `HealthModifier`, `HealthModifierExtra`, `ManaModifier`, `ManaModifierExtra`, `ArmorModifier`, `DamageModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
-(@ENTRY, 0, 0, 0, 0, 0, @DISPLAY, 0, 0, 0, @NAME, '', @SUBNAME, '', 0, @LVL, @LVL, 0, 0, @FACTION, 16777220, 1, 0.14286, @TAILLE, 0, 0, 2000, 2000, 1, 1, 1, 131586, 2048, 0, 0, 0,
+(@ENTRY, 0, 0, 0, 0, 0, @DISPLAY, 0, 0, 0, @NAME, '', @SUBNAME, '', 0, @LVL, @LVL, 0, 0, @FACTION, 16777220, 1, 0.14286, @TAILLE, 0, 0, 2000, 2000, 1, 1, 1, 131586, 2048, 0, 0, 0, 0, 0, 9, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, @spell1, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 'SmartAI', 0, 3, 1, @PV, 1, 1, 1, 1, 1, 1, 0, 0, @REGEN, 2296625, 2, '', 15595);
 ### ------------------------------------------------------------------ Portail 1000 Pointes : Haut Perchoir		 ### 
 
 SET @ENTRY := 15000180;		# 
@@ -318,21 +313,6 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (@ENTRY, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = @ENTRY);       #  Voler
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (48096, 0, 0, 0, 1, 233, NULL); # Tape avec masse
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (1322, 0, 0, 0, 1, 233, NULL); # Tape avec masse/pioche (si equipé)
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (40777, 0, 0, 0, 1, 233, NULL); # Tape avec masse/pioche (si equipé)
@@ -356,10 +336,6 @@ REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (47851 , 0, 0, 0, 0, 431, NULL); # Effrayé
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (47383 , 0, 0, 0, 0, 431, NULL); # Effrayé
 
-
-
-
-
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (21070316, 45277, 1, 0, 0, 1, 0, 0, 0, 1, -4975.02, -1953.29, 81.3178, 2.93475, 300, 0, 0, 8060, 0, 0, 0, 0, 0, 0), # Sentinelle de Féralas
 (21070315, 45278, 1, 0, 0, 1, 0, 0, 0, 1, -4983.04, -1943.87, 82.0929, 3.76138, 300, 0, 0, 6448, 0, 0, 0, 0, 0, 0), #Brave de Librevent
@@ -367,8 +343,6 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 (21070313, 45277, 1, 0, 0, 1, 0, 0, 0, 1, -5179.72, -2129.17, 91.7302, 5.53834, 300, 0, 0, 8060, 0, 0, 0, 0, 0, 0),
 (21070310, 45278, 1, 0, 0, 1, 0, 0, 0, 1, -5344.78, -2287.47, 82.5624, 4.19335, 300, 0, 0, 6448, 0, 0, 0, 0, 0, 0),
 (21070309, 45277, 1, 0, 0, 1, 0, 0, 0, 1, -5362.3, -2293.14, 83.4399, 2.45174, 300, 3, 0, 8060, 0, 2, 0, 0, 0, 0);
-
-
 
 UPDATE `creature_template` SET `lootid` = 47583 WHERE (entry = 47620);
 UPDATE `creature_template` SET `lootid` = 47583 WHERE (entry = 47619);
@@ -386,7 +360,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,3,0,0,0,100,0,0,0,6000,10000,11,13747,2,0,0,0,0,2,0,0,0,0,0,0,0,"Lenteur"),
 (@ENTRY,0,4,0,9,0,100,0,40,100,3000,3000,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Start Moving when not in bolt Range"),
 (@ENTRY,0,8,0,3,0,100,0,0,15,3000,3000,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Start Moving at 15% Mana");
-UPDATE `world`.`creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 48137;
+UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 48137;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (48137, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 48137);       #  Voler
 -- Monstrous Macaw SAI
@@ -399,7 +373,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,22,0,0,0,75,0,3000,5500,16500,18500,11,3427,0,0,0,0,0,2,0,0,0,0,0,0,0,"Blessure infectée (dégâts physiques + 5%/20s)");
 
 
-UPDATE `world`.`creature` SET `spawndist`=15,`MovementType` = '1' WHERE `spawndist` = 0 AND `creature`.`id` = 48138;
+UPDATE `creature` SET `spawndist`=15,`MovementType` = '1' WHERE `spawndist` = 0 AND `id` = 48138;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (48138, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 48138);       #  Voler
 SET @ENTRY := 48138;
@@ -410,7 +384,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,17,0,0,0,100,0,2000,3000,4000,6000,11,163716,0,0,0,0,0,2,0,0,0,0,0,0,0,"- Attaque : Griffure de serres"),
 (@ENTRY,0,22,0,0,0,75,0,3000,5500,16500,18500,11,3427,0,0,0,0,0,2,0,0,0,0,0,0,0,"Blessure infectée (dégâts physiques + 5%/20s)");
 
-# UPDATE `world`.`creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 47389 ;
+# UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 47389 ;
 UPDATE `creature_template` SET `HealthModifier` = 3, `ArmorModifier` = 2,`lootid` = 47389  WHERE (entry = 47389);
 -- Hive Controller SAI
 SET @ENTRY := 47389;
@@ -421,7 +395,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,10,0,0,0,100,0,0,0,5000,5000,11,744,32,0,0,0,0,2,0,0,0,0,0,0,0,"Poison"),
 (@ENTRY,0,15,0,0,0,100,0,0,0,4000,6000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"griffe");
 
-UPDATE `world`.`creature` SET `spawndist`=5,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 47390;
+UPDATE `creature` SET `spawndist`=5,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 47390;
 UPDATE `creature_template` SET `ArmorModifier` = 2.5, `DamageModifier` = 3 WHERE (entry = 47390);
 -- Silithid Defender SAI
 SET @ENTRY := 47390;
@@ -431,7 +405,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,0,0,0,100,0,0,0,10000,10000,11,11443,2,0,0,0,0,2,0,0,0,0,0,0,0,"Faiblesse"),
 (@ENTRY,0,1,0,0,0,75,0,0,0,10000,15000,11,6713,0,0,0,0,0,2,0,0,0,0,0,0,0,"Désarmement");
 
-UPDATE `world`.`creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 48177;
+UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 48177;
 UPDATE `creature_template` SET `HealthModifier` = 1, `ArmorModifier` = 1.5, `DamageModifier` = 2, `InhabitType` = 6, `HoverHeight` = 1,`speed_walk` = 1.5, `speed_run` = 1.5 WHERE (entry = 48177);
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (48177, 0, 0, 33554432, 1, 0, NULL);         #  Voler/nager
 -- Silithid Ravager SAI
@@ -442,7 +416,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,0,0,0,100,0,2000,3500,6000,8000,11,8255,0,0,0,0,0,2,0,0,0,0,0,0,0,"Grand enchaînement");
 
 
-UPDATE `world`.`creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 48178;
+UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 48178;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (48178, 0, 0, 33554432, 1, 0, NULL);         #  Voler/nager
 UPDATE `creature_template` SET `HealthModifier` = 1.5, `ArmorModifier` = 1.5, `DamageModifier` = 3, `InhabitType` = 3, `HoverHeight` = 1,`speed_walk` = 1.5, `speed_run` = 1.5 WHERE (entry = 48178);
 -- Silithid Ravager SAI
@@ -452,7 +426,6 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,2000,3500,6000,8000,11,8255,0,0,0,0,0,2,0,0,0,0,0,0,0,"Grand enchaînement");
 
-
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (48179, 0, 0, 33554432, 1, 0, NULL);         #  Voler/nager
 UPDATE `creature_template` SET `HealthModifier` = 1.5, `ArmorModifier` = 1.5, `DamageModifier` = 3, `InhabitType` = 6, `HoverHeight` = 1,`speed_walk` = 1.5, `speed_run` = 1.5  WHERE (entry = 48179);
 -- Silithid Wasp SAI
@@ -461,7 +434,6 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,2000,3500,5000,7000,11,8255,0,0,0,0,0,2,0,0,0,0,0,0,0,"-- Silithid Ravager SAI");
-
 
 SET @ENTRY := 40027 ;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
@@ -545,7 +517,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,1,0,9,0,100,0,0,5,24000,26000,11,78828,1,0,0,0,0,1,0,0,0,0,0,0,0,"Tempête de lames"),
 (@ENTRY,0,2,0,0,0,100,0,0,0,4000,4000,11,46558,0,0,0,0,0,2,0,0,0,0,0,0,0,"Attaque pernicieuse");
 
-# UPDATE `world`.`creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 45418 ;
+# UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 45418 ;
 UPDATE `creature_template` SET `faction` = 103 WHERE (entry = 45418);
 -- Grundig Darkcloud SAI
 SET @ENTRY := 45418;
@@ -556,7 +528,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,10,0,0,0,100,0,0,0,5000,7000,11,123649,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coup de masse   "),
 (@ENTRY,0,15,0,0,0,100,0,0,0,4000,12000,11,8147,0,0,0,0,0,1,0,0,0,0,0,0,0,"Coup de tonnerre");
 
-# UPDATE `world`.`creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 45410 ;
+# UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 45410 ;
 UPDATE `creature_template` SET `faction` = 103, `type_flags` = 2147483648,`HealthModifier` = 5 WHERE (entry = 45410);
 -- Elder Stormhoof SAI
 SET @ENTRY := 45410;
@@ -567,7 +539,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,20,0,0,0,100,0,2000,2000,5000,8000,11,51505,0,0,0,0,0,2,0,0,0,0,0,0,0,"Explosion de lave"),
 (@ENTRY,0,10,0,9,0,75,0,0,45,20000,30000,11,85762,0,0,0,0,0,0,0,0,0,0,0,0,0,"Piétinement");
 
-# UPDATE `world`.`creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 45387 ;
+# UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 45387 ;
 UPDATE `creature_template` SET `faction` = 103,`HealthModifier` = 4 WHERE (entry = 45387);
 -- Isha Gloomaxe SAI
 SET @ENTRY := 45387;
@@ -590,7 +562,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,1,0,0,0,100,0,2000,4000,4000,7000,11,15496,0,0,0,0,0,2,0,0,0,0,0,0,0,"Enchaînement"),
 (@ENTRY,0,2,0,9,0,50,0,0,5,12000,20000,11,81500,0,0,0,0,0,1,0,0,0,0,0,0,0,"Choc martial 0-5m");
 
-# UPDATE `world`.`creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 41458 ;
+# UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 41458 ;
 UPDATE `creature_template` SET `rank` = 1,`HealthModifier` = 4, `DamageModifier` = 3 WHERE (entry = 41458);
 -- Cliffwatcher Longhorn SAI
 SET @ENTRY := 41458;
@@ -616,8 +588,6 @@ UPDATE `creature_template` SET `unit_flags` = 131586, `type_flags` = 0, `HealthM
 UPDATE `creature_template` SET `HealthModifier` = 3, `DamageModifier` = 4,`unit_flags` = 163842 WHERE (entry = 41448);
 UPDATE `creature_template` SET `HealthModifier` = 3, `DamageModifier` = 4,`unit_flags` = 163842 WHERE (entry = 41447);
 
-
-
 UPDATE `creature_template` SET `faction` = 103, `HealthModifier` = 1.5 WHERE (entry = 4118);
 -- Venomous Cloud Serpent SAI
 SET @ENTRY := 4118;
@@ -637,8 +607,6 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,0,0,0,100,0,0,0,3400,4700,11,57780,0,0,0,0,0,2,0,0,0,0,0,0,0,"Eclair"),
 (@ENTRY,0,4,0,9,0,100,0,40,100,3000,3000,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Start Moving when not in bolt Range"),
 (@ENTRY,0,8,0,3,0,100,0,0,15,3000,3000,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Start Moving at 15% Mana");
-
-
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (48188, 0, 0, 33554432, 1, 0, NULL);         #  Voler/nager
 UPDATE `creature_template` SET `unit_flags2` = 2112, `unit_flags` = 67141632, `InhabitType` = 6, `HoverHeight` = 1, `HealthModifier` = 1.5, `ArmorModifier` = 2.5 WHERE (entry = 48188);
@@ -677,9 +645,6 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,0,0,100,0,0,4000,3000,3000,11,69203,32,0,0,0,0,2,0,0,0,0,0,0,0,"Morsure vicieuse");
 
-
-
-
 UPDATE `creature_template` SET `type_flags` = 2147483648,`faction` = 103, `unit_flags` = 0, `HealthModifier` = 4, `ArmorModifier` = 2, `DamageModifier` = 4, `InhabitType` = 3 WHERE (entry = 41236);
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (41236, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 41236);       #  Voler
@@ -698,7 +663,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,0,0,100,0,0,0,5000,5000,11,134537,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coup de bec ");
 
-UPDATE `world`.`creature` SET `spawndist`=10,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 48131;
+UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 48131;
 UPDATE `creature_template` SET `unit_flags` = 67108864,`HealthModifier` = 1.5, `DamageModifier` = 3.5 WHERE (entry = 48131);
 -- Needlespine Cobra SAI
 SET @ENTRY := 48131;
@@ -707,7 +672,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,0,0,7000,10000,11,6917,32,0,0,0,0,2,0,0,0,0,0,0,0,"Cast Venom Spit");
 
-UPDATE `world`.`creature` SET `spawndist`=10,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 48130;
+UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 48130;
 UPDATE `creature_template` SET `unit_flags` = 67108864, `HealthModifier` = 1.5, `ArmorModifier` = 2, `DamageModifier` = 4 WHERE (entry = 48130);
 -- Scorpid Cliffcrawler SAI
 SET @ENTRY := 48130;
@@ -716,7 +681,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,3500,4500,18000,20000,11,13884,32,0,0,0,0,2,0,0,0,0,0,0,0,"Poison d'affliction");
 
-# UPDATE `world`.`creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 5935 ;
+# UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 5935 ;
 UPDATE `creature_template` SET `scale` = 1.25, `unit_flags` = 67108928, `HealthModifier` = 4.5, `ArmorModifier` = 1.5, `DamageModifier` = 3 WHERE (entry = 5935);
 -- Ironeye the Invincible SAI
 SET @ENTRY := 5935;
@@ -934,7 +899,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,10,0,0,0,100,0,0,0,5000,8000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure");
 
 
-UPDATE `world`.`creature_equip_template` SET `ItemID3` = '19993' WHERE `creature_equip_template`.`CreatureID` = 47479 AND `creature_equip_template`.`ID` = 1;
+UPDATE `creature_equip_template` SET `ItemID3` = '19993' WHERE `CreatureID` = 47479 AND `ID` = 1;
 UPDATE `creature_template` SET `unit_flags` = 0, `HealthModifier` = 1.5 WHERE (entry = 47479);
 -- Twilight Trapper SAI
 SET @ENTRY := 47479;
@@ -987,7 +952,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,10,0,61,0,100,0,0,0,0,0,20,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Start Melee Attack when not in Shoot Range"),
 (@ENTRY,0,15,0,9,0,100,0,0,5,5000,7000,11,78828,0,0,0,0,0,1,0,0,0,0,0,0,0,"Tempête de lames");
 
-# UPDATE `world`.`creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 5937 ;
+# UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 5937 ;
 UPDATE `creature_template` SET `scale` = 1.5, `HealthModifier` = 5, `ArmorModifier` = 2, `DamageModifier` = 3 WHERE (entry = 5937);
 -- Vile Sting SAI
 SET @ENTRY := 5937;
@@ -1051,7 +1016,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,15,0,0,0,100,0,0,0,4000,4000,11,29426,0,0,0,0,0,2,0,0,0,0,0,0,0,"Frappe heroique"),
 (@ENTRY,0,20,0,0,0,50,0,0,0,5000,5000,11,772,0,0,0,0,0,2,0,0,0,0,0,0,0,"Pourfendre");
 
-#UPDATE `world`.`creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 47602 ;
+#UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 47602 ;
 UPDATE `creature_template` SET `unit_flags` = 0, `ArmorModifier` = 2, `DamageModifier` = 2 WHERE (entry = 47602);
 -- Codemaster Deethuk SAI
 SET @ENTRY := 47602;
@@ -1062,7 +1027,6 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,1,0,9,0,100,0,5,30,5000,6000,11,79866,0,0,0,0,0,2,0,0,0,0,0,0,0,"Lancer mortel 5-30 m"),
 (@ENTRY,0,2,0,2,0,100,1,0,30,3000,3000,11,79864,0,0,0,0,0,2,0,0,0,0,0,0,0,"Pas de l’ombre 0-30% Health "),
 (@ENTRY,0,3,0,0,0,100,0,0,0,5000,5000,11,46558,0,0,0,0,0,2,0,0,0,0,0,0,0,"Attaque pernicieuse   ");
-
 
 UPDATE `creature_template` SET `unit_flags` = 131074 WHERE (entry = 44399);
 
@@ -1098,7 +1062,6 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,9,10,61,0,100,0,0,0,0,0,40,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Set Melee Weapon Model when not in Shoot Range"),
 (@ENTRY,0,10,0,61,0,100,0,0,0,0,0,20,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Start Melee Attack when not in Shoot Range");
 
-
 UPDATE `creature_template` SET `HealthModifier` = 3, `ArmorModifier` = 1.5, `DamageModifier` = 3.5 WHERE (entry = 41196);
 SET @ENTRY := 41196;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
@@ -1125,27 +1088,6 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,25,0,11,0,100,0,0,0,0,0,8,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Defensif au spawn");
 
 UPDATE `creature_template` SET `HealthModifier` = 2.5 WHERE (entry = 45438);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Peniche de cource - Bar
 REPLACE INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (330690, 0, 0, 1, 1, 0, ''); # Assis par terre
@@ -1192,10 +1134,6 @@ REPLACE INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `
 
 REPLACE INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (330700, 0, 0, 3, 257, 0, NULL); # Dort allongé    
 REPLACE INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (330710, 0, 0, 3, 257, 0, NULL); # Dort allongé    
-
-
-
-
 
 REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `type`, `PlayerConditionID`, `IgnoreFiltering`, `VerifiedBuild`) VALUES
 (40475, 0, 159, 0, 0, 0, 1, 0, 0, 0),
@@ -1261,41 +1199,26 @@ UPDATE `creature_template` SET `flags_extra` = 128 WHERE entry =47423;
 UPDATE `creature_template` SET `flags_extra` = 128 WHERE entry =47424;
 UPDATE `creature_template` SET `flags_extra` = 128 WHERE entry =47425;
 
-
 UPDATE `creature_template` SET `flags_extra` = 128 WHERE entry =47426;
 
-UPDATE `world`.`creature` SET `spawntimesecs` = '15' WHERE `creature`.`id` = 47485;
-UPDATE `world`.`creature` SET `spawntimesecs` = '600' WHERE `creature`.`id` = 45381;
-UPDATE `world`.`creature` SET `spawntimesecs` = '600' WHERE `creature`.`id` = 45383;
-UPDATE `world`.`creature` SET `spawntimesecs` = '600' WHERE `creature`.`id` = 45385;
-UPDATE `world`.`creature` SET `spawntimesecs` = '1' WHERE `creature`.`id` = 47621;
-
+UPDATE `creature` SET `spawntimesecs` = '15' WHERE `id` = 47485;
+UPDATE `creature` SET `spawntimesecs` = '600' WHERE `id` = 45381;
+UPDATE `creature` SET `spawntimesecs` = '600' WHERE `id` = 45383;
+UPDATE `creature` SET `spawntimesecs` = '600' WHERE `id` = 45385;
+UPDATE `creature` SET `spawntimesecs` = '1' WHERE `id` = 47621;
 
 UPDATE `creature_template` SET `faction` = 103 WHERE (entry = 36094); # agressif
 UPDATE `creature_template` SET `faction` = 188 WHERE (entry = 36113); # non agressif
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (4692, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 4692);       #  Voler
-# UPDATE `world`.`creature` SET `position_z` = `position_z`+7 WHERE `creature`.`id` = 4692;
+# UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `id` = 4692;
 
-UPDATE `world`.`creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 40193;
-UPDATE `world`.`creature` SET `spawndist`=10,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 15476;
+UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 40193;
+UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 15476;
 
-
-
-
-
-# UPDATE `world`.`creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 8301 ;
-# UPDATE `world`.`creature_loot_template` SET `Chance` = '100' WHERE `creature_loot_template`.`Entry` = 11560 AND `creature_loot_template`.`Item` = 15849;
-
-
-
-
-
-
-
-
-
+# UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 8301 ;
+# UPDATE `creature_loot_template` SET `Chance` = '100' WHERE `Entry` = 11560 AND `Item` = 15849;
 
 /****************************************************************************************/
 /* 				QUETES              																								 */
@@ -1345,7 +1268,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 UPDATE `quest_template` SET `Flags` = 8 WHERE (ID = 25532);
 DELETE FROM `creature_questender` WHERE (quest = 25532);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (40475, 25532);
-UPDATE `world`.`quest_template_locale` SET `LogDescription` = 'Utilisez le seau plein d''eau pour éteindre 15 feux.', `QuestDescription` = 'Je ne sais pas si vous avez remarqué, mais on nous tire dessus au canon. En plus, la précision des tirs de ces pirates de mers du Sud ne cesse d’augmenter… Le bâtiment est en feu !$B$BVous avez un seau ? ... Non ! ... et vous faites comment pour vos besoin ?! ... Alors prenez le mien et n''oubliez pas de me le ramener !$B$BEt éteignez-moi ces feux !' WHERE `quest_template_locale`.`ID` = 25532 AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `LogDescription` = 'Utilisez le seau plein d''eau pour éteindre 15 feux.', `QuestDescription` = 'Je ne sais pas si vous avez remarqué, mais on nous tire dessus au canon. En plus, la précision des tirs de ces pirates de mers du Sud ne cesse d’augmenter… Le bâtiment est en feu !$B$BVous avez un seau ? ... Non ! ... et vous faites comment pour vos besoin ?! ... Alors prenez le mien et n''oubliez pas de me le ramener !$B$BEt éteignez-moi ces feux !' WHERE `ID` = 25532 AND `locale` = 'frFR';
 UPDATE `quest_template` SET `StartItem` = 46094 WHERE (ID = 25532);
 UPDATE `quest_template_addon` SET `ProvidedItemCount` = 1 WHERE (ID = 25532);
 DELETE FROM `quest_objectives` WHERE (QuestID = 25532);
@@ -1359,7 +1282,7 @@ REPLACE INTO `quest_objectives_locale` (`ID`, `locale`, `QuestId`, `StorageIndex
 UPDATE `quest_template` SET `Flags` = 8 WHERE (ID = 25533);
 DELETE FROM `creature_questender` WHERE (quest = 25533);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (40487, 25533);
-UPDATE `world`.`quest_template_locale` SET `LogDescription` = 'Utilisez le seau plein d''eau pour éteindre 15 feux.', `QuestDescription` = 'Je ne sais pas si vous avez remarqué, mais on nous tire dessus au canon. En plus, la précision des tirs de ces pirates de mers du Sud ne cesse d’augmenter… Le bâtiment est en feu !$B$BVous avez un seau ? ... Non ! ... et vous faites comment pour vos besoin ?! ... Alors prenez le mien et n''oubliez pas de me le ramener !$B$BEt éteignez-moi ces feux !' WHERE `quest_template_locale`.`ID` = 25533 AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `LogDescription` = 'Utilisez le seau plein d''eau pour éteindre 15 feux.', `QuestDescription` = 'Je ne sais pas si vous avez remarqué, mais on nous tire dessus au canon. En plus, la précision des tirs de ces pirates de mers du Sud ne cesse d’augmenter… Le bâtiment est en feu !$B$BVous avez un seau ? ... Non ! ... et vous faites comment pour vos besoin ?! ... Alors prenez le mien et n''oubliez pas de me le ramener !$B$BEt éteignez-moi ces feux !' WHERE `ID` = 25533 AND `locale` = 'frFR';
 UPDATE `quest_template` SET `StartItem` = 46094 WHERE (ID = 25533);
 UPDATE `quest_template_addon` SET `ProvidedItemCount` = 1 WHERE (ID = 25533);
 DELETE FROM `quest_objectives` WHERE (QuestID = 25533);
@@ -1393,16 +1316,16 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 /* Le cercle des chaloupes disparues 25561 & 25542 (a2) - 25562 & 25543 (h2) */
 
 # Pirates :  .npc add 40707 - canon .npc add 46707
-.npc add 15000172
+# .npc add 15000172
 #---Marin des mers du Sud
 REPLACE INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `femaleName`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `exp_unk`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `dmgschool`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `type_flags2`, `lootid`, `pickpocketloot`, `skinloot`, `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`, `spell1`, `spell2`, `spell3`, `spell4`, `spell5`, `spell6`, `spell7`, `spell8`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HoverHeight`, `HealthModifier`, `HealthModifierExtra`, `ManaModifier`, `ManaModifierExtra`, `ArmorModifier`, `DamageModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
-(15000172, 0, 0, 0, 40707, 0, 31854, 31855, 31861, 374, 'Marin des mers du Sud', '', '', '', 0, 40, 41, 0, 0, 230, 0, 1, 1.1428600549698, 1, 0, 0, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 7, 0, 0, 40092, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, -1, 1, 0.5, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 64, '', 20173);
+(15000172, 0, 0, 0, 40707, 0, 31854, 31855, 31861, 374, 'Marin des mers du Sud', '', '', '', 0, 40, 41, 0, 0, 230, 0, 1, 1.1428600549698, 1, 0, 0, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 7, 0, 0, 40092, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 7, 1, 0.5, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 64, '', 20173);
 REPLACE INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (15000172, 1, 53108, 2717, 0, 18019);
 REPLACE INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `femaleName`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `exp_unk`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `dmgschool`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `type_flags2`, `lootid`, `pickpocketloot`, `skinloot`, `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`, `spell1`, `spell2`, `spell3`, `spell4`, `spell5`, `spell6`, `spell7`, `spell8`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HoverHeight`, `HealthModifier`, `HealthModifierExtra`, `ManaModifier`, `ManaModifierExtra`, `ArmorModifier`, `DamageModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
-(15000173, 0, 0, 0, 40707, 0, 31854, 31855, 31861, 374, 'Marin des mers du Sud', '', '', '', 0, 40, 41, 0, 0, 230, 0, 1, 1.1428600549698, 1, 0, 0, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 7, 0, 0, 40092, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, -1, 1, 0.5, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 64, '', 20173);
+(15000173, 0, 0, 0, 40707, 0, 31854, 31855, 31861, 374, 'Marin des mers du Sud', '', '', '', 0, 40, 41, 0, 0, 230, 0, 1, 1.1428600549698, 1, 0, 0, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 7, 0, 0, 40092, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 7, 1, 0.5, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 64, '', 20173);
 REPLACE INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (15000173, 1, 53108, 2717, 0, 18019);
 REPLACE INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `femaleName`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `exp_unk`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `dmgschool`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `type_flags2`, `lootid`, `pickpocketloot`, `skinloot`, `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`, `spell1`, `spell2`, `spell3`, `spell4`, `spell5`, `spell6`, `spell7`, `spell8`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HoverHeight`, `HealthModifier`, `HealthModifierExtra`, `ManaModifier`, `ManaModifierExtra`, `ArmorModifier`, `DamageModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
-(15000174, 0, 0, 0, 40707, 0, 31854, 31855, 31861, 374, 'Marin des mers du Sud', '', '', '', 0, 40, 41, 0, 0, 230, 0, 1, 1.1428600549698, 1, 0, 0, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 7, 0, 0, 40092, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, -1, 1, 0.5, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 64, '', 20173);
+(15000174, 0, 0, 0, 40707, 0, 31854, 31855, 31861, 374, 'Marin des mers du Sud', '', '', '', 0, 40, 41, 0, 0, 230, 0, 1, 1.1428600549698, 1, 0, 0, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 7, 0, 0, 40092, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 7, 1, 0.5, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 64, '', 20173);
 REPLACE INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (15000174, 1, 53108, 2717, 0, 18019);
 UPDATE `creature_template` SET `InhabitType` = 3 WHERE (entry = 15000172);
 UPDATE `creature_template` SET `InhabitType` = 3 WHERE (entry = 15000173);
@@ -1434,7 +1357,6 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,1000,0,60,0,50,0,0,0,3000,3000,10,3,5,6,24,25,71,1,0,0,0,0,0,0,0,"  Random emote "),
 (@ENTRY,0,2000,0,10,0,100,0,0,10,2000,2000,11,68326,0,0,0,0,0,1,0,0,0,0,0,0,0,"Si detecte mouvement ennemie : auto peur 8225");
-
 
 #---Incendie phase 170
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
@@ -1479,7 +1401,6 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 (21070200, 40512, 1, 400, 5049, 1, 170, 0, 0, 1, -6150.84, -3826.75, 6.46015, 1.98851, 240, 0, 0, 1, 0, 0, 0, 0, 0, 0),
 (21070201, 40512, 1, 400, 5049, 1, 170, 0, 0, 1, -6152.63, -3827.57, 6.43852, 2.00123, 240, 0, 0, 1, 0, 0, 0, 0, 0, 0);
 
-
 #---Phase 170
 REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_spell`, `racemask`, `gender`, `autocast`, `quest_start_status`, `quest_end_status`) VALUES
 (70889, 5041, 25561, 0, 0, 0, 2, 1, 10, 65);	# phase 170
@@ -1519,23 +1440,23 @@ REPLACE INTO `spell_area` (`spell`, `area`, `quest_start`, `quest_end`, `aura_sp
 #---Quetes
 DELETE FROM `quest_objectives` WHERE (QuestID = 25561);
 INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `ObjectID`, `Amount`, `Flags`, `UnkFloat`, `Description`, `VerifiedBuild`) VALUES (265665, 25561, 0, 0, 40707, 50, 0, 0, 'Marins des mers du Sud', 20444);
-UPDATE `world`.`quest_template_locale` SET `LogDescription` = 'Tuez 50 Marins des mers du Sud', `QuestDescription` = 'On a peut-être maîtrisé les incendies, mais ces pirates des mers du Sud ne s''en apprêtent pas moins à  aborder la péniche de course, !$B$B$N, il faut que vous repoussiez ces pirates avant qu''il ne soit trop tard, !' WHERE `quest_template_locale`.`ID` = 25561 AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `LogDescription` = 'Tuez 50 Marins des mers du Sud', `QuestDescription` = 'On a peut-être maîtrisé les incendies, mais ces pirates des mers du Sud ne s''en apprêtent pas moins à  aborder la péniche de course, !$B$B$N, il faut que vous repoussiez ces pirates avant qu''il ne soit trop tard, !' WHERE `ID` = 25561 AND `locale` = 'frFR';
 
 DELETE FROM `quest_objectives` WHERE (QuestID = 25542);
 INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `ObjectID`, `Amount`, `Flags`, `UnkFloat`, `Description`, `VerifiedBuild`) VALUES (254383, 25542, 0, 0, 40707, 50, 0, 0, 'Marins des mers du Sud', 20444);
-UPDATE `world`.`quest_template_locale` SET `LogDescription` = 'Tuez 50 Marins des mers du Sud', `QuestDescription` = 'On a peut-être maîtrisé les incendies, mais ces pirates des mers du Sud ne s''en apprêtent pas moins à  aborder la péniche de course, !$B$B$N, il faut que vous repoussiez ces pirates avant qu''il ne soit trop tard, !' WHERE `quest_template_locale`.`ID` = 25542 AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `LogDescription` = 'Tuez 50 Marins des mers du Sud', `QuestDescription` = 'On a peut-être maîtrisé les incendies, mais ces pirates des mers du Sud ne s''en apprêtent pas moins à  aborder la péniche de course, !$B$B$N, il faut que vous repoussiez ces pirates avant qu''il ne soit trop tard, !' WHERE `ID` = 25542 AND `locale` = 'frFR';
 DELETE FROM `creature_queststarter` WHERE (quest = 25542);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (40475, 25542);
 
 DELETE FROM `quest_objectives` WHERE (QuestID = 25543);
 INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `ObjectID`, `Amount`, `Flags`, `UnkFloat`, `Description`, `VerifiedBuild`) VALUES (257440, 25543, 0, 0, 40707, 50, 0, 0, 'Marins des mers du Sud', 20444);
-UPDATE `world`.`quest_template_locale` SET `LogDescription` = 'Tuez 50 Marins des mers du Sud', `QuestDescription` = 'On a peut-être maîtrisé les incendies, mais ces pirates des mers du Sud ne s''en apprêtent pas moins à  aborder la péniche de course, !$B$B$N, il faut que vous repoussiez ces pirates avant qu''il ne soit trop tard, !' WHERE `quest_template_locale`.`ID` = 25543 AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `LogDescription` = 'Tuez 50 Marins des mers du Sud', `QuestDescription` = 'On a peut-être maîtrisé les incendies, mais ces pirates des mers du Sud ne s''en apprêtent pas moins à  aborder la péniche de course, !$B$B$N, il faut que vous repoussiez ces pirates avant qu''il ne soit trop tard, !' WHERE `ID` = 25543 AND `locale` = 'frFR';
 DELETE FROM `creature_queststarter` WHERE (quest = 25543);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (40487, 25543);
 
 DELETE FROM `quest_objectives` WHERE (QuestID = 25562);
 INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `ObjectID`, `Amount`, `Flags`, `UnkFloat`, `Description`, `VerifiedBuild`) VALUES (265897, 25562, 0, 0, 40707, 50, 0, 0, 'Marins des mers du Sud', 20444);
-UPDATE `world`.`quest_template_locale` SET `LogDescription` = 'Tuez 50 Marins des mers du Sud', `QuestDescription` = 'On a peut-être maîtrisé les incendies, mais ces pirates des mers du Sud ne s''en apprêtent pas moins à  aborder la péniche de course, !$B$B$N, il faut que vous repoussiez ces pirates avant qu''il ne soit trop tard, !' WHERE `quest_template_locale`.`ID` = 25562 AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `LogDescription` = 'Tuez 50 Marins des mers du Sud', `QuestDescription` = 'On a peut-être maîtrisé les incendies, mais ces pirates des mers du Sud ne s''en apprêtent pas moins à  aborder la péniche de course, !$B$B$N, il faut que vous repoussiez ces pirates avant qu''il ne soit trop tard, !' WHERE `ID` = 25562 AND `locale` = 'frFR';
 
 REPLACE INTO `quest_objectives_locale` (`ID`, `locale`, `QuestId`, `StorageIndex`, `Description`, `VerifiedBuild`) VALUES
 (254383, 'frFR', 25542, 0, 'Marins des mers du Sud', 20886),
@@ -1568,8 +1489,6 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,15,0,20,0,100,0,25562,0,0,0,28,52598,0,0,0,0,0,7,0,0,0,0,0,0,0,"Le cercle des chaloupes disparues 25562 : retire Phase visuel visuel coucher de soleil"),
 (@ENTRY,0,20,0,20,0,100,0,25543,0,0,0,28,70889,0,0,0,0,0,7,0,0,0,0,0,0,0,"Le cercle des chaloupes disparues 25543 : retire Phase 170"),
 (@ENTRY,0,25,0,20,0,100,0,25543,0,0,0,28,52598,0,0,0,0,0,7,0,0,0,0,0,0,0,"Le cercle des chaloupes disparues 25543 : retire Phase visuel visuel coucher de soleil");
-
-
 
 /****************************************************************************************/
 /*  Geler les tuyaux 28047 */
@@ -1604,7 +1523,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 /****************************************************************************************/
 /* Glaciers pilés 28051*/
 UPDATE `creature_template` SET `npcflag` = 1 WHERE (entry = 47446);
-UPDATE `world`.`creature` SET `spawntimesecs` = '1' WHERE `creature`.`id` = 47446;
+UPDATE `creature` SET `spawntimesecs` = '1' WHERE `id` = 47446;
 -- Dead Employee SAI
 SET @ENTRY := 47446;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
@@ -1617,8 +1536,8 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 
 /****************************************************************************************/
 /* Une concurrence musclée 25756 (a2) - 25757 [h2) */
-REPLACE INTO `world`.`creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES ('41199', '55808', '0', '100', '1', '1', '0', '1', '1', NULL);
-REPLACE INTO `world`.`creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES ('41196', '55807', '0', '100', '1', '1', '0', '1', '1', NULL);
+REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES ('41199', '55808', '0', '100', '1', '1', '0', '1', '1', NULL);
+REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES ('41196', '55807', '0', '100', '1', '1', '0', '1', '1', NULL);
 UPDATE `creature_template` SET `lootid` = 41199 WHERE (entry = 41199);
 UPDATE `creature_template` SET `lootid` = 41196 WHERE (entry = 55807);
 /****************************************************************************************/
@@ -1631,7 +1550,6 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 
 REPLACE INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `IconName`, `castBarCaption`, `unk1`, `faction`, `flags`, `size`, `Data0`, `Data1`, `Data2`, `Data3`, `Data4`, `Data5`, `Data6`, `Data7`, `Data8`, `Data9`, `Data10`, `Data11`, `Data12`, `Data13`, `Data14`, `Data15`, `Data16`, `Data17`, `Data18`, `Data19`, `Data20`, `Data21`, `Data22`, `Data23`, `Data24`, `Data25`, `Data26`, `Data27`, `Data28`, `Data29`, `Data30`, `Data31`, `Data32`, `unkInt32`, `AIName`, `ScriptName`, `VerifiedBuild`) VALUES
 (203248, 10, 750, 'Horn Mouthpiece', '', 'Blowing', '', 0, 36, 1.25, 1690, 0, 0, 10000, 0, 0, 10000, 0, 0, 0, 0, 0, 0, 1, 41278, 0, 0, 0, 0, 0, 0, 0, 9692, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartGameObjectAI', '', 20182);
-
 
 /****************************************************************************************/
 /* Sauvetage en terrain ennemi 25871 */
@@ -1713,13 +1631,10 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,8,0,3,0,100,0,0,15,3000,3000,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Start Moving at 15% Mana"),
 (@ENTRY,0,15,0,6,0,100,0,0,0,0,0,12,45442,2,60000,0,1,0,8,0,0,0,-4993.229004,-2093.665039,83.560532,3.7956,"Invoc Lakota Chant-du-Vent");
 
-
-
 /****************************************************************************************/
 /*  Libérer les wyverneaux 28086 & Mort aux trappeurs ! 28087 - Quetes plus exclusive */
 UPDATE `quest_template_addon` SET `ExclusiveGroup` = 0 WHERE (ID = 28087);
 UPDATE `quest_template_addon` SET `ExclusiveGroup` = 0 WHERE (ID = 28086);
-
 
 /****************************************************************************************/
 /* Libérer les wyverneaux 28086 */
@@ -1829,10 +1744,10 @@ SET @ArmorModifier :=1;
 SET @DamageModifier :=1;
 SET @mechanic_immune_mask := 344407931;	/* 344276858 - 8456762 */
 
-UPDATE `world`.`creature_template` SET `modelid1`=@modelid1,`modelid2`=0,`modelid3`=0,`modelid4`=0,`flags_extra` = @`flagsextra`  WHERE `creature_template`.`entry` = @ID ;
-UPDATE `world`.`creature_template` SET `unit_flags2`=@unit_flags2,`exp`=0,`mechanic_immune_mask`=@mechanic_immune_mask, `IconName`=@IconName,`name` = @Name ,`subname`=@subname,`minlevel`=@level,`maxlevel`=@level,`speed_run`=@speed,`speed_walk`=@speed,`scale`=@taille,`unit_class`=@classe,`unit_flags`=@unit_flags,`npcflag`=@npcflag,`type_flags`=@type_flags,`type_flags2`=@type_flags2,`dynamicflags`=@dynamicflags,`type`=@type,`spell1`=@spell1 ,`spell2`=@spell2,`spell3`=@spell3,`spell4`=@spell4,`spell5`=@spell5,`spell6`=@spell6,`HoverHeight`=@HoverHeight,`InhabitType`=@InhabitType,`AIName`=@AIName,`movementId`=@movementId,`faction`=@faction,`Vehicleid`=@Vehicleid,`RegenHealth`=@RegenHealth,`HealthModifier`=@HealthModifier,`ManaModifier`=@ManaModifier,`ArmorModifier`=@ArmorModifier,`DamageModifier`=@DamageModifier WHERE `creature_template`.`entry` = @ID ;
+UPDATE `creature_template` SET `modelid1`=@modelid1,`modelid2`=0,`modelid3`=0,`modelid4`=0,`flags_extra` = @`flagsextra`  WHERE `entry` = @ID ;
+UPDATE `creature_template` SET `unit_flags2`=@unit_flags2,`exp`=0,`mechanic_immune_mask`=@mechanic_immune_mask, `IconName`=@IconName,`name` = @Name ,`subname`=@subname,`minlevel`=@level,`maxlevel`=@level,`speed_run`=@speed,`speed_walk`=@speed,`scale`=@taille,`unit_class`=@classe,`unit_flags`=@unit_flags,`npcflag`=@npcflag,`type_flags`=@type_flags,`type_flags2`=@type_flags2,`dynamicflags`=@dynamicflags,`type`=@type,`spell1`=@spell1 ,`spell2`=@spell2,`spell3`=@spell3,`spell4`=@spell4,`spell5`=@spell5,`spell6`=@spell6,`HoverHeight`=@HoverHeight,`InhabitType`=@InhabitType,`AIName`=@AIName,`movementId`=@movementId,`faction`=@faction,`Vehicleid`=@Vehicleid,`RegenHealth`=@RegenHealth,`HealthModifier`=@HealthModifier,`ManaModifier`=@ManaModifier,`ArmorModifier`=@ArmorModifier,`DamageModifier`=@DamageModifier WHERE `entry` = @ID ;
 
-DELETE FROM `world`.`npc_spellclick_spells` WHERE `npc_spellclick_spells`.`npc_entry` = @ID;
+DELETE FROM `npc_spellclick_spells` WHERE `npc_entry` = @ID;
 INSERT INTO `npc_spellclick_spells` (`npc_entry`, `spell_id`, `cast_flags`, `user_type`) VALUES (@ID, 65030, 1, 1); # 43671 - 65030 ( TERRESTRE ) ****** 46598
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (@ID, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = @ID);       #  Voler
@@ -1846,8 +1761,6 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,15,0,27,0,100,0,0,0,0,0,53,1,11043791,0,0,0,0,1,0,0,0,0,0,0,0,"Le maître du ciel du Crépuscule 28098 : WP start"),
 (@ENTRY,0,20,0,28,0,100,0,0,0,0,0,41,100,0,0,0,0,0,1,0,0,0,0,0,0,0,"despawn si plus de passager"),
 (@ENTRY,0,31,0,40,0,100,0,12,11043791,0,0,41,100,0,0,0,0,0,1,0,0,0,0,0,0,0,"despawn a l arrivée");
-
-
 
 /*---------------------------------------------------------- Tranchecœur 2 - .wp add 11043792 (descend 12point) */
 #---
@@ -1888,10 +1801,10 @@ SET @ArmorModifier :=1;
 SET @DamageModifier :=1;
 SET @mechanic_immune_mask := 344407931;	/* 344276858 - 8456762 */
 
-UPDATE `world`.`creature_template` SET `modelid1`=@modelid1,`modelid2`=0,`modelid3`=0,`modelid4`=0,`flags_extra` = @`flagsextra`  WHERE `creature_template`.`entry` = @ID ;
-UPDATE `world`.`creature_template` SET `unit_flags2`=@unit_flags2,`exp`=0,`mechanic_immune_mask`=@mechanic_immune_mask, `IconName`=@IconName,`name` = @Name ,`subname`=@subname,`minlevel`=@level,`maxlevel`=@level,`speed_run`=@speed,`speed_walk`=@speed,`scale`=@taille,`unit_class`=@classe,`unit_flags`=@unit_flags,`npcflag`=@npcflag,`type_flags`=@type_flags,`type_flags2`=@type_flags2,`dynamicflags`=@dynamicflags,`type`=@type,`spell1`=@spell1 ,`spell2`=@spell2,`spell3`=@spell3,`spell4`=@spell4,`spell5`=@spell5,`spell6`=@spell6,`HoverHeight`=@HoverHeight,`InhabitType`=@InhabitType,`AIName`=@AIName,`movementId`=@movementId,`faction`=@faction,`Vehicleid`=@Vehicleid,`RegenHealth`=@RegenHealth,`HealthModifier`=@HealthModifier,`ManaModifier`=@ManaModifier,`ArmorModifier`=@ArmorModifier,`DamageModifier`=@DamageModifier WHERE `creature_template`.`entry` = @ID ;
+UPDATE `creature_template` SET `modelid1`=@modelid1,`modelid2`=0,`modelid3`=0,`modelid4`=0,`flags_extra` = @`flagsextra`  WHERE `entry` = @ID ;
+UPDATE `creature_template` SET `unit_flags2`=@unit_flags2,`exp`=0,`mechanic_immune_mask`=@mechanic_immune_mask, `IconName`=@IconName,`name` = @Name ,`subname`=@subname,`minlevel`=@level,`maxlevel`=@level,`speed_run`=@speed,`speed_walk`=@speed,`scale`=@taille,`unit_class`=@classe,`unit_flags`=@unit_flags,`npcflag`=@npcflag,`type_flags`=@type_flags,`type_flags2`=@type_flags2,`dynamicflags`=@dynamicflags,`type`=@type,`spell1`=@spell1 ,`spell2`=@spell2,`spell3`=@spell3,`spell4`=@spell4,`spell5`=@spell5,`spell6`=@spell6,`HoverHeight`=@HoverHeight,`InhabitType`=@InhabitType,`AIName`=@AIName,`movementId`=@movementId,`faction`=@faction,`Vehicleid`=@Vehicleid,`RegenHealth`=@RegenHealth,`HealthModifier`=@HealthModifier,`ManaModifier`=@ManaModifier,`ArmorModifier`=@ArmorModifier,`DamageModifier`=@DamageModifier WHERE `entry` = @ID ;
 
-DELETE FROM `world`.`npc_spellclick_spells` WHERE `npc_spellclick_spells`.`npc_entry` = @ID;
+DELETE FROM `npc_spellclick_spells` WHERE `npc_entry` = @ID;
 INSERT INTO `npc_spellclick_spells` (`npc_entry`, `spell_id`, `cast_flags`, `user_type`) VALUES (@ID, 65030, 1, 1); # 43671 - 65030 ( TERRESTRE ) ****** 46598
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (@ID, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = @ID);       #  Voler
@@ -1917,13 +1830,12 @@ UPDATE `quest_template_addon` SET `ExclusiveGroup` = 0 WHERE (ID = 28136);
 
 UPDATE `gameobject_template` SET `Data2` = 30000 WHERE (entry = 206743);
 
-
 -- Bulwark Prisoner SAI
 SET @ENTRY := 47621;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,-1,0,64,0,100,1,0,0,0,0,33,47630,0,0,0,0,0,7,0,0,0,0,0,0,0,"Les évadés 28127 : credit"),
+(@ENTRY,0,0,0,64,0,100,1,0,0,0,0,33,47630,0,0,0,0,0,7,0,0,0,0,0,0,0,"Les évadés 28127 : credit"),
 (@ENTRY,0,1,0,64,0,100,1,0,0,0,0,33,47630,0,0,0,0,0,7,0,0,0,0,0,0,0,"Les évadés 28127 : fermer gossip"),
 (@ENTRY,0,2,0,64,0,100,1,0,0,0,0,46,15,0,0,0,0,0,1,0,0,0,0,0,0,0,"Les évadés 28127 : avance"),
 (@ENTRY,0,3,0,64,0,100,1,0,0,0,0,41,2000,0,0,0,0,0,1,0,0,0,0,0,0,0,"Les évadés 28127 : despawn");
@@ -1943,18 +1855,6 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 (21070361, 47745, 1, 0, 0, 1, 0, 0, 0, 1, -5845.37, -2611.31, 90.4074, 0.4062, 300, 0, 0, 259987200, 0, 0, 0, 0, 0, 0);
 
 /****************************************************************************************/
-/*
 
-/****************************************************************************************/
-/*
-
-/****************************************************************************************/
-/*
-
-/****************************************************************************************/
-/*
-
-/****************************************************************************************/
-/*
 
 
