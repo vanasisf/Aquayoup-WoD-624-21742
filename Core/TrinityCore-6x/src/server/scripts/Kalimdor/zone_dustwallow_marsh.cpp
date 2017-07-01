@@ -371,5 +371,5 @@ void AddSC_dustwallow_marsh()
 {
     new spell_ooze_zap();
     new spell_ooze_zap_channel_end();
-    new spell_energize_aoe();
+//    new spell_energize_aoe(); // crash serveur
 }
