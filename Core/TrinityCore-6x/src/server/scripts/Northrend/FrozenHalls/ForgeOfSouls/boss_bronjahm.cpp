@@ -401,5 +401,5 @@ void AddSC_boss_bronjahm()
     new spell_bronjahm_soulstorm_visual("spell_bronjahm_soulstorm_channel");
     new spell_bronjahm_soulstorm_visual("spell_bronjahm_soulstorm_visual");
     new spell_bronjahm_soulstorm_targeting();
-    new achievement_bronjahm_soul_power();
+//    new achievement_bronjahm_soul_power();
 }

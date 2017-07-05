@@ -411,7 +411,7 @@ public:
 
 void AddSC_guards()
 {
-    new guard_generic();
+//    new guard_generic();
     new guard_shattrath_aldor();
     new guard_shattrath_scryer();
 }
