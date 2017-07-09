@@ -1,6 +1,6 @@
 /****************************************************************************************************************************************/
 /*	Mise a jour de la DB Stitchland pour World of Draenor 6.24 - 21742 - Developpement du Repack & support sur http://aquayoup.123.fr */
-/* Autant que possible préférez la DB complete aux updates . Les updates ne comprennent que les modifications importantes 		 		    */
+/* Autant que possible prÃ©fÃ©rez la DB complete aux updates . Les updates ne comprennent que les modifications importantes 		 		    */
 /* comme les debugs de quetes mais ne comprend pas forcement des details cosmetiques ou petits spawns											    */
 /*																																																				    */
 /*	Stitch 2017-06 - V1.0	Cosmetiques																														 		 			    */
@@ -12,7 +12,7 @@
 /* 				Divers - Ange de rez	.npc add 6491	-  Reparation .npc add 29523					*/
 /****************************************************************************************/
 
-/* affecté a : Mulgore, CI de la mesa de Nuage rouge (34) */
+/* affectÃ© a : Mulgore, CI de la mesa de Nuage rouge (34) */
 # INSERT IGNORE INTO `graveyard_zone` (`ID`, `GhostZone`, `Faction`, `Comment`) VALUES (34 , 221, 0, "Stitch : Mulgore - Camp narache");
 
 
@@ -27,33 +27,33 @@
 # UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 8301 ;
 # UPDATE `creature_loot_template` SET `Chance` = '100' WHERE `creature_loot_template`.`Entry` = 11560 AND `creature_loot_template`.`Item` = 15849;
 
-UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 2955;
+UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 2955;
 
 
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (1322, 0, 0, 0, 1, 233, NULL); # Tape avec masse/pioche (si equipé)
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (49944, 0, 0, 0, 0, 0, '97014'); # Pecher
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (1322, 0, 0, 0, 1, 233, NULL); # Tape avec masse/pioche (si equipÃ©)
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (49944, 0, 0, 0, 0, 0, 97014); # Pecher
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (49921 , 0, 0, 0, 0, 0, 79506); # Parler
 
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (41162, 0, 0, 0, 0, 431, NULL); # Effrayé
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (76103, 0, 0, 8, 1, 0, NULL); # agenouillé
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (41162, 0, 0, 0, 0, 431, NULL); # EffrayÃ©
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (76103, 0, 0, 8, 1, 0, NULL); # agenouillÃ©
 
 
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15614, 0, 0, 0, 4097, 69, NULL); # Travail avec mains
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (16091, 0, 0, 3, 257, 0, NULL); # Dort allongé    
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (16091, 0, 0, 3, 257, 0, NULL); # Dort allongÃ©    
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15176, 0, 0, 0, 1, 233, NULL); # Tape avec masse
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (17082, 0, 0, 1, 1, 0, ''); # Assis par terre
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15174, 0, 0, 1, 1, 0, ''); # Assis par terre
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15178, 0, 0, 0, 4097, 93, '43905'); # Ivre
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15177, 0, 0, 0, 4097, 93, '43905'); # Ivre
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (17082, 0, 0, 1, 1, 0, NULL); # Assis par terre
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15174, 0, 0, 1, 1, 0, NULL); # Assis par terre
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15178, 0, 0, 0, 4097, 93, 43905); # Ivre
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15177, 0, 0, 0, 4097, 93, 43905); # Ivre
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15722, 0, 0, 0, 4097, 69, NULL); # Travail avec mains
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15183, 0, 0, 0, 4097, 69, NULL); # Travail avec mains
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (50588, 0, 0, 0, 0, 0, 104015); # Stun        
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (50587, 0, 0, 0, 0, 0, 104015); # Stun        
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15191, 0, 0, 0, 0, 0, 101090); # State - Dance
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (15282, 0, 0, 0, 0, 0, 101090); # State - Dance
-REPLACE INTO `world`.`creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES ('15176', '1', '122385', '0', '0', '0');
+REPLACE INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES ('15176', '1', '122385', '0', '0', '0');
 
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (362188, 15541, 1, 0, 0, 1, 0, 0, 0, 1, -6705.91, 196.96, 2.35525, 3.95505, 240, 3, 0, 17024, 0, 2, 0, 134250496, 0, 0),
@@ -159,7 +159,7 @@ REPLACE INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`,
 (21024799, 15000108, 1, 0, 0, 1, 0, 0, -8207.45, 871.885, 177.284, 5.88515, 0, 0, 0.197707, -0.980261, 300, 0, 1, 0),
 (21024798, 15000108, 1, 0, 0, 1, 0, 0, -8215.32, 946.148, 173.379, 0.212613, 0, 0, 0.106106, 0.994355, 300, 0, 1, 0);
 
-#--- Cercle cénarien faction 609/994
+#--- Cercle cÃ©narien faction 609/994
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (362191, 15545, 1, 0, 0, 1, 0, 0, 15307, 1, -6799.13, 120.588, 3.40029, 5.55137, 240, 10, 0, 5874, 0, 1, 0, 134250496, 0, 0),
 (362192, 15545, 1, 1377, 1377, 1, 0, 0, 0, 1, -6796.75, 126.362, 3.81732, 5.2709, 240, 0, 0, 1, 0, 0, 0, 0, 0, 0),
@@ -204,36 +204,36 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 (21070923, 15293, 1, 0, 0, 1, 0, 0, 0, 1, -7207.84, 434.252, 29.2988, 5.05461, 300, 0, 0, 7930, 2434, 0, 0, 0, 0, 0);
 
 #---Mobs volants
-UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 11732;
+UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 11732;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (11732 , 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 11732 );       #  Voler
-UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `creature`.`id` = 11732 ;
+UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `id` = 11732 ;
 
-UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `creature`.`id` = 11724;
+UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `id` = 11724;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (11724 , 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 11724 );       #  Voler
-UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `creature`.`id` = 11724 ;
+UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `id` = 11724 ;
 
-UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `creature`.`id` = 11698;
+UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `id` = 11698;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (11698 , 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 11698 );       #  Voler
-UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `creature`.`id` = 11698 ;
+UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `id` = 11698 ;
 
-UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `creature`.`id` = 11727;
+UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `id` = 11727;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (11727 , 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 11727 );       #  Voler
-UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `creature`.`id` = 11727 ;
+UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `id` = 11727 ;
 
-UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `creature`.`id` = 13136;
+UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `id` = 13136;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (13136 , 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 13136 );       #  Voler
-UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `creature`.`id` = 13136 ;
+UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `id` = 13136 ;
 
 
 #---
 
-UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `creature`.`id` = 11741;
-UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `creature`.`id` = 11740;
+UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `id` = 11741;
+UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE  `id` = 11740;
 
 REPLACE INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (15441, 1, 2179, 0, 59577, 18019);
 REPLACE INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (17080, 1, 2179, 0, 0, 18019);
@@ -245,7 +245,7 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 (21070952, 1000603, 1, 0, 0, 1, 0, 0, 0, 0, -6834.74, 830.309, 49.4569, 1.02628, 300, 0, 0, 160, 60, 2, 0, 0, 0, 0);
 
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 11882;
+DELETE FROM `creature` WHERE `id` = 11882;
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (363466, 11882, 1, 1377, 3099, 1, 0, 0, 0, 1, -7926.53, 1901.87, 10.0234, 5.5367, 240, 0, 0, 1, 0, 0, 0, 0, 0, 0),
 (363462, 11882, 1, 1377, 3099, 1, 0, 0, 0, 1, -7907.72, 1899.83, 11.8827, 3.66519, 240, 0, 0, 1, 0, 0, 0, 0, 0, 0),
@@ -279,18 +279,16 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 
 
 UPDATE `creature_template` SET `flags_extra` = 128 WHERE entry = 33296;
-UPDATE `creature` SET `spawntimesecs` = '15' WHERE `creature`.`id` = 2952;
+UPDATE `creature` SET `spawntimesecs` = '15' WHERE `id` = 2952;
 UPDATE `creature_template` SET `faction` = 103 WHERE (entry = 36094); # agressif
 UPDATE `creature_template` SET `faction` = 188 WHERE (entry = 36113); # non agressif
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (4692, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 4692);       #  Voler
-# UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `creature`.`id` = 4692;
+# UPDATE `creature` SET `position_z` = `position_z`+7 WHERE `id` = 4692;
 
 
 /****************************************************************************************/
-/* 
-
 
 
 

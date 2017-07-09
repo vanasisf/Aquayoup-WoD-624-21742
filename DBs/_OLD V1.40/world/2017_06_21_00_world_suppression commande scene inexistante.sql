@@ -1,1 +1,1 @@
-DELETE FROM `world`.`command` WHERE `command`.`name` = 'scene';
+DELETE FROM `command` WHERE `name` = 'scene';

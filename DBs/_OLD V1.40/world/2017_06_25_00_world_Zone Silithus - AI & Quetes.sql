@@ -1,6 +1,6 @@
 /****************************************************************************************************************************************/
 /*	Mise a jour de la DB Stitchland pour World of Draenor 6.24 - 21742 - Developpement du Repack & support sur http://aquayoup.123.fr */
-/* Autant que possible préférez la DB complete aux updates . Les updates ne comprennent que les modifications importantes 		 		    */
+/* Autant que possible prÃ©fÃ©rez la DB complete aux updates . Les updates ne comprennent que les modifications importantes 		 		    */
 /* comme les debugs de quetes mais ne comprend pas forcement des details cosmetiques ou petits spawns											    */
 /*																																																				    */
 /*	Stitch 2017-06 - V1.0				AI & Quetes    																											 		 			    */
@@ -18,7 +18,7 @@ REPLACE INTO `game_weather` (`zone`, `spring_rain_chance`, `spring_snow_chance`,
 ('2740', '0', '0', '0', '0', '0', '100', '0', '0', '100', '0', '0', '100', ''),
 ('3426', '0', '0', '0', '0', '0', '100', '0', '0', '100', '0', '0', '100', '');
 
-DELETE FROM `world`.`creature` WHERE `creature`.`guid` = 90893;
+DELETE FROM `creature` WHERE `guid` = 90893;
 
 /****************************************************************************************/
 /* 				AI & Mobs                                                                                                   				*/
@@ -28,23 +28,23 @@ DELETE FROM `world`.`creature` WHERE `creature`.`guid` = 90893;
 
 
 
-UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 49746;
+UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 49746;
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (48096, 0, 0, 0, 1, 233, NULL); # Tape avec masse
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (1322, 0, 0, 0, 1, 233, NULL); # Tape avec masse/pioche (si equipé)
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (49944, 0, 0, 0, 0, 0, '97014'); # Pecher
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (49920, 0, 0, 0, 4097, 93, '43905'); # Ivre
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (1322, 0, 0, 0, 1, 233, NULL); # Tape avec masse/pioche (si equipÃ©)
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (49944, 0, 0, 0, 0, 0, 97014); # Pecher
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (49920, 0, 0, 0, 4097, 93, 43905); # Ivre
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (49921 , 0, 0, 0, 0, 0, 79506); # Parler
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (2920, 0, 0, 0, 4097, 69, NULL); # Travail avec mains
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (41162, 0, 0, 0, 0, 431, NULL); # Effrayé
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (76103, 0, 0, 8, 1, 0, NULL); # agenouillé
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (41162, 0, 0, 0, 0, 431, NULL); # EffrayÃ©
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (76103, 0, 0, 8, 1, 0, NULL); # agenouillÃ©
 
 UPDATE `creature_template` SET `flags_extra` = 128 WHERE entry = 33296;
-UPDATE `creature` SET `spawntimesecs` = '15' WHERE `creature`.`id` = 2952;
+UPDATE `creature` SET `spawntimesecs` = '15' WHERE `id` = 2952;
 UPDATE `creature_template` SET `faction` = 103 WHERE (entry = 36094); # agressif
 UPDATE `creature_template` SET `faction` = 188 WHERE (entry = 36113); # non agressif
 
-DELETE FROM `world`.`creature` WHERE `creature`.`guid` = 363631;
+DELETE FROM `creature` WHERE `guid` = 363631;
 
 UPDATE `creature_template` SET `ArmorModifier` = 2, `DamageModifier` = 3 WHERE (entry = 11726);
 -- Hive'Zora Tunneler SAI
@@ -52,17 +52,17 @@ SET @ENTRY := 11726;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,10,0,9,0,100,0,0,5,6000,8000,11,81691,0,0,0,0,0,2,0,0,0,0,0,0,0,"Cornépine"),
+(@ENTRY,0,10,0,9,0,100,0,0,5,6000,8000,11,81691,0,0,0,0,0,2,0,0,0,0,0,0,0,"CornÃ©pine"),
 (@ENTRY,0,15,0,0,0,100,0,0,0,4000,6000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure");
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 14474 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 14474 AND `Chance` <98 ;
 UPDATE `creature_template` SET `scale` = 1.5, `HealthModifier` = 4.5, `ArmorModifier` = 2, `DamageModifier` = 3 WHERE (entry = 14474);
 SET @ENTRY := 14474;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,9,0,100,0,0,5,22000,23000,11,16790,0,0,0,0,0,2,0,0,0,0,0,0,0,"Renverser"),
-(@ENTRY,0,1,0,9,0,100,0,0,5,4000,6000,11,40504,0,0,0,0,0,2,0,0,0,0,0,0,0,"Enchaînement");
+(@ENTRY,0,1,0,9,0,100,0,0,5,4000,6000,11,40504,0,0,0,0,0,2,0,0,0,0,0,0,0,"EnchaÃ®nement");
 
 UPDATE `creature_template` SET `lootid` = 11728,`HealthModifier` = 4.5, `ArmorModifier` = 2, `DamageModifier` = 3 WHERE (entry = 50742);
 -- Qem SAI
@@ -71,7 +71,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,0,0,100,0,0,0,4000,4000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure"),
-(@ENTRY,0,15,0,9,0,100,0,0,10,10000,15000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"Piétinement");
+(@ENTRY,0,15,0,9,0,100,0,0,10,10000,15000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"PiÃ©tinement");
 
 -- Table `creature_template`
 UPDATE `creature_template` SET `scale` = 1.5, `lootid` = 11728, `HealthModifier` = 4.5, `ArmorModifier` = 2, `DamageModifier` = 3 WHERE (entry = 50897);
@@ -80,12 +80,12 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,9,0,100,0,0,5,22000,23000,11,16790,0,0,0,0,0,2,0,0,0,0,0,0,0,"Renverser"),
-(@ENTRY,0,1,0,9,0,100,0,0,5,4000,6000,11,40504,0,0,0,0,0,2,0,0,0,0,0,0,0,"Enchaînement");
+(@ENTRY,0,1,0,9,0,100,0,0,5,4000,6000,11,40504,0,0,0,0,0,2,0,0,0,0,0,0,0,"EnchaÃ®nement");
 
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 15449 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 15449 AND `Chance` <98 ;
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 14472 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 14472 AND `Chance` <98 ;
 UPDATE `creature_template` SET `HealthModifier` = 4.5, `DamageModifier` = 3 WHERE (entry = 14472);
 -- Gretheer SAI
 SET @ENTRY := 14472;
@@ -97,11 +97,11 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,10,0,0,0,100,0,0,0,4000,6000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure");
 
 
-UPDATE `world`.`creature_loot_template` SET `Chance` = '75' WHERE `creature_loot_template`.`Item` = 20404;
+UPDATE `creature_loot_template` SET `Chance` = '75' WHERE `Item` = 20404;
 
 
-UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 49746;
-#--- Crépuscule
+UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 49746;
+#--- CrÃ©puscule
 UPDATE `creature_template` SET `faction` = 2146 WHERE (entry = 15542);
 UPDATE `creature_template` SET `faction` = 2146 WHERE (entry = 15201);
 UPDATE `creature_template` SET `faction` = 2146 WHERE (entry = 15202);
@@ -116,7 +116,7 @@ UPDATE `creature_template` SET `faction` = 2146 WHERE (entry = 11803);
 UPDATE `creature_template` SET `faction` = 2146 WHERE (entry = 15308);
 
 
-#--- Cercle cénarien faction 994
+#--- Cercle cÃ©narien faction 994
 UPDATE `creature_template` SET `faction` = 994 WHERE (entry = 15545);
 UPDATE `creature_template` SET `faction` = 994 WHERE (entry = 15184);
 
@@ -133,22 +133,22 @@ UPDATE `creature_template` SET `faction` = 310 WHERE (entry = 11721);
 UPDATE `creature_template` SET `faction` = 310 WHERE (entry = 50897);
 UPDATE `creature_template` SET `faction` = 103 WHERE (entry = 11731);
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 14862 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 14862 AND `Chance` <98 ;
 UPDATE `creature_template` SET `DamageModifier` = 6 WHERE (entry = 14862);
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 14536 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 14536 AND `Chance` <98 ;
 UPDATE `creature_template` SET `HealthModifier` = 4, `DamageModifier` = 4 WHERE (entry = 14536);
 
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 14477 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 14477 AND `Chance` <98 ;
 UPDATE `creature_template` SET `scale` = 1.75, `HealthModifier` = 4, `ArmorModifier` = 2, `DamageModifier` = 3 WHERE (entry = 14477);
 -- Grubthor SAI
 SET @ENTRY := 14477;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,0,0,100,0,2000,2000,5000,8000,11,5568,0,0,0,0,0,1,0,0,0,0,0,0,0,"Piétiner"),
-(@ENTRY,0,10,0,13,0,100,0,6000,10000,0,0,11,81691,0,0,0,0,0,2,0,0,0,0,0,0,0,"Cornépine");
+(@ENTRY,0,0,0,0,0,100,0,2000,2000,5000,8000,11,5568,0,0,0,0,0,1,0,0,0,0,0,0,0,"PiÃ©tiner"),
+(@ENTRY,0,10,0,13,0,100,0,6000,10000,0,0,11,81691,0,0,0,0,0,2,0,0,0,0,0,0,0,"CornÃ©pine");
 
 UPDATE `creature_template` SET `scale` = 0.75, `DamageModifier` = 2.5 WHERE (entry = 11740);
 -- Dredge Striker SAI
@@ -174,7 +174,7 @@ SET @ENTRY := 11744;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,0,0,50,0,4000,8000,15000,15000,11,19513,0,0,0,0,0,2,0,0,0,0,0,0,0,"Nuage d'éclairs"),
+(@ENTRY,0,0,0,0,0,50,0,4000,8000,15000,15000,11,19513,0,0,0,0,0,2,0,0,0,0,0,0,0,"Nuage d'Ã©clairs"),
 (@ENTRY,0,1,0,4,0,100,0,500,1000,600000,600000,11,19514,0,0,0,0,0,1,0,0,0,0,0,0,0,"Dust Stormer - Out of Combat - Cast 'Lightning Shield'"),
 (@ENTRY,0,2,0,16,0,100,0,19514,1,15000,30000,11,19514,0,0,0,0,0,1,0,0,0,0,0,0,0,"Dust Stormer - On Friendly Unit Missing Buff 'Lightning Shield' - Cast 'Lightning Shield'"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,4000,5000,11,421,0,0,0,0,0,2,0,0,0,0,0,0,0,"chaine d'eclair");
@@ -187,7 +187,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,4,0,100,0,0,0,0,0,11,59737,0,0,0,0,0,2,0,0,0,0,0,0,0,"vitesse"),
 (@ENTRY,0,1,0,2,0,100,1,0,40,3000,3000,11,8599,0,0,0,0,0,1,0,0,0,0,0,0,0,"Enrager 0-40% Health"),
-(@ENTRY,0,2,0,2,0,100,0,1,25,14000,18000,11,23600,0,0,0,0,0,2,0,0,0,0,0,0,0,"Hurlement perçant"),
+(@ENTRY,0,2,0,2,0,100,0,1,25,14000,18000,11,23600,0,0,0,0,0,2,0,0,0,0,0,0,0,"Hurlement perÃ§ant"),
 (@ENTRY,0,3,0,2,0,30,1,0,30,2000,2000,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,"Say Text at 30% HP"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,4000,4000,11,29426,0,0,0,0,0,2,0,0,0,0,0,0,0,"Frappe heroique");
 
@@ -200,9 +200,9 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,2000,2000,6000,8000,11,16856,0,0,0,0,0,2,0,0,0,0,0,0,0,"Frappe mortelle"),
 (@ENTRY,0,1,0,0,0,100,0,0,0,5000,9000,11,15572,0,0,0,0,0,2,0,0,0,0,0,0,0,"Fracasser armure"),
-(@ENTRY,0,2,0,2,0,100,0,1,40,14000,18000,11,23600,0,0,0,0,0,2,0,0,0,0,0,0,0,"Hurlement perçant"),
+(@ENTRY,0,2,0,2,0,100,0,1,40,14000,18000,11,23600,0,0,0,0,0,2,0,0,0,0,0,0,0,"Hurlement perÃ§ant"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,4000,5000,11,29426,0,0,0,0,0,2,0,0,0,0,0,0,0,"Frappe heroique"),
-(@ENTRY,0,3,0,9,0,100,0,0,5,10000,15000,11,78828,0,0,0,0,0,1,0,0,0,0,0,0,0,"Tempête de lames    ");
+(@ENTRY,0,3,0,9,0,100,0,0,5,10000,15000,11,78828,0,0,0,0,0,1,0,0,0,0,0,0,0,"TempÃªte de lames    ");
 
 UPDATE `creature_template` SET `scale` = 1.8, `HealthModifier` = 3, `ArmorModifier` = 2.5, `DamageModifier` = 3 WHERE (entry = 14476);
 -- Krellack SAI
@@ -355,7 +355,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,2,0,13,0,100,0,9000,11000,0,0,11,15618,0,0,0,0,0,7,0,0,0,0,0,0,0,"Cast Snap Kick on Player Spell Cast"),
 (@ENTRY,0,1000,0,10,0,50,0,0,10,8000,10000,10,66,113,26,18,462,26,1,0,0,0,0,0,0,0,"emote aleatoire gardes");
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 15196 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 15196 AND `Chance` <98 ;
 UPDATE `creature_template` SET `speed_walk` = 1.25, `speed_run` = 1.25, `scale` = 1.75, `HealthModifier` = 4, `ArmorModifier` = 2.5, `DamageModifier` = 3 WHERE (entry = 15196);
 -- Deathclasp SAI
 SET @ENTRY := 15196;
@@ -395,7 +395,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,0,0,0,100,0,0,0,8000,12000,11,12553,0,0,0,0,0,2,0,0,0,0,0,0,0,"Horion"),
 (@ENTRY,0,1,0,13,0,100,0,0,0,21000,27000,11,15535,0,0,0,0,0,2,0,0,0,0,0,0,0,"Linceul de vents");
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 14471 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 14471 AND `Chance` <98 ;
 UPDATE `creature_template` SET `HealthModifier` = 5, `ArmorModifier` = 2, `DamageModifier` = 4.5, `mechanic_immune_mask` = 198705 WHERE (entry = 14471);
 -- Setis SAI
 SET @ENTRY := 14471;
@@ -415,7 +415,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,0,0,0,100,0,0,0,4000,6000,11,13728,0,0,0,0,0,2,0,0,0,0,0,0,0,"Horion de terre"),
 (@ENTRY,0,1,2,2,0,100,1,0,30,2000,2000,11,8599,0,0,0,0,0,1,0,0,0,0,0,0,0,"Enrager 0-30% Health"),
 (@ENTRY,0,2,0,61,0,100,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,"Desert Rager - Between 0-30% Health - Say Line 0 (No Repeat)"),
-(@ENTRY,0,10,0,9,0,100,0,0,10,5000,10000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"Piétinement");
+(@ENTRY,0,10,0,9,0,100,0,0,10,5000,10000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"PiÃ©tinement");
 
 UPDATE `creature_template` SET `HealthModifier` = 1.5, `ArmorModifier` = 1.5, `DamageModifier` = 2 WHERE (entry = 11880);
 -- Twilight Avenger SAI
@@ -465,7 +465,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,13,0,5,0,100,0,0,0,0,0,10,23,15,5,4,11,22,1,0,0,0,0,0,0,0,"Emote victoire"),
 (@ENTRY,0,20,0,4,0,100,0,5,30,3000,3500,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,"Agro -  Movement OFF"),
 (@ENTRY,0,30,0,9,0,100,0,35,100,3000,3500,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"35m - 100m : Mouvement on"),
-(@ENTRY,0,40,0,0,0,100,0,1000,1000,4000,5000,11,12058,0,0,0,0,0,2,0,0,0,0,0,0,0,"Chaîne d'éclairs"),
+(@ENTRY,0,40,0,0,0,100,0,1000,1000,4000,5000,11,12058,0,0,0,0,0,2,0,0,0,0,0,0,0,"ChaÃ®ne d'Ã©clairs"),
 (@ENTRY,0,41,0,9,0,100,0,0,5,20000,20000,11,22884,0,0,0,0,0,1,0,0,0,0,0,0,0,"Cri psychique"),
 (@ENTRY,0,45,0,9,0,100,0,6,10,15000,15000,11,17366,1,0,0,0,0,1,0,0,0,0,0,0,0,"Nova de feu");
 
@@ -506,7 +506,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,0,0,0,100,0,3000,4500,12000,13000,11,16856,0,0,0,0,0,2,0,0,0,0,0,0,0,"Frappe mortelle"),
 (@ENTRY,0,1,0,13,0,100,0,20000,20000,0,0,11,22427,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coup traumatisant"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,4000,4000,11,29426,0,0,0,0,0,2,0,0,0,0,0,0,0,"Frappe heroique"),
-(@ENTRY,0,15,0,9,0,100,0,0,5,20000,20000,11,78828,1,0,0,0,0,1,0,0,0,0,0,0,0,"Tempête de lames");
+(@ENTRY,0,15,0,9,0,100,0,0,5,20000,20000,11,78828,1,0,0,0,0,1,0,0,0,0,0,0,0,"TempÃªte de lames");
 
 UPDATE `creature_template` SET `HealthModifier` = 1 WHERE (entry = 12178);
 -- Tortured Druid SAI
@@ -514,10 +514,10 @@ SET @ENTRY := 12178;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,2,0,100,1,0,30,3000,3000,11,23381,0,0,0,0,0,1,0,0,0,0,0,0,0,"Toucher guérisseur 0-30% Health"),
+(@ENTRY,0,0,0,2,0,100,1,0,30,3000,3000,11,23381,0,0,0,0,0,1,0,0,0,0,0,0,0,"Toucher guÃ©risseur 0-30% Health"),
 (@ENTRY,0,1,0,0,0,100,0,0,0,6000,10000,11,23380,0,0,0,0,0,2,0,0,0,0,0,0,0,"Eclat lunaire"),
 (@ENTRY,0,2,0,2,0,100,0,0,40,14000,21000,11,23381,0,0,0,0,0,1,0,0,0,0,0,0,0,"Cast Healing Touch at 40% HP"),
-(@ENTRY,0,2,3,0,0,75,0,0,0,4000,4000,11,5176,0,0,0,0,0,1,0,0,0,0,0,0,0,"Colère"),
+(@ENTRY,0,2,3,0,0,75,0,0,0,4000,4000,11,5176,0,0,0,0,0,1,0,0,0,0,0,0,0,"ColÃ¨re"),
 (@ENTRY,0,3,0,61,0,30,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,"Tortured Druid - On Just Died - Say Line 0");
 
 -- Tortured Sentinel SAI
@@ -553,7 +553,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,4,0,100,0,0,0,0,0,11,59737,0,0,0,0,0,1,0,0,0,0,0,0,0,"vitesse"),
-(@ENTRY,0,15,0,9,0,100,0,0,5,8000,8000,11,79175,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coupe frénétique ");
+(@ENTRY,0,15,0,9,0,100,0,0,5,8000,8000,11,79175,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coupe frÃ©nÃ©tique ");
 
 UPDATE `creature_template` SET `DamageModifier` = 3 WHERE (entry = 11698);
 -- Hive'Regal Spitfire SAI
@@ -599,12 +599,12 @@ SET @ENTRY := 11730;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,25,0,100,1,0,0,0,0,11,22766,0,0,0,0,0,1,0,0,0,0,0,0,0,"Furtivité"),
+(@ENTRY,0,0,0,25,0,100,1,0,0,0,0,11,22766,0,0,0,0,0,1,0,0,0,0,0,0,0,"FurtivitÃ©"),
 (@ENTRY,0,1,0,4,0,100,1,0,0,0,0,11,89712,0,0,0,0,0,2,0,0,0,0,0,0,0,"Griffure bondissante"),
 (@ENTRY,0,2,0,0,0,75,0,2000,4500,15000,24000,11,744,0,0,0,0,0,2,0,0,0,0,0,0,0,"Poison"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,4000,4000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure");
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 14473 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 14473 AND `Chance` <98 ;
 UPDATE `creature_template` SET `speed_run` = 1.4, `scale` = 2, `HealthModifier` = 5, `ArmorModifier` = 2, `DamageModifier` = 4.5 WHERE (entry = 14473);
 -- Lapress SAI
 SET @ENTRY := 14473;
@@ -612,7 +612,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,3000,4000,15000,15000,11,13445,0,0,0,0,0,2,0,0,0,0,0,0,0,"Pourfendre"),
-(@ENTRY,0,10,0,9,0,100,0,0,5,10000,10000,11,81691,0,0,0,0,0,2,0,0,0,0,0,0,0,"Cornépine"),
+(@ENTRY,0,10,0,9,0,100,0,0,5,10000,10000,11,81691,0,0,0,0,0,2,0,0,0,0,0,0,0,"CornÃ©pine"),
 (@ENTRY,0,15,0,0,0,100,0,0,0,4000,6000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure");
 
 -- Mistress Natalia Mar'alith SAI
@@ -623,7 +623,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,0,4,0,100,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,"Mistress Natalia Mar'alith - On Aggro - Say Line 0"),
 (@ENTRY,0,1,0,4,0,100,0,0,0,0,0,11,44415,0,0,0,0,0,2,0,0,0,0,0,0,0,"Aveuglement"),
 (@ENTRY,0,2,0,2,0,100,1,0,50,3000,3000,11,13704,0,0,0,0,0,1,0,0,0,0,0,0,0,"Cri psychique 0-50% Health"),
-(@ENTRY,0,3,0,0,0,100,0,0,0,5000,5000,11,11639,32,0,0,0,0,2,0,0,0,0,0,0,0,"Mot de l’ombre : Douleur"),
+(@ENTRY,0,3,0,0,0,100,0,0,0,5000,5000,11,11639,32,0,0,0,0,2,0,0,0,0,0,0,0,"Mot de lâ€™ombre : Douleur"),
 (@ENTRY,0,4,0,0,0,100,0,0,0,5000,8000,11,9613,0,0,0,0,0,2,0,0,0,0,0,0,0,"Trait de l'ombre   ");
 
 UPDATE `creature_template` SET `ArmorModifier` = 2.5, `DamageModifier` = 2.5 WHERE (entry = 11731);
@@ -632,7 +632,7 @@ SET @ENTRY := 11731;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,10,0,0,0,100,0,0,0,5000,5000,11,81691,0,0,0,0,0,2,0,0,0,0,0,0,0,"Cornépine");
+(@ENTRY,0,10,0,0,0,100,0,0,0,5000,5000,11,81691,0,0,0,0,0,2,0,0,0,0,0,0,0,"CornÃ©pine");
 
 UPDATE `creature_template` SET `scale` = 0.6, `HealthModifier` = 1.25, `DamageModifier` = 3 WHERE (entry = 11727);
 -- Hive'Zora Wasp SAI
@@ -650,7 +650,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,4,0,100,0,0,0,0,0,11,59737,0,0,0,0,0,1,0,0,0,0,0,0,0,"vitesse"),
-(@ENTRY,0,15,0,9,0,100,0,0,5,8000,10000,11,79175,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coupe frénétique");
+(@ENTRY,0,15,0,9,0,100,0,0,5,8000,10000,11,79175,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coupe frÃ©nÃ©tique");
 
 UPDATE `creature_template` SET `ArmorModifier` = 2, `DamageModifier` = 3 WHERE (entry = 11728);
 -- Hive'Zora Reaver SAI
@@ -659,19 +659,19 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,9,0,100,0,0,5,22000,23000,11,16790,0,0,0,0,0,2,0,0,0,0,0,0,0,"Renverser"),
-(@ENTRY,0,1,0,9,0,100,0,0,5,4000,6000,11,40504,0,0,0,0,0,2,0,0,0,0,0,0,0,"Enchaînement");
+(@ENTRY,0,1,0,9,0,100,0,0,5,4000,6000,11,40504,0,0,0,0,0,2,0,0,0,0,0,0,0,"EnchaÃ®nement");
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 14454 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 14454 AND `Chance` <98 ;
 UPDATE `creature_template` SET `scale` = 1.5 WHERE (entry = 14454);
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 14478 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 14478 AND `Chance` <98 ;
 UPDATE `creature_template` SET `scale` = 1.5, `HealthModifier` = 4 WHERE (entry = 14478);
 -- Huricanian SAI
 SET @ENTRY := 14478;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,0,0,100,0,0,0,5000,8000,11,32018,0,0,0,0,0,4,0,0,0,0,0,0,0,"Appel d'éclair    ");
+(@ENTRY,0,0,0,0,0,100,0,0,0,5000,8000,11,32018,0,0,0,0,0,4,0,0,0,0,0,0,0,"Appel d'Ã©clair    ");
 
 UPDATE `creature_template` SET `ArmorModifier` = 2, `DamageModifier` = 2.5 WHERE (entry = 11746);
 -- Desert Rumbler SAI
@@ -679,7 +679,7 @@ SET @ENTRY := 11746;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,9,0,100,0,0,8,18000,24000,11,5568,0,0,0,0,0,1,0,0,0,0,0,0,0,"Piétiner"),
+(@ENTRY,0,0,0,9,0,100,0,0,8,18000,24000,11,5568,0,0,0,0,0,1,0,0,0,0,0,0,0,"PiÃ©tiner"),
 (@ENTRY,0,10,0,9,0,25,0,0,5,10000,10000,11,80182,0,0,0,0,0,2,0,0,0,0,0,0,0,"Uppercut");
 
 UPDATE `creature_template` SET `scale` = 1.25, `ArmorModifier` = 2.5, `DamageModifier` = 2.5 WHERE (entry = 11721);
@@ -688,7 +688,7 @@ SET @ENTRY := 11721;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,10,0,0,0,100,0,0,0,4000,6000,11,81691,0,0,0,0,0,2,0,0,0,0,0,0,0,"Cornépine");
+(@ENTRY,0,10,0,0,0,100,0,0,0,4000,6000,11,81691,0,0,0,0,0,2,0,0,0,0,0,0,0,"CornÃ©pine");
 
 UPDATE `creature_template` SET `scale` = 0.75, `DamageModifier` = 2.75 WHERE (entry = 11723);
 -- Hive'Ashi Sandstalker SAI
@@ -707,9 +707,9 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,0,3000,12000,15000,11,11443,0,0,0,0,0,2,0,0,0,0,0,0,0,"Faiblesse"),
-(@ENTRY,0,1,0,9,0,100,0,0,5,10000,15000,11,6713,0,0,0,0,0,2,0,0,0,0,0,0,0,"Désarmement");
+(@ENTRY,0,1,0,9,0,100,0,0,5,10000,15000,11,6713,0,0,0,0,0,2,0,0,0,0,0,0,0,"DÃ©sarmement");
 
-UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 14475 AND `creature_loot_template`.`Chance` <98 ;
+UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `Entry` = 14475 AND `Chance` <98 ;
 UPDATE `creature_template` SET `scale` = 1.5, `HealthModifier` = 4.5, `ArmorModifier` = 2, `DamageModifier` = 3.5 WHERE (entry = 14475);
 -- Rex Ashil SAI
 SET @ENTRY := 14475;
@@ -759,7 +759,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,30,31,9,0,100,0,35,100,3000,3500,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"35m - 100m : Evade"),
 (@ENTRY,0,31,0,61,0,100,0,0,0,0,0,40,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"     S'equipe d'arme au contact"),
 (@ENTRY,0,40,0,0,0,100,0,1000,1000,4000,4000,11,9613,0,0,0,0,0,2,0,0,0,0,0,0,0,"Trait de l'ombre"),
-(@ENTRY,0,41,0,0,0,100,0,0,0,5000,5000,11,15654,0,0,0,0,0,2,0,0,0,0,0,0,0,"Mot de l’ombre : Douleur"),
+(@ENTRY,0,41,0,0,0,100,0,0,0,5000,5000,11,15654,0,0,0,0,0,2,0,0,0,0,0,0,0,"Mot de lâ€™ombre : Douleur"),
 (@ENTRY,0,15,0,9,0,100,0,0,5,15000,15000,11,22884,0,0,0,0,0,1,0,0,0,0,0,0,0,"Cri psychique");
 
 
@@ -782,7 +782,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 DELETE FROM `creature_queststarter` WHERE `quest` = 8308;
 
 /****************************************************************************************/
-/* Quetes Obsolètes */
+/* Quetes ObsolÃ¨tes */
 
 DELETE FROM `creature_queststarter` WHERE `quest` =  9413;
 DELETE  FROM `creature_questender` WHERE `quest` = 9413;
@@ -826,11 +826,9 @@ DELETE FROM `creature_queststarter` WHERE `quest` = 8344;
 
 
 /****************************************************************************************/
-/* Chère Natalia 8304 */
+/* ChÃ¨re Natalia 8304 */
 UPDATE `creature_template` SET `ScriptName` = '' WHERE (entry = 15171);
-UPDATE `world`.`creature` SET `npcflag` = '0' WHERE `creature`.`guid` = 363402;
-SET NAMES utf8;
-UPDATE `hotfixes`.`broadcast_text` SET `MaleText` = 'Je suis sûr que Rutgar vous en a déjà dit pas mal, alors je vais vous épargner les détails oiseux et en venir directement au fait . Donc, dame Natalia était revenue pour un deuxième tour aux ruches, mais Brann a dit « pas question » . Elle a hoché la tête et elle nous a foncé dessus . Elle nous a attaqués ! Ensuite, elle a foncé droit vers la ruche et il ne s’est pas trouvé un seul insecte pour essayer de l’arrêter !!!Dingue non ?' WHERE `broadcast_text`.`ID` = 10656;
+UPDATE `creature` SET `npcflag` = '0' WHERE `guid` = 363402;
 
 REPLACE INTO `gossip_menu_option` (`menu_id`, `id`, `option_icon`, `option_text`, `OptionBroadcastTextID`, `option_id`, `npc_option_npcflag`, `action_menu_id`, `action_poi_id`, `box_coded`, `box_money`, `box_text`, `BoxBroadcastTextID`) VALUES
 (15171, 0, 0, " ", 0, 1,1, 0, 0, 0, 0, '', 0);
@@ -840,22 +838,22 @@ SET @ENTRY := 15171;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,5,10,64,0,100,0,0,0,0,0,33,15221,0,0,0,0,0,7,0,0,0,0,0,0,0,"Chère Natalia 8304 : credit");
+(@ENTRY,0,5,10,64,0,100,0,0,0,0,0,33,15221,0,0,0,0,0,7,0,0,0,0,0,0,0,"ChÃ¨re Natalia 8304 : credit");
 
-UPDATE `world`.`quest_offer_reward` SET `RewardText` = 'Le commandant Mar''alith baisse la tête dans sa contemplation ... elle est vivante ou morte? Elle doit être trouvée. Hélas, je suis lié par le devoir à cet avant-poste. Voulez-vous m''aider encore une fois de plus ?' WHERE `quest_offer_reward`.`ID` = 8304;
+UPDATE `quest_offer_reward` SET `RewardText` = 'Le commandant Mar''alith baisse la tÃªte dans sa contemplation ... elle est vivante ou morte? Elle doit Ãªtre trouvÃ©e. HÃ©las, je suis liÃ© par le devoir Ã  cet avant-poste. Voulez-vous m''aider encore une fois de plus ?' WHERE `quest_offer_reward`.`ID` = 8304;
 
 /****************************************************************************************/
-/* À la poursuite des glyphes 8309 */
+/* Ã€ la poursuite des glyphes 8309 */
 -- Hive'Regal Glyphed Crystal SAI
 SET @ENTRY := 180453;
 UPDATE `gameobject_template` SET `AIName`="SmartGameObjectAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=1;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,1,0,0,62,0,100,0,6561,0,0,0,72,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"À la poursuite des glyphes 8309 : gossip"),
-(@ENTRY,1,1,0,62,0,100,1,6561,0,0,0,56,20456,1,0,0,0,0,7,0,0,0,0,0,0,0,"À la poursuite des glyphes 8309 : credit");
+(@ENTRY,1,0,0,62,0,100,0,6561,0,0,0,72,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"Ã€ la poursuite des glyphes 8309 : gossip"),
+(@ENTRY,1,1,0,62,0,100,1,6561,0,0,0,56,20456,1,0,0,0,0,7,0,0,0,0,0,0,0,"Ã€ la poursuite des glyphes 8309 : credit");
 
 /****************************************************************************************/
-/* Dévoiler le mystère 8314 */
+/* DÃ©voiler le mystÃ¨re 8314 */
 DELETE FROM `creature_queststarter` WHERE (quest = 8314) AND (id IN (15183));
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE (ID = 8314);
 
@@ -872,14 +870,14 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15183, 8315);
 /****************************************************************************************/
 /* Armes de guerre  8316 8376 8377 8378 8379 8380 8381 8382 */
 
-UPDATE `world`.`quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous être demandé et pour cela, vous devriez être récompensé. Ces armements se révéleront inestimables pour votre campagne dans ce désert. <Le géologue Larksbane devient pâle.> Est-ce que c''est la fin de cette prophétie ... amoins que cela ne soit le début de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8316 AND `quest_template_locale`.`locale` = 'frFR';
-UPDATE `world`.`quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous être demandé et pour cela, vous devriez être récompensé. Ces armements se révéleront inestimables pour votre campagne dans ce désert. <Le géologue Larksbane devient pâle.> Est-ce que c''est la fin de cette prophétie ... amoins que cela ne soit le début de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8376  AND `quest_template_locale`.`locale` = 'frFR';
-UPDATE `world`.`quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous être demandé et pour cela, vous devriez être récompensé. Ces armements se révéleront inestimables pour votre campagne dans ce désert. <Le géologue Larksbane devient pâle.> Est-ce que c''est la fin de cette prophétie ... amoins que cela ne soit le début de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8377  AND `quest_template_locale`.`locale` = 'frFR';
-UPDATE `world`.`quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous être demandé et pour cela, vous devriez être récompensé. Ces armements se révéleront inestimables pour votre campagne dans ce désert. <Le géologue Larksbane devient pâle.> Est-ce que c''est la fin de cette prophétie ... amoins que cela ne soit le début de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8378  AND `quest_template_locale`.`locale` = 'frFR';
-UPDATE `world`.`quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous être demandé et pour cela, vous devriez être récompensé. Ces armements se révéleront inestimables pour votre campagne dans ce désert. <Le géologue Larksbane devient pâle.> Est-ce que c''est la fin de cette prophétie ... amoins que cela ne soit le début de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8379  AND `quest_template_locale`.`locale` = 'frFR';
-UPDATE `world`.`quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous être demandé et pour cela, vous devriez être récompensé. Ces armements se révéleront inestimables pour votre campagne dans ce désert. <Le géologue Larksbane devient pâle.> Est-ce que c''est la fin de cette prophétie ... amoins que cela ne soit le début de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8380  AND `quest_template_locale`.`locale` = 'frFR';
-UPDATE `world`.`quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous être demandé et pour cela, vous devriez être récompensé. Ces armements se révéleront inestimables pour votre campagne dans ce désert. <Le géologue Larksbane devient pâle.> Est-ce que c''est la fin de cette prophétie ... amoins que cela ne soit le début de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8381  AND `quest_template_locale`.`locale` = 'frFR';
-UPDATE `world`.`quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous être demandé et pour cela, vous devriez être récompensé. Ces armements se révéleront inestimables pour votre campagne dans ce désert. <Le géologue Larksbane devient pâle.> Est-ce que c''est la fin de cette prophétie ... amoins que cela ne soit le début de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8382  AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous Ãªtre demandÃ© et pour cela, vous devriez Ãªtre rÃ©compensÃ©. Ces armements se rÃ©vÃ©leront inestimables pour votre campagne dans ce dÃ©sert. <Le gÃ©ologue Larksbane devient pÃ¢le.> Est-ce que c''est la fin de cette prophÃ©tie ... amoins que cela ne soit le dÃ©but de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8316 AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous Ãªtre demandÃ© et pour cela, vous devriez Ãªtre rÃ©compensÃ©. Ces armements se rÃ©vÃ©leront inestimables pour votre campagne dans ce dÃ©sert. <Le gÃ©ologue Larksbane devient pÃ¢le.> Est-ce que c''est la fin de cette prophÃ©tie ... amoins que cela ne soit le dÃ©but de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8376  AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous Ãªtre demandÃ© et pour cela, vous devriez Ãªtre rÃ©compensÃ©. Ces armements se rÃ©vÃ©leront inestimables pour votre campagne dans ce dÃ©sert. <Le gÃ©ologue Larksbane devient pÃ¢le.> Est-ce que c''est la fin de cette prophÃ©tie ... amoins que cela ne soit le dÃ©but de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8377  AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous Ãªtre demandÃ© et pour cela, vous devriez Ãªtre rÃ©compensÃ©. Ces armements se rÃ©vÃ©leront inestimables pour votre campagne dans ce dÃ©sert. <Le gÃ©ologue Larksbane devient pÃ¢le.> Est-ce que c''est la fin de cette prophÃ©tie ... amoins que cela ne soit le dÃ©but de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8378  AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous Ãªtre demandÃ© et pour cela, vous devriez Ãªtre rÃ©compensÃ©. Ces armements se rÃ©vÃ©leront inestimables pour votre campagne dans ce dÃ©sert. <Le gÃ©ologue Larksbane devient pÃ¢le.> Est-ce que c''est la fin de cette prophÃ©tie ... amoins que cela ne soit le dÃ©but de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8379  AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous Ãªtre demandÃ© et pour cela, vous devriez Ãªtre rÃ©compensÃ©. Ces armements se rÃ©vÃ©leront inestimables pour votre campagne dans ce dÃ©sert. <Le gÃ©ologue Larksbane devient pÃ¢le.> Est-ce que c''est la fin de cette prophÃ©tie ... amoins que cela ne soit le dÃ©but de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8380  AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous Ãªtre demandÃ© et pour cela, vous devriez Ãªtre rÃ©compensÃ©. Ces armements se rÃ©vÃ©leront inestimables pour votre campagne dans ce dÃ©sert. <Le gÃ©ologue Larksbane devient pÃ¢le.> Est-ce que c''est la fin de cette prophÃ©tie ... amoins que cela ne soit le dÃ©but de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8381  AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `QuestDescription` = 'La guerre vient et avec elle vient des horreurs inconnues. Vous avez fait tout ce qui pouvait vous Ãªtre demandÃ© et pour cela, vous devriez Ãªtre rÃ©compensÃ©. Ces armements se rÃ©vÃ©leront inestimables pour votre campagne dans ce dÃ©sert. <Le gÃ©ologue Larksbane devient pÃ¢le.> Est-ce que c''est la fin de cette prophÃ©tie ... amoins que cela ne soit le dÃ©but de la fin pour nous tous . ' WHERE `quest_template_locale`.`ID` = 8382  AND `quest_template_locale`.`locale` = 'frFR';
 
 UPDATE `quest_template_addon` SET `ExclusiveGroup` = 8378 WHERE (ID = 8378);
 UPDATE `quest_template_addon` SET `ExclusiveGroup` = 8378 WHERE (ID = 8316);

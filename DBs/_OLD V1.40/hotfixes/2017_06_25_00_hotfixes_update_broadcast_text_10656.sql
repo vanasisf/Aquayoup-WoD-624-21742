@@ -1,0 +1,2 @@
+SET NAMES utf8;
+UPDATE `broadcast_text` SET `MaleText` = 'Je suis sûr que Rutgar vous en a déjà dit pas mal, alors je vais vous épargner les détails oiseux et en venir directement au fait. Donc, dame Natalia était revenue pour un deuxième tour aux ruches, mais Brann a dit « pas question » . Elle a hoché la tête et elle nous a foncé dessus. Elle nous a attaqués! Ensuite, elle a foncé droit vers la ruche et il ne s’est pas trouvé un seul insecte pour essayer de l’arrêter!!! Dingue non ?' WHERE `ID` = 10656;

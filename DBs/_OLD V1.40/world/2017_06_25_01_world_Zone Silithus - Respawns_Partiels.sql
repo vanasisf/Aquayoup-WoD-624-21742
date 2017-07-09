@@ -139,7 +139,7 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 
 
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 11727;
+DELETE FROM `creature` WHERE `creature`.`id` = 11727;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (363266, 11727, 1, 0, 0, 1, 0, 0, 0, 0, -7395.82, 1463, 25.7083, 5.55922, 240, 10, 0, 6540, 0, 1, 0, 0, 0, 0),
 (363264, 11727, 1, 0, 0, 1, 0, 0, 0, 0, -7363.36, 1430.41, 12.6809, 5.42766, 240, 10, 0, 6662, 0, 1, 0, 0, 0, 0),

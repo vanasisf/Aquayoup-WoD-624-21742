@@ -1,5 +1,5 @@
 
-DELETE FROM `world`.`gameobject` WHERE `gameobject`.`guid` = 204629;
+DELETE FROM `gameobject` WHERE `gameobject`.`guid` = 204629;
 REPLACE INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `VerifiedBuild`) VALUES
 (21025223, 181623, 1, 0, 0, 1, 0, 0, -4753.09, -3754.31, 48.1887, 3.09643, 0, 0, 0.999745, 0.0225775, 300, 0, 1, 0),
 (21025222, 181623, 249, 0, 0, 8, 0, 0, 31.0734, -52.0923, -4.86674, 1.60418, 0, 0, 0.718809, 0.695207, 300, 0, 1, 0);

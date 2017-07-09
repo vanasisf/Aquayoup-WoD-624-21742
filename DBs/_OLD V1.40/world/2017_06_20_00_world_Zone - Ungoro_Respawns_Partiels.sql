@@ -1,4 +1,4 @@
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 6501;
+DELETE FROM `creature` WHERE `id` = 6501;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (364544, 6501, 1, 490, 539, 1, 0, 0, 0, 0, -7672.58, -521.68, -271.347, 5.16531, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0),
 (364537, 6501, 1, 490, 539, 1, 0, 0, 0, 0, -7500.8, -756.346, -267.012, 2.21638, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0),
@@ -11,7 +11,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `P
 (363909, 6501, 1, 490, 543, 1, 0, 0, 0, 0, -7420.42, -400.472, -270.442, 0.613444, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0),
 (363889, 6501, 1, 490, 543, 1, 0, 0, 0, 0, -7355.32, -448.976, -270.818, 2.21554, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0);
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 6505 OR `creature`.`id` = 6506 OR `creature`.`id` = 6508 OR `creature`.`id` = 6512;
+DELETE FROM `creature` WHERE `id` = 6505 OR `id` = 6506 OR `id` = 6508 OR `id` = 6512;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (364151, 6505, 1, 0, 0, 1, 0, 0, 0, 0, -7726.87, -2043.3, -271.112, 0.419781, 240, 10, 0, 5316, 0, 1, 0, 0, 0, 0),
 (364060, 6505, 1, 0, 0, 1, 0, 0, 0, 0, -7890.57, -1618.4, -268.371, 3.75576, 240, 10, 0, 5138, 0, 2, 0, 0, 0, 0),
@@ -95,7 +95,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `P
 (364579, 6512, 1, 490, 539, 1, 0, 0, 0, 0, -7687.86, -970.651, -271.302, 2.2275, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0);
 
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 6551 OR `creature`.`id` = 6553 OR `creature`.`id` = 6554 OR `creature`.`id` = 6555 OR `creature`.`id` = 6557;
+DELETE FROM `creature` WHERE `id` = 6551 OR `id` = 6553 OR `id` = 6554 OR `id` = 6555 OR `id` = 6557;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (363984, 6551, 1, 490, 540, 1, 0, 0, 0, 0, -7983.47, -1148.58, -267.026, 1.93285, 240, 10, 0, 1, 0, 1, 0, 0, 0, 0),
 (364102, 6551, 1, 490, 490, 1, 0, 0, 0, 0, -7802.27, -1146.42, -252.757, 3.43305, 240, 10, 0, 1, 0, 1, 0, 0, 0, 0),
@@ -168,7 +168,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `P
 (364666, 6557, 1, 490, 490, 1, 0, 0, 0, 0, -7614.77, -1194.51, -267.438, 1.98287, 240, 10, 0, 1, 0, 1, 0, 0, 0, 0),
 (364944, 6557, 1, 490, 538, 1, 0, 0, 0, 0, -6749.2, -1547.04, -272.097, 5.04596, 240, 10, 0, 1, 0, 1, 0, 0, 0, 0);
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 9162 OR `creature`.`id` = 9163 OR `creature`.`id` = 9166;
+DELETE FROM `creature` WHERE `id` = 9162 OR `id` = 9163 OR `id` = 9166;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (21070748, 9162, 1, 0, 0, 1, 0, 0, 0, 0, -7472.25, -2409.47, -198.082, 4.3939, 300, 15, 0, 5176, 0, 1, 0, 0, 0, 0),
 (364721, 9162, 1, 490, 1942, 1, 0, 0, 0, 0, -7446.72, -1714.55, -278.505, 0.627966, 240, 5, 0, 1, 0, 1, 0, 0, 0, 0),
@@ -251,7 +251,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `P
 (364872, 9166, 1, 490, 538, 1, 0, 0, 0, 0, -6925.48, -1191.69, -260.202, 5.48683, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0),
 (364980, 9166, 1, 490, 538, 1, 0, 0, 0, 0, -6644.23, -1191.86, -259.654, 0.218695, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0);
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 9600;
+DELETE FROM `creature` WHERE `id` = 9600;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (292581, 9600, 0, 8, 1778, 1, 0, 0, 0, 0, -10148.3, -4086.1, 36.6412, 4.77401, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0),
 (292768, 9600, 0, 8, 1797, 1, 0, 0, 0, 0, -10685.5, -3776.43, 37.4112, 0.913261, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0),
@@ -437,7 +437,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `P
 (365280, 9600, 1, 490, 1942, 1, 0, 0, 0, 0, -7716.05, -1823.94, -221.035, 4.82634, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0),
 (365290, 9600, 1, 490, 1942, 1, 0, 0, 0, 0, -7765.78, -1915.22, -230.969, 6.2022, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0);
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 38214;
+DELETE FROM `creature` WHERE `id` = 38214;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (364199, 38214, 1, 490, 1942, 1, 0, 0, 0, 0, -7165.23, -2244.65, -271.774, 2.62463, 240, 10, 0, 1, 0, 1, 0, 0, 0, 0),
 (365138, 38214, 1, 490, 4885, 1, 0, 0, 0, 0, -6987.84, -1972.75, -269.38, 6.00649, 240, 10, 0, 1, 0, 1, 0, 0, 0, 0),
@@ -463,7 +463,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `P
 (364224, 38214, 1, 0, 0, 1, 0, 0, 0, 0, -6927.17, -2144.35, -272.682, 2.70641, 240, 15, 0, 8280, 0, 1, 0, 0, 0, 0),
 (21070746, 38214, 1, 0, 0, 1, 0, 0, 0, 0, -6979.04, -2405.4, -219.299, 1.62144, 300, 15, 0, 8280, 0, 1, 0, 0, 0, 0);
 
- DELETE FROM `world`.`creature` WHERE `creature`.`id` = 49844;
+ DELETE FROM `creature` WHERE `id` = 49844;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES(290001, 49844, 1, 493, 2363, 1, 0, 0, 0, 0, 7660.34, -2945.08, 485.714, 2.56585, 240, 5, 0, 1, 0, 1, 0, 0, 0, 0);
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES(290010, 49844, 1, 493, 2363, 1, 0, 0, 0, 0, 7628.91, -2885.64, 484.638, 1.14447, 240, 5, 0, 1, 0, 1, 0, 0, 0, 0);
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES(290011, 49844, 1, 493, 2363, 1, 0, 0, 0, 0, 7650.09, -2870.18, 490.902, 2.97617, 240, 5, 0, 1, 0, 1, 0, 0, 0, 0);
@@ -702,7 +702,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `P
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES(372285, 49844, 1, 616, 616, 1, 0, 0, 0, 0, 5363.1, -2561.63, 1491.6, 1.26799, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0);
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES(372296, 49844, 1, 616, 5622, 1, 0, 0, 0, 0, 5297.95, -2835.03, 1538.27, 2.61634, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0);
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 9164;
+DELETE FROM `creature` WHERE `id` = 9164;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (364757, 9164, 1, 490, 490, 1, 0, 0, 0, 0, -7229.36, -911.038, -271.271, 0.415847, 240, 10, 0, 1, 0, 1, 0, 0, 0, 0),
 (364543, 9164, 1, 490, 539, 1, 0, 0, 0, 0, -7595.1, -642.758, -250.854, 0.325528, 240, 10, 0, 1, 0, 1, 0, 0, 0, 0),
@@ -751,11 +751,11 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `P
 (363944, 9164, 1, 490, 539, 1, 0, 0, 0, 0, -7775.93, -557.887, -268.811, 5.18528, 240, 10, 0, 1, 0, 1, 0, 0, 0, 0),
 (363804, 9164, 1, 0, 0, 1, 0, 0, 0, 0, -6646.87, -586.882, -271.404, 5.31073, 240, 15, 0, 6070, 0, 1, 0, 0, 0, 0);
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 6503;
+DELETE FROM `creature` WHERE `id` = 6503;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (363949, 6503, 1, 0, 0, 1, 0, 0, 0, 0, -7880.28, -585.966, -259.358, 1.64539, 240, 0, 0, 14004, 0, 0, 0, 0, 0, 0);
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 9167;
+DELETE FROM `creature` WHERE `id` = 9167;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (21070774, 9167, 1, 0, 0, 1, 0, 0, 0, 0, -7233.63, -372.612, -252.925, 1.95525, 300, 15, 0, 6070, 0, 1, 0, 0, 0, 0),
 (364445, 9167, 1, 490, 4884, 1, 0, 0, 0, 0, -7014.86, -825.139, -264.94, 4.94181, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0),
@@ -809,7 +809,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `P
 (363859, 9167, 1, 490, 543, 1, 0, 0, 0, 0, -7042.65, -496.035, -268.634, 1.13172, 240, 15, 0, 1, 0, 1, 0, 0, 0, 0),
 (363797, 9167, 1, 0, 0, 1, 0, 0, 0, 0, -6561.19, -745.647, -256.971, 5.13803, 240, 15, 0, 6070, 0, 1, 0, 0, 0, 0);
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 6513;
+DELETE FROM `creature` WHERE `id` = 6513;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (364266, 6513, 1, 490, 542, 1, 0, 0, 0, 0, -6430.01, -1757.03, -273.663, 3.03757, 240, 5, 0, 1, 0, 1, 0, 0, 0, 0),
 (365074, 6513, 1, 490, 542, 1, 0, 0, 0, 0, -6341.46, -1960.47, -274.234, 4.28173, 240, 5, 0, 1, 0, 1, 0, 0, 0, 0),
@@ -828,7 +828,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `P
 (364273, 6513, 1, 490, 542, 1, 0, 0, 0, 0, -6470.2, -1766.2, -275.791, 4.01688, 240, 5, 0, 1, 0, 1, 0, 0, 0, 0),
 (365081, 6513, 1, 490, 542, 1, 0, 0, 0, 0, -6339.68, -2010.82, -256.877, 5.40766, 240, 5, 0, 1, 0, 1, 0, 0, 0, 0);
 
-DELETE FROM `world`.`creature` WHERE `creature`.`id` = 6514 OR `creature`.`id` = 6516;
+DELETE FROM `creature` WHERE `id` = 6514 OR `id` = 6516;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (364267, 6514, 1, 490, 542, 1, 0, 0, 0, 0, -6479.81, -1778.29, -274.69, 3.38641, 240, 10, 0, 1, 0, 1, 0, 0, 0, 0),
 (365076, 6514, 1, 490, 542, 1, 0, 0, 0, 0, -6358.73, -1986.08, -276.211, 0.757789, 240, 10, 0, 1, 0, 1, 0, 0, 0, 0),

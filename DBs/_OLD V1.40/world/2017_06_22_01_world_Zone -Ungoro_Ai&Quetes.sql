@@ -1,6 +1,6 @@
 /****************************************************************************************************************************************/
 /*	Mise a jour de la DB Stitchland pour World of Draenor 6.24 - 21742 - Developpement du Repack & support sur http://aquayoup.123.fr */
-/* Autant que possible préférez la DB complete aux updates . Les updates ne comprennent que les modifications importantes 		 		    */
+/* Autant que possible prÃ©fÃ©rez la DB complete aux updates . Les updates ne comprennent que les modifications importantes 		 		    */
 /* comme les debugs de quetes mais ne comprend pas forcement des details cosmetiques ou petits spawns											    */
 /*																																																				    */
 /*	Stitch 2017-06 - V1.0				AI & Quetes    																											 		 			    */
@@ -53,8 +53,8 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 (21070807, 15000208, 1, 0, 0, 1, 0, 0, 0, 0, -7546.12, -1502.94, -267.016, 3.19498, 300, 0, 0, 160, 0, 0, 0, 0, 0, 0),
 (21070805, 15000209, 1, 0, 0, 1, 0, 0, 0, 0, -7535.51, -1599.95, -266.253, 1.55351, 300, 0, 0, 160, 0, 0, 0, 0, 0, 0);
 
-DELETE FROM `creature` WHERE `creature`.`guid` = 21070766;
-DELETE FROM `creature` WHERE `creature`.`guid` = 21070765;
+DELETE FROM `creature` WHERE `guid` = 21070766;
+DELETE FROM `creature` WHERE `guid` = 21070765;
 
 UPDATE `creature_template` SET `speed_walk` = 2, `speed_run` = 2,`unit_class` = 2, `DamageModifier` = 4 WHERE (entry = 52232);
 -- Maximillian of Northshire SAI
@@ -63,12 +63,12 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,25,0,100,0,0,0,0,0,8,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Etat defensif"),
-(@ENTRY,0,25,0,0,0,100,0,2000,2000,2500,2500,11,35395,0,0,0,0,0,2,0,0,0,0,0,0,0,"Frappe du croisé"),
+(@ENTRY,0,25,0,0,0,100,0,2000,2000,2500,2500,11,35395,0,0,0,0,0,2,0,0,0,0,0,0,0,"Frappe du croisÃ©"),
 (@ENTRY,0,15,0,60,0,100,0,0,0,2000,2000,109,0,1500,0,0,0,0,1,0,0,0,0,0,0,0,"Regen Mana");
 
-DELETE FROM `world`.`spell_linked_spell` WHERE `spell_linked_spell`.`spell_trigger` = 6552  AND (`spell_linked_spell`.`spell_effect` =67235 OR `spell_linked_spell`.`spell_effect` =85387);
-INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (6552,67235 , 1, "Stitch : guerrier - Volée de coups : interompre "); 
-INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (6552,85387 , 0, "Stitch : guerrier - Volée de coups : stun "); 
+DELETE FROM `spell_linked_spell` WHERE `spell_linked_spell`.`spell_trigger` = 6552  AND (`spell_linked_spell`.`spell_effect` =67235 OR `spell_linked_spell`.`spell_effect` =85387);
+INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (6552,67235 , 1, "Stitch : guerrier - VolÃ©e de coups : interompre "); 
+INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (6552,85387 , 0, "Stitch : guerrier - VolÃ©e de coups : stun "); 
 
 
 /****************************************************************************************/
@@ -78,24 +78,24 @@ INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comm
 # UPDATE `creature_loot_template` SET `Chance` = `Chance`+2 WHERE `creature_loot_template`.`Entry` = 8301 ;
 # UPDATE `creature_loot_template` SET `Chance` = '100' WHERE `creature_loot_template`.`Entry` = 11560 AND `creature_loot_template`.`Item` = 15849;
 
-UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 2955;
-UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE `spawndist` = 0 AND `creature`.`id` = 50478;
+UPDATE `creature` SET `spawndist`=15,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 2955;
+UPDATE `creature` SET `spawndist`=10,`MovementType` = '1'  WHERE `spawndist` = 0 AND `id` = 50478;
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (48096, 0, 0, 0, 1, 233, NULL); # Tape avec masse
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (1322, 0, 0, 0, 1, 233, NULL); # Tape avec masse/pioche (si equipé)
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (1322, 0, 0, 0, 1, 233, NULL); # Tape avec masse/pioche (si equipÃ©)
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (49944, 0, 0, 0, 0, 0, '97014'); # Pecher
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (49920, 0, 0, 0, 4097, 93, '43905'); # Ivre
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (49921 , 0, 0, 0, 0, 0, 79506); # Parler
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (2920, 0, 0, 0, 4097, 69, NULL); # Travail avec mains
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (41162, 0, 0, 0, 0, 431, NULL); # Effrayé
-REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (76103, 0, 0, 8, 1, 0, NULL); # agenouillé
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (41162, 0, 0, 0, 0, 431, NULL); # EffrayÃ©
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (76103, 0, 0, 8, 1, 0, NULL); # agenouillÃ©
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (50541, 0, 0, 0, 0, 0, 101090); # State - Dance
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (50530, 0, 0, 1, 1, 0, ''); # Assis par terre
 
 UPDATE `creature_template` SET `flags_extra` = 128 WHERE (entry = 38354);
 UPDATE `creature_template` SET `flags_extra` = 128 WHERE entry = 33296;
-UPDATE `creature` SET `spawntimesecs` = '15' WHERE `creature`.`id` = 2952;
+UPDATE `creature` SET `spawntimesecs` = '15' WHERE `id` = 2952;
 UPDATE `creature_template` SET `faction` = 103 WHERE (entry = 36094); # agressif
 UPDATE `creature_template` SET `faction` = 188 WHERE (entry = 36113); # non agressif
 
@@ -105,7 +105,7 @@ DELETE FROM `creature_template_addon` WHERE `creature_template_addon`.`entry` = 
 REPLACE INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `VerifiedBuild`) VALUES
 (21024675, 174682, 1, 0, 0, 1, 0, 0, -7520.23, -1513.39, -266.06, 3.77905, 0, 0, 0.949635, -0.313358, 300, 0, 1, 0);
 
-UPDATE `world`.`creature_template_addon` SET `auras` = NULL WHERE `creature_template_addon`.`entry` = 15201;
+UPDATE `creature_template_addon` SET `auras` = NULL WHERE `creature_template_addon`.`entry` = 15201;
 
 UPDATE `creature_template` SET `ArmorModifier` = 3, `DamageModifier` = 5 WHERE (entry = 6560);
 -- Stone Guardian SAI
@@ -153,7 +153,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,50,0,2000,2000,10000,10000,11,8137,0,0,0,0,0,2,0,0,0,0,0,0,0,"Varicelle de silithide"),
-(@ENTRY,0,10,0,9,0,100,0,0,5,7000,10000,11,79175,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coupe frénétique");
+(@ENTRY,0,10,0,9,0,100,0,0,5,7000,10000,11,79175,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coupe frÃ©nÃ©tique");
 
 UPDATE `creature_template` SET `HealthModifier` = 1.25, `DamageModifier` = 2.5 WHERE (entry = 6553);
 -- Gorishi Reaver SAI
@@ -161,7 +161,7 @@ SET @ENTRY := 6553;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,9,0,100,0,0,5,3500,3500,11,40504,0,0,0,0,0,2,0,0,0,0,0,0,0,"Enchaînement"),
+(@ENTRY,0,0,0,9,0,100,0,0,5,3500,3500,11,40504,0,0,0,0,0,2,0,0,0,0,0,0,0,"EnchaÃ®nement"),
 (@ENTRY,0,1,0,0,0,100,0,2000,2000,5000,7000,11,8137,32,0,0,0,0,2,0,0,0,0,0,0,0,"Varicelle de silithide"),
 (@ENTRY,0,10,0,4,0,50,0,0,0,0,0,11,89712,0,0,0,0,0,2,0,0,0,0,0,0,0,"Griffure bondissante");
 
@@ -183,7 +183,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,2000,2000,5000,5000,11,21067,32,0,0,0,0,2,0,0,0,0,0,0,0,"Eclair de poison "),
 (@ENTRY,0,10,0,0,0,100,0,0,0,3500,3500,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"griffe"),
-(@ENTRY,0,15,0,4,0,100,0,0,0,0,0,11,157347,0,0,0,0,0,2,0,0,0,0,0,0,0,"Charge embrasée");
+(@ENTRY,0,15,0,4,0,100,0,0,0,0,0,11,157347,0,0,0,0,0,2,0,0,0,0,0,0,0,"Charge embrasÃ©e");
 
 UPDATE `creature_template` SET `HealthModifier` = 2, `ArmorModifier` = 3, `DamageModifier` = 4 WHERE (entry = 38307);
 -- Gormashh SAI
@@ -192,7 +192,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,9,0,100,0,0,10,6000,6000,11,14180,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coup de tonnerre"),
-(@ENTRY,0,1,0,9,0,100,0,0,10,5000,5000,11,5568,0,0,0,0,0,1,0,0,0,0,0,0,0,"Piétiner");
+(@ENTRY,0,1,0,9,0,100,0,0,10,5000,5000,11,5568,0,0,0,0,0,1,0,0,0,0,0,0,0,"PiÃ©tiner");
 
 
 UPDATE `creature_template` SET `ArmorModifier` = 1.5, `scale` = 0.6,`HealthModifier` = 1.5, `DamageModifier` = 4 WHERE (entry = 6507);
@@ -201,11 +201,11 @@ SET @ENTRY := 6507;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,15,0,4,0,50,0,0,0,0,0,11,6268,0,0,0,0,0,2,0,0,0,0,0,0,0,"* Assaut fulgurant (charge + 30% de dégâts , 25m)"),
+(@ENTRY,0,15,0,4,0,50,0,0,0,0,0,11,6268,0,0,0,0,0,2,0,0,0,0,0,0,0,"* Assaut fulgurant (charge + 30% de dÃ©gÃ¢ts , 25m)"),
 (@ENTRY,0,20,0,0,0,100,0,2000,3000,3500,5000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffe"),
-(@ENTRY,0,60,0,0,0,75,0,5000,5000,15000,15000,11,35321,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure hémorragique (Dégâts physiques 5s/15s)"),
-(@ENTRY,0,65,0,0,0,100,0,4000,4000,5000,10000,11,3604,64,0,0,0,0,2,0,0,0,0,0,0,0," - Déchirure du tendon (Vitesse -25% 5s)"),
-(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (Dégâts physiques 3s/15)");
+(@ENTRY,0,60,0,0,0,75,0,5000,5000,15000,15000,11,35321,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure hÃ©morragique (DÃ©gÃ¢ts physiques 5s/15s)"),
+(@ENTRY,0,65,0,0,0,100,0,4000,4000,5000,10000,11,3604,64,0,0,0,0,2,0,0,0,0,0,0,0," - DÃ©chirure du tendon (Vitesse -25% 5s)"),
+(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (DÃ©gÃ¢ts physiques 3s/15)");
 
 UPDATE `creature_template` SET `ArmorModifier` = 1.5,`HealthModifier` = 1.5, `DamageModifier` = 3.5 WHERE (entry = 6508);
 -- Venomhide Ravasaur SAI
@@ -216,8 +216,8 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,10,0,4,0,50,0,0,0,0,0,11,144546,0,0,0,0,0,2,0,0,0,0,0,0,0,"* Bondir pour tuer ( renverse 5-20m )"),
 (@ENTRY,0,20,0,0,0,100,0,2000,3000,3500,7000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffe"),
 (@ENTRY,0,55,0,0,0,50,0,0,0,10000,12000,11,49710,64,0,0,0,0,2,0,0,0,0,0,0,0," - Eventration (Endurance -15% 6 sec)"),
-(@ENTRY,0,65,0,0,0,100,0,4000,4000,5000,10000,11,3604,64,0,0,0,0,2,0,0,0,0,0,0,0," - Déchirure du tendon (Vitesse -25% 5s)"),
-(@ENTRY,0,80,0,0,0,25,0,0,0,10000,10000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tête (confusion 3s)");
+(@ENTRY,0,65,0,0,0,100,0,4000,4000,5000,10000,11,3604,64,0,0,0,0,2,0,0,0,0,0,0,0," - DÃ©chirure du tendon (Vitesse -25% 5s)"),
+(@ENTRY,0,80,0,0,0,25,0,0,0,10000,10000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tÃªte (confusion 3s)");
 
 -- Lar'korwi SAI
 SET @ENTRY := 9684;
@@ -225,9 +225,9 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,20,0,0,0,100,0,2000,3000,4000,7000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffe"),
-(@ENTRY,0,60,0,0,0,100,0,5000,5000,15000,15000,11,35321,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure hémorragique (Dégâts physiques 5s/15s)"),
-(@ENTRY,0,75,0,0,0,100,0,0,0,8000,8000,11,83366,96,0,0,0,0,1,0,0,0,0,0,0,0," - Hurlement strident (déplacement & attaque -10% 20s)"),
-(@ENTRY,0,80,0,0,0,75,0,0,0,10000,15000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tête (confusion 3s)");
+(@ENTRY,0,60,0,0,0,100,0,5000,5000,15000,15000,11,35321,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure hÃ©morragique (DÃ©gÃ¢ts physiques 5s/15s)"),
+(@ENTRY,0,75,0,0,0,100,0,0,0,8000,8000,11,83366,96,0,0,0,0,1,0,0,0,0,0,0,0," - Hurlement strident (dÃ©placement & attaque -10% 20s)"),
+(@ENTRY,0,80,0,0,0,75,0,0,0,10000,15000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tÃªte (confusion 3s)");
 
 UPDATE `creature_template` SET `speed_walk` = 1.5, `speed_run` = 1.5, `HealthModifier` = 1.3, `DamageModifier` = 4 WHERE (entry = 6506);
 -- Ravasaur Runner SAI
@@ -235,13 +235,13 @@ SET @ENTRY := 6506;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,5,0,4,0,50,0,0,0,0,0,0,6268,0,0,0,0,0,2,0,0,0,0,0,0,0,"* Assaut fulgurant (charge & 30% de dégâts - 25m)"),
+(@ENTRY,0,5,0,4,0,50,0,0,0,0,0,0,6268,0,0,0,0,0,2,0,0,0,0,0,0,0,"* Assaut fulgurant (charge & 30% de dÃ©gÃ¢ts - 25m)"),
 (@ENTRY,0,20,0,0,0,100,0,2000,3000,3500,5000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffe"),
-(@ENTRY,0,65,0,0,0,100,0,4000,4000,5000,10000,11,3604,64,0,0,0,0,2,0,0,0,0,0,0,0," - Déchirure du tendon (Vitesse -25% 5s)");
+(@ENTRY,0,65,0,0,0,100,0,4000,4000,5000,10000,11,3604,64,0,0,0,0,2,0,0,0,0,0,0,0," - DÃ©chirure du tendon (Vitesse -25% 5s)");
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (61313, 0, 0, 33554432, 1, 0, NULL);        #  Voler
 UPDATE `creature_template` SET `InhabitType` = 4 WHERE (entry = 61313);       #  Voler
-UPDATE `world`.`creature` SET `position_z` = `position_z` +7 WHERE `creature`.`id` = 61313;       #  Voler
+UPDATE `creature` SET `position_z` = `position_z` +7 WHERE `id` = 61313;       #  Voler
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES
 (6517, 0, 0, 0, 1, 0, NULL),
@@ -256,8 +256,8 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,4,0,50,0,0,0,0,0,11,144546,0,0,0,0,0,2,0,0,0,0,0,0,0,"* Bondir pour tuer ( renverse 5-20m )"),
 (@ENTRY,0,20,0,0,0,100,0,2000,3000,3500,5000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffe"),
-(@ENTRY,0,50,0,0,0,20,0,0,0,10000,10000,11,3427,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure infectée (dégâts physiques + 5% 20s)"),
-(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (Dégâts physiques 3s/15)");
+(@ENTRY,0,50,0,0,0,20,0,0,0,10000,10000,11,3427,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure infectÃ©e (dÃ©gÃ¢ts physiques + 5% 20s)"),
+(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (DÃ©gÃ¢ts physiques 3s/15)");
 
 UPDATE `creature_template` SET `HealthModifier` = 5, `ArmorModifier` = 1.5, `DamageModifier` = 4 WHERE (entry = 6581);
 SET @ENTRY := 6581;
@@ -266,9 +266,9 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,4,0,50,0,0,0,0,0,11,144546,0,0,0,0,0,2,0,0,0,0,0,0,0,"* Bondir pour tuer ( renverse 5-20m )"),
 (@ENTRY,0,20,0,0,0,100,0,2000,3000,3500,5000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffe"),
-(@ENTRY,0,25,0,0,0,100,0,5000,5000,10000,10000,11,153161,64,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffes déchirantes (Attaque rapidite 6s)"),
-(@ENTRY,0,60,0,0,0,75,0,5000,5000,15000,15000,11,35321,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure hémorragique (Dégâts physiques 5s/15s)"),
-(@ENTRY,0,80,0,0,0,50,0,0,0,4000,10000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tête (confusion 3s)");
+(@ENTRY,0,25,0,0,0,100,0,5000,5000,10000,10000,11,153161,64,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffes dÃ©chirantes (Attaque rapidite 6s)"),
+(@ENTRY,0,60,0,0,0,75,0,5000,5000,15000,15000,11,35321,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure hÃ©morragique (DÃ©gÃ¢ts physiques 5s/15s)"),
+(@ENTRY,0,80,0,0,0,50,0,0,0,4000,10000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tÃªte (confusion 3s)");
 
 UPDATE `creature_template` SET `HealthModifier` = 4,`ArmorModifier` = 2, `DamageModifier` = 4 WHERE (entry = 6498);
 -- Devilsaur SAI
@@ -277,9 +277,9 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,20,0,0,0,100,0,2000,3000,3500,5000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffe"),
-(@ENTRY,0,60,0,0,0,75,0,5000,5000,15000,15000,11,35321,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure hémorragique (Dégâts physiques 5s/15s)"),
-(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (Dégâts physiques 3s/15)"),
-(@ENTRY,0,75,0,0,0,100,0,0,0,10000,15000,11,83366,32,0,0,0,0,1,0,0,0,0,0,0,0," - Hurlement strident (déplacement & attaque -10% 20s)");
+(@ENTRY,0,60,0,0,0,75,0,5000,5000,15000,15000,11,35321,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure hÃ©morragique (DÃ©gÃ¢ts physiques 5s/15s)"),
+(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (DÃ©gÃ¢ts physiques 3s/15)"),
+(@ENTRY,0,75,0,0,0,100,0,0,0,10000,15000,11,83366,32,0,0,0,0,1,0,0,0,0,0,0,0," - Hurlement strident (dÃ©placement & attaque -10% 20s)");
 
 UPDATE `creature_template` SET `HealthModifier` = 4,`ArmorModifier` = 2, `DamageModifier` = 4 WHERE (entry = 6500);
 -- Tyrant Devilsaur SAI
@@ -288,10 +288,10 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,20,0,0,0,100,0,2000,3000,3500,5000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffe"),
-(@ENTRY,0,60,0,0,0,75,0,5000,5000,15000,15000,11,35321,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure hémorragique (Dégâts physiques 5s/15s)"),
-(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (Dégâts physiques 3s/15)"),
-(@ENTRY,0,75,0,0,0,100,0,0,0,10000,15000,11,83366,32,0,0,0,0,1,0,0,0,0,0,0,0," - Hurlement strident (déplacement & attaque -10% 20s)"),
-(@ENTRY,0,-1,0,2,0,100,0,30,50,10000,10000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Rugissement terrifiant");
+(@ENTRY,0,60,0,0,0,75,0,5000,5000,15000,15000,11,35321,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure hÃ©morragique (DÃ©gÃ¢ts physiques 5s/15s)"),
+(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (DÃ©gÃ¢ts physiques 3s/15)"),
+(@ENTRY,0,75,0,0,0,100,0,0,0,10000,15000,11,83366,32,0,0,0,0,1,0,0,0,0,0,0,0," - Hurlement strident (dÃ©placement & attaque -10% 20s)"),
+(@ENTRY,0,65535,0,2,0,100,0,30,50,10000,10000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Rugissement terrifiant");
 
 UPDATE `creature_template` SET `ArmorModifier` = 2,`HealthModifier` = 5, `DamageModifier` = 3 WHERE (entry = 38346);
 -- Devilsaur Queen SAI
@@ -300,8 +300,8 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,20,0,0,0,100,0,2000,3000,4500,5500,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffe"),
-(@ENTRY,0,25,0,0,0,100,0,5000,5000,10000,10000,11,153161,64,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffes déchirantes (Attaque rapidite 6s)"),
-(@ENTRY,0,80,0,0,0,50,0,0,0,15000,20000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tête (confusion 3s)");
+(@ENTRY,0,25,0,0,0,100,0,5000,5000,10000,10000,11,153161,64,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffes dÃ©chirantes (Attaque rapidite 6s)"),
+(@ENTRY,0,80,0,0,0,50,0,0,0,15000,20000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tÃªte (confusion 3s)");
 
 UPDATE `creature_template` SET `HealthModifier` = 2, `ArmorModifier` = 1.5, `DamageModifier` = 3 WHERE (entry = 9683);
 SET @ENTRY := 9683;
@@ -309,9 +309,9 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,20,0,0,0,100,0,2000,3000,3500,5000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffe"),
-(@ENTRY,0,50,0,0,0,20,0,0,0,10000,10000,11,3427,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure infectée (dégâts physiques + 5% 20s)"),
-(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (Dégâts physiques 3s/15)"),
-(@ENTRY,0,80,0,0,0,50,0,0,0,4000,10000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tête (confusion 3s)");
+(@ENTRY,0,50,0,0,0,20,0,0,0,10000,10000,11,3427,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure infectÃ©e (dÃ©gÃ¢ts physiques + 5% 20s)"),
+(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (DÃ©gÃ¢ts physiques 3s/15)"),
+(@ENTRY,0,80,0,0,0,50,0,0,0,4000,10000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tÃªte (confusion 3s)");
 
 
 UPDATE `creature_template` SET `ArmorModifier` = 2, `DamageModifier` = 4 WHERE (entry = 6499);
@@ -320,10 +320,10 @@ SET @ENTRY := 6499;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,15,0,4,0,75,0,0,0,0,0,11,6268,0,0,0,0,0,2,0,0,0,0,0,0,0,"* Assaut fulgurant (charge + 30% de dégâts , 25m)"),
+(@ENTRY,0,15,0,4,0,75,0,0,0,0,0,11,6268,0,0,0,0,0,2,0,0,0,0,0,0,0,"* Assaut fulgurant (charge + 30% de dÃ©gÃ¢ts , 25m)"),
 (@ENTRY,0,20,0,0,0,100,0,2000,3000,3500,5000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"  + Griffe"),
-(@ENTRY,0,50,0,0,0,20,0,0,0,10000,10000,11,3427,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure infectée (dégâts physiques + 5% 20s)"),
-(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (Dégâts physiques 3s/15)");
+(@ENTRY,0,50,0,0,0,20,0,0,0,10000,10000,11,3427,32,0,0,0,0,2,0,0,0,0,0,0,0," - Blessure infectÃ©e (dÃ©gÃ¢ts physiques + 5% 20s)"),
+(@ENTRY,0,70,0,0,0,100,0,4000,6000,12000,15000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0," - Pourfendre (DÃ©gÃ¢ts physiques 3s/15)");
 
 UPDATE `creature_template` SET `faction` = 103,`HealthModifier` = 4, `ArmorModifier` = 2.5, `DamageModifier` = 3 WHERE (entry = 6504);
 -- Thunderstomp Stegodon SAI
@@ -331,7 +331,7 @@ SET @ENTRY := 6504;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,80,0,0,0,50,0,0,0,10000,15000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tête (confusion 3s)"),
+(@ENTRY,0,80,0,0,0,50,0,0,0,10000,15000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tÃªte (confusion 3s)"),
 (@ENTRY,0,1,0,9,0,100,0,0,10,8000,14000,11,15548,0,0,0,0,0,1,0,0,0,0,0,0,0,"Coup de tonnerre"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,5000,7000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure"),
 (@ENTRY,0,15,0,25,0,100,0,0,0,0,0,8,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Defensif au spawn");
@@ -341,7 +341,7 @@ SET @ENTRY := 6503;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,80,0,0,0,50,0,0,0,10000,15000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tête (confusion 3s)"),
+(@ENTRY,0,80,0,0,0,50,0,0,0,10000,15000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tÃªte (confusion 3s)"),
 (@ENTRY,0,1,0,9,0,100,0,0,10,8000,14000,11,15548,0,0,0,0,0,1,0,0,0,0,0,0,0,"Coup de tonnerre"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,5000,7000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure");
 
@@ -350,7 +350,7 @@ SET @ENTRY := 6502;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,80,0,0,0,50,0,0,0,10000,15000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tête (confusion 3s)"),
+(@ENTRY,0,80,0,0,0,50,0,0,0,10000,15000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tÃªte (confusion 3s)"),
 (@ENTRY,0,1,0,9,0,100,0,0,10,8000,14000,11,15548,0,0,0,0,0,1,0,0,0,0,0,0,0,"Coup de tonnerre"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,5000,7000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure"),
 (@ENTRY,0,15,0,25,0,100,0,0,0,0,0,8,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Defensif au spawn");
@@ -360,7 +360,7 @@ SET @ENTRY := 6501;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,80,0,0,0,50,0,0,0,10000,15000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tête (confusion 3s)"),
+(@ENTRY,0,80,0,0,0,50,0,0,0,10000,15000,11,42320,64,0,0,0,0,2,0,0,0,0,0,0,0," - Coup de tÃªte (confusion 3s)"),
 (@ENTRY,0,1,0,9,0,100,0,0,10,8000,14000,11,15548,0,0,0,0,0,1,0,0,0,0,0,0,0,"Coup de tonnerre"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,5000,7000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure"),
 (@ENTRY,0,15,0,25,0,100,0,0,0,0,0,8,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Defensif au spawn");
@@ -390,7 +390,7 @@ SET @ENTRY := 9162;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,9,0,75,0,0,5,10000,10000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"Déchirure du tendon"),
+(@ENTRY,0,0,0,9,0,75,0,0,5,10000,10000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"DÃ©chirure du tendon"),
 (@ENTRY,0,1,0,0,0,50,0,3000,3500,5000,8000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure");
 
 UPDATE `creature_template` SET `HealthModifier` = 1.1,`faction` = 103, `unit_flags` = 0, `DamageModifier` = 3 WHERE (entry = 9167);
@@ -401,7 +401,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,4,0,75,1,0,0,0,0,11,66060,0,0,0,0,0,1,0,0,0,0,0,0,0,"* Sprint"),
 (@ENTRY,0,17,0,0,0,100,0,2000,3000,4000,8000,11,163716,0,0,0,0,0,2,0,0,0,0,0,0,0,"- Attaque : Griffure de serres"),
-(@ENTRY,0,22,0,0,0,30,0,3000,5500,16500,18500,11,3427,0,0,0,0,0,2,0,0,0,0,0,0,0,"Blessure infectée (dégâts physiques + 5%/20s)"),
+(@ENTRY,0,22,0,0,0,30,0,3000,5500,16500,18500,11,3427,0,0,0,0,0,2,0,0,0,0,0,0,0,"Blessure infectÃ©e (dÃ©gÃ¢ts physiques + 5%/20s)"),
 (@ENTRY,0,2000,0,2,0,50,0,1,50,10000,14000,11,7399,0,0,0,0,0,2,0,0,0,0,0,0,0,"Terrifier");
 
 UPDATE `creature_template` SET `HealthModifier` = 1.5 WHERE (entry = 9166);
@@ -410,9 +410,9 @@ SET @ENTRY := 9166;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,11,0,4,0,100,0,0,0,20000,20000,11,157347,0,0,0,0,0,2,0,0,0,0,0,0,0,"* Charge embrasée+ projette loin en arriere"),
+(@ENTRY,0,11,0,4,0,100,0,0,0,20000,20000,11,157347,0,0,0,0,0,2,0,0,0,0,0,0,0,"* Charge embrasÃ©e+ projette loin en arriere"),
 (@ENTRY,0,17,0,0,0,100,0,2000,3000,4000,6000,11,163716,0,0,0,0,0,2,0,0,0,0,0,0,0,"- Attaque : Griffure de serres"),
-(@ENTRY,0,22,0,0,0,75,0,3000,5500,16500,18500,11,3427,0,0,0,0,0,2,0,0,0,0,0,0,0,"Blessure infectée (dégâts physiques + 5%/20s)");
+(@ENTRY,0,22,0,0,0,75,0,3000,5500,16500,18500,11,3427,0,0,0,0,0,2,0,0,0,0,0,0,0,"Blessure infectÃ©e (dÃ©gÃ¢ts physiques + 5%/20s)");
 
 UPDATE `creature_template` SET `HealthModifier` = 3, `ArmorModifier` = 2.5,`scale` = 3,`DamageModifier` = 3 WHERE (entry = 6510);
 -- Bloodpetal Flayer SAI
@@ -420,7 +420,7 @@ SET @ENTRY := 6510;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,11,0,100,1,0,0,0,0,11,14110,0,0,0,0,0,2,0,0,0,0,0,0,0,"Poison Pétale-de-sang"),
+(@ENTRY,0,0,0,11,0,100,1,0,0,0,0,11,14110,0,0,0,0,0,2,0,0,0,0,0,0,0,"Poison PÃ©tale-de-sang"),
 (@ENTRY,0,1,0,9,0,100,0,0,5,6000,8000,11,14112,0,0,0,0,0,2,0,0,0,0,0,0,0,"Vigne flagellante"),
 (@ENTRY,0,10,0,9,0,75,0,10,35,10000,10000,11,339,0,0,0,0,0,2,0,0,0,0,0,0,0,"Sarments"),
 (@ENTRY,0,11,0,9,0,75,0,0,5,10000,10000,11,339,2,0,0,0,0,2,0,0,0,0,0,0,0,"Uppercut");
@@ -431,9 +431,9 @@ SET @ENTRY := 6509;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,0,0,100,1,0,0,7000,7000,11,14110,32,0,0,0,0,2,0,0,0,0,0,0,0,"Poison Pétale-de-sang 14110"),
+(@ENTRY,0,0,0,0,0,100,1,0,0,7000,7000,11,14110,32,0,0,0,0,2,0,0,0,0,0,0,0,"Poison PÃ©tale-de-sang 14110"),
 (@ENTRY,0,1,0,9,0,100,0,0,5,10000,10000,11,6607,2,0,0,0,0,2,0,0,0,0,0,0,0,"Fouet"),
-(@ENTRY,0,2,0,9,0,100,0,0,5,5000,5000,11,79175,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coupe frénétique");
+(@ENTRY,0,2,0,9,0,100,0,0,5,5000,5000,11,79175,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coupe frÃ©nÃ©tique");
 
 UPDATE `creature_template` SET `ArmorModifier` = 2, `DamageModifier` = 4 WHERE (entry = 6512);
 -- Bloodpetal Trapper SAI
@@ -441,7 +441,7 @@ SET @ENTRY := 6512;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,0,0,100,1,0,0,5000,5000,11,14110,32,0,0,0,0,2,0,0,0,0,0,0,0,"Poison Pétale-de-sang 14110"),
+(@ENTRY,0,0,0,0,0,100,1,0,0,5000,5000,11,14110,32,0,0,0,0,2,0,0,0,0,0,0,0,"Poison PÃ©tale-de-sang 14110"),
 (@ENTRY,0,1,0,9,0,100,0,5,35,9000,12000,11,11922,32,0,0,0,0,2,0,0,0,0,0,0,0,"Sarments");
 
 UPDATE `creature_template` SET `HealthModifier` = 1.5, `ArmorModifier` = 2, `DamageModifier` = 3,`faction` = 48,`scale` = 1.5 WHERE (entry = 6511);
@@ -451,7 +451,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,1,0,9,0,100,0,0,5,6000,8000,11,82803,1,0,0,0,0,2,0,0,0,0,0,0,0,"Rafale flagellante"),
-(@ENTRY,0,2,0,0,0,100,0,0,0,7000,7000,11,82803,2,0,0,0,0,2,0,0,0,0,0,0,0,"Poison Pétale-de-sang 14110");
+(@ENTRY,0,2,0,0,0,100,0,0,0,7000,7000,11,82803,2,0,0,0,0,2,0,0,0,0,0,0,0,"Poison PÃ©tale-de-sang 14110");
 
 UPDATE `creature_template` SET `scale` = 1.5, `HealthModifier` = 1.3, `ArmorModifier` = 1.5, `DamageModifier` = 3 WHERE (entry = 6520);
 -- Scorching Elemental SAI
@@ -459,7 +459,7 @@ SET @ENTRY := 6520;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,0,0,100,0,0,0,3000,5000,11,13878,0,0,0,0,0,2,0,0,0,0,0,0,0,"Brûlure"),
+(@ENTRY,0,0,0,0,0,100,0,0,0,3000,5000,11,13878,0,0,0,0,0,2,0,0,0,0,0,0,0,"BrÃ»lure"),
 (@ENTRY,0,10,0,2,0,50,0,1,30,20000,20000,11,31661,0,0,0,0,0,1,0,0,0,0,0,0,0,"Souffle du dragon");
 
 UPDATE `creature_template` SET  `HealthModifier` = 1.3, `ArmorModifier` = 1.5, `DamageModifier` = 3 WHERE (entry = 6521);
@@ -467,10 +467,10 @@ SET @ENTRY := 6521;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,0,0,100,0,0,0,3000,5000,11,13878,0,0,0,0,0,2,0,0,0,0,0,0,0,"Brûlure");
+(@ENTRY,0,0,0,0,0,100,0,0,0,3000,5000,11,13878,0,0,0,0,0,2,0,0,0,0,0,0,0,"BrÃ»lure");
 
 UPDATE `creature_template` SET `scale` = 2, `rank` = 4, `HealthModifier` = 3.5, `ArmorModifier` = 2, `DamageModifier` = 4, `mechanic_immune_mask` = 68535 WHERE (entry = 9376);
-REPLACE INTO `world`.`creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES ('9376', '0', '0', '0', '0', '0', '82790');
+REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES ('9376', '0', '0', '0', '0', '0', '82790');
 -- Blazerunner SAI
 SET @ENTRY := 9376;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
@@ -479,14 +479,14 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,1,0,9,0,100,0,0,10,10000,20000,11,17277,0,0,0,0,0,1,0,0,0,0,0,0,0,"Vague explosive"),
 (@ENTRY,0,2,0,8,0,100,0,14247,0,3500,3500,28,13913,0,0,0,0,0,1,0,0,0,0,0,0,0,"Blazerunner - On Spellhit 'Blazerunner Dispel' - Remove Aura 'Blazerunner's Aura'");
 
-UPDATE `world`.`creature_template_addon` SET `bytes2` = '0' WHERE `creature_template_addon`.`entry` = 6559;
+UPDATE `creature_template_addon` SET `bytes2` = '0' WHERE `creature_template_addon`.`entry` = 6559;
 UPDATE `creature_template` SET `HealthModifier` = 1.5, `ArmorModifier` = 0.75 WHERE (entry = 6559);
 -- Glutinous Ooze SAI
 SET @ENTRY := 6559;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,0,0,100,0,0,0,3000,3000,11,14147,32,0,0,0,0,1,0,0,0,0,0,0,0,"Gelée acide");
+(@ENTRY,0,0,0,0,0,100,0,0,0,3000,3000,11,14147,32,0,0,0,0,1,0,0,0,0,0,0,0,"GelÃ©e acide");
 
 UPDATE `creature_template` SET `HealthModifier` = 1.5, `ArmorModifier` = 2.5, `DamageModifier` = 2.5 WHERE (entry = 6527);
 -- Tar Creeper SAI
@@ -495,8 +495,8 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,9,0,50,1,0,5,10000,10000,11,14180,0,0,0,0,0,1,0,0,0,0,0,0,0,"Goudron poisseux"),
-(@ENTRY,0,1,0,9,0,100,0,0,10,14000,19000,11,5568,0,0,0,0,0,1,0,0,0,0,0,0,0,"Piétiner"),
-(@ENTRY,0,2,0,4,0,100,0,0,0,0,0,11,14797,0,0,0,0,0,2,0,0,0,0,0,0,0,"Goudron brûlant");
+(@ENTRY,0,1,0,9,0,100,0,0,10,14000,19000,11,5568,0,0,0,0,0,1,0,0,0,0,0,0,0,"PiÃ©tiner"),
+(@ENTRY,0,2,0,4,0,100,0,0,0,0,0,11,14797,0,0,0,0,0,2,0,0,0,0,0,0,0,"Goudron brÃ»lant");
 
 UPDATE `creature_template` SET `HealthModifier` = 1.75, `ArmorModifier` = 3, `DamageModifier` = 2.5 WHERE (entry = 6527);
 -- Tar Beast SAI
@@ -505,8 +505,8 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,9,0,40,1,0,5,10000,10000,11,14180,0,0,0,0,0,1,0,0,0,0,0,0,0,"Goudron poisseux"),
-(@ENTRY,0,1,0,0,0,100,0,2000,2000,6000,6000,11,79175,0,0,0,0,0,1,0,0,0,0,0,0,0,"Coupe frénétique"),
-(@ENTRY,0,2,0,4,0,75,0,0,0,0,0,11,14797,0,0,0,0,0,2,0,0,0,0,0,0,0,"Goudron brûlant");
+(@ENTRY,0,1,0,0,0,100,0,2000,2000,6000,6000,11,79175,0,0,0,0,0,1,0,0,0,0,0,0,0,"Coupe frÃ©nÃ©tique"),
+(@ENTRY,0,2,0,4,0,75,0,0,0,0,0,11,14797,0,0,0,0,0,2,0,0,0,0,0,0,0,"Goudron brÃ»lant");
 
 UPDATE `creature_template` SET `HealthModifier` = 1.75, `ArmorModifier` = 2.5, `DamageModifier` = 4 WHERE (entry = 6519);
 -- Tar Lord SAI
@@ -516,7 +516,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,9,0,25,1,0,5,10000,10000,11,14180,0,0,0,0,0,1,0,0,0,0,0,0,0,"Goudron poisseux"),
 (@ENTRY,0,1,0,9,0,100,0,5,30,12000,17000,11,12747,0,0,0,0,0,2,0,0,0,0,0,0,0,"Sarments"),
-(@ENTRY,0,2,0,2,0,100,1,0,40,6000,6000,11,11640,0,0,0,0,0,1,0,0,0,0,0,0,0,"Rénovation 0-40% Health"),
+(@ENTRY,0,2,0,2,0,100,1,0,40,6000,6000,11,11640,0,0,0,0,0,1,0,0,0,0,0,0,0,"RÃ©novation 0-40% Health"),
 (@ENTRY,0,10,0,9,0,50,0,0,5,8000,8000,11,80182,0,0,0,0,0,1,0,0,0,0,0,0,0,"Uppercut"),
 (@ENTRY,0,15,0,9,0,50,0,0,10,10000,10000,11,79872,0,0,0,0,0,1,0,0,0,0,0,0,0,"Onde de choc");
 
@@ -527,7 +527,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,1,0,0,0,100,0,0,0,10000,15000,11,7279,0,0,0,0,0,2,0,0,0,0,0,0,0,"Vase noire"),
-(@ENTRY,0,2,0,4,0,100,0,0,0,0,0,11,14797,0,0,0,0,0,2,0,0,0,0,0,0,0,"Goudron brûlant"),
+(@ENTRY,0,2,0,4,0,100,0,0,0,0,0,11,14797,0,0,0,0,0,2,0,0,0,0,0,0,0,"Goudron brÃ»lant"),
 (@ENTRY,0,10,0,9,0,100,0,0,10,6000,10000,11,8147,0,0,0,0,0,1,0,0,0,0,0,0,0,"Coup de tonnerre");
 
 UPDATE `creature_template` SET `ArmorModifier` = 1.25, `DamageModifier` = 3 WHERE (entry = 6514);
@@ -538,7 +538,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,4,0,50,0,0,0,0,0,11,81219,0,0,0,0,0,1,0,0,0,0,0,0,0,"Cri de guerre"),
 (@ENTRY,0,11,0,1,0,60,0,2500,4000,300,20000,11,70485,66,0,0,0,0,1,0,0,0,0,0,0,0,"Bond aleatoire"),
-(@ENTRY,0,12,0,0,0,35,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"Piétinement"),
+(@ENTRY,0,12,0,0,0,35,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"PiÃ©tinement"),
 (@ENTRY,0,13,0,0,0,100,0,0,0,2000,2000,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Bug mouvement en combat"),
 (@ENTRY,0,15,0,0,0,15,0,1000,3000,4000,6000,11,152679,0,0,0,0,0,2,0,0,0,0,0,0,0,"Revers violent");
 
@@ -550,7 +550,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,4,0,50,0,0,0,0,0,11,81219,0,0,0,0,0,1,0,0,0,0,0,0,0,"Cri de guerre"),
 (@ENTRY,0,11,0,1,0,60,0,2500,4000,300,20000,11,70485,66,0,0,0,0,1,0,0,0,0,0,0,0,"Bond aleatoire"),
-(@ENTRY,0,12,0,0,0,35,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"Piétinement"),
+(@ENTRY,0,12,0,0,0,35,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"PiÃ©tinement"),
 (@ENTRY,0,13,0,0,0,100,0,0,0,2000,2000,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Bug mouvement en combat"),
 (@ENTRY,0,15,0,0,0,15,0,1000,3000,4000,6000,11,152679,0,0,0,0,0,2,0,0,0,0,0,0,0,"Revers violent");
 
@@ -562,7 +562,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,4,0,50,0,0,0,0,0,11,81219,0,0,0,0,0,1,0,0,0,0,0,0,0,"Cri de guerre"),
 (@ENTRY,0,11,0,1,0,60,0,2500,4000,300,20000,11,70485,66,0,0,0,0,1,0,0,0,0,0,0,0,"Bond aleatoire"),
-(@ENTRY,0,12,0,0,0,35,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"Piétinement"),
+(@ENTRY,0,12,0,0,0,35,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"PiÃ©tinement"),
 (@ENTRY,0,13,0,0,0,100,0,0,0,2000,2000,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Bug mouvement en combat"),
 (@ENTRY,0,15,0,0,0,15,0,1000,3000,4000,6000,11,152679,0,0,0,0,0,2,0,0,0,0,0,0,0,"Revers violent");
 
@@ -573,7 +573,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,4,0,50,0,0,0,0,0,11,81219,0,0,0,0,0,1,0,0,0,0,0,0,0,"Cri de guerre"),
-(@ENTRY,0,12,0,0,0,35,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"Piétinement"),
+(@ENTRY,0,12,0,0,0,35,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"PiÃ©tinement"),
 (@ENTRY,0,13,0,0,0,100,0,0,0,2000,2000,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Bug mouvement en combat"),
 (@ENTRY,0,15,0,9,0,50,0,0,10,6000,10000,11,8147,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coup de tonnerre ");
 
@@ -586,7 +586,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,4,0,50,0,0,0,0,0,11,81219,0,0,0,0,0,1,0,0,0,0,0,0,0,"Cri de guerre"),
 (@ENTRY,0,11,0,0,0,60,0,2500,4000,5000,5000,11,70485,0,0,0,0,0,1,0,0,0,0,0,0,0,"Bond aleatoire"),
-(@ENTRY,0,12,0,0,0,50,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"Piétinement"),
+(@ENTRY,0,12,0,0,0,50,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"PiÃ©tinement"),
 (@ENTRY,0,13,0,0,0,100,0,0,0,2000,2000,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Bug mouvement en combat"),
 (@ENTRY,0,15,0,0,0,25,0,1000,3000,4000,6000,11,152679,66,0,0,0,0,2,0,0,0,0,0,0,0,"Revers violent");
 
@@ -598,7 +598,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,4,0,50,0,0,0,0,0,11,81219,0,0,0,0,0,1,0,0,0,0,0,0,0,"Cri de guerre"),
-(@ENTRY,0,12,0,0,0,50,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"Piétinement"),
+(@ENTRY,0,12,0,0,0,50,0,2000,3000,3000,6000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"PiÃ©tinement"),
 (@ENTRY,0,13,0,0,0,100,0,0,0,2000,2000,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Bug mouvement en combat"),
 (@ENTRY,0,15,0,0,0,25,0,1000,3000,4000,6000,11,152679,66,0,0,0,0,2,0,0,0,0,0,0,0,"Revers violent");
 
@@ -608,7 +608,7 @@ SET @ENTRY := 38254;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,0,0,100,0,2000,2000,5000,8000,11,83383,0,0,0,0,0,2,0,0,0,0,0,0,0,"Event à vapeur"),
+(@ENTRY,0,0,0,0,0,100,0,2000,2000,5000,8000,11,83383,0,0,0,0,0,2,0,0,0,0,0,0,0,"Event Ã  vapeur"),
 (@ENTRY,0,10,0,9,0,100,0,0,5,4000,4000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"griffe");
 
 
@@ -641,7 +641,7 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 (21070781, 9683, 1, 0, 0, 1, 0, 0, 0, 0, -7830.8, -1686.08, -271.953, 1.51329, 300, 10, 0, 5520, 0, 1, 0, 0, 0, 0);
 
 /****************************************************************************************/
-/* Un appât pour Lar'korwi 24733 */
+/* Un appÃ¢t pour Lar'korwi 24733 */
 UPDATE `creature_template` SET `HealthModifier` = 3, `ArmorModifier` = 1.25, `DamageModifier` = 4 WHERE (entry = 9684);
 REPLACE INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `VerifiedBuild`) VALUES
 (21024600, 172619, 1, 0, 0, 1, 0, 0, -6976.9, -2060.44, -271.287, 0.643443, 0, 0, 0.3162, 0.948692, 300, 0, 1, 0);
@@ -649,13 +649,13 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 (21070786, 9684, 1, 0, 0, 1, 0, 0, 0, 0, -6970.91, -2053.22, -271.82, 4.17183, 300, 0, 0, 8832, 0, 0, 0, 0, 0, 0);
 
 /****************************************************************************************/
-/* Un camp de recherche abandonné 24866 */
+/* Un camp de recherche abandonnÃ© 24866 */
 DELETE FROM `creature_queststarter` WHERE `quest` = 24866;
 
 /****************************************************************************************/
 /* Le Pylone nord 24722 + est 24721 + ouest 24723 */
 
-UPDATE `locales_gossip_menu_option` SET `option_text_loc2` = 'Examinez ce pylône.' WHERE `locales_gossip_menu_option`.`menu_id` = 2177 AND `locales_gossip_menu_option`.`id` = 0;
+UPDATE `locales_gossip_menu_option` SET `option_text_loc2` = 'Examinez ce pylÃ´ne.' WHERE `locales_gossip_menu_option`.`menu_id` = 2177 AND `locales_gossip_menu_option`.`id` = 0;
 
 
 UPDATE `gameobject_template` SET `IconName` = 'Quest' WHERE (entry = 164955);
@@ -714,7 +714,7 @@ REPLACE INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`,
 -- FULL `quest_objectives` of QuestID 24735
 DELETE FROM `quest_objectives` WHERE (QuestID = 24735);
 INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `ObjectID`, `Amount`, `Flags`, `UnkFloat`, `Description`, `VerifiedBuild`) VALUES
-(15500011, 24735, 0, 0, 9999, 1, 0, 0, 'Escortez Ringo jusqu\'au Camp retranché des Marshal', 0);
+(15500011, 24735, 0, 0, 9999, 1, 0, 0, 'Escortez Ringo jusqu\'au Camp retranchÃ© des Marshal', 0);
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (9999, 0, 0, 0, 4097, 93, '43905'); # Ivre
 UPDATE `creature_template` SET `unit_flags` = 131072, `type_flags` = 0 WHERE (entry = 9999);
@@ -728,7 +728,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,20,0,61,0,100,0,0,0,0,0,41,2000,0,0,0,0,0,1,0,0,0,0,0,0,0,"Un peu d'aide de mes amis 24735 : despawn");
 
 /****************************************************************************************/
-/* Porté par les vagues  24686 */
+/* PortÃ© par les vagues  24686 */
 UPDATE `quest_objectives_locale` SET `Description` = 'Graine de flagellant d''Un''Goro' WHERE `quest_objectives_locale`.`ID` = 267217 AND `quest_objectives_locale`.`locale` = 'frFR';
 UPDATE `creature_template` SET `scale` = 1.5,`npcflag` = 1 WHERE (entry = 38202);
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (38202, 0, 0, 33554432, 1, 0, NULL);        #  Voler
@@ -738,8 +738,8 @@ SET @ENTRY := 38202;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,1,0,64,0,100,0,0,0,0,0,41,1000,0,0,0,0,0,1,0,0,0,0,0,0,0,"Porté par les vagues  24686 : despawn"),
-(@ENTRY,0,10,0,64,0,100,1,0,0,0,0,33,38202,0,0,0,0,0,7,0,0,0,0,0,0,0,"Porté par les vagues  24686 : credit");
+(@ENTRY,0,1,0,64,0,100,0,0,0,0,0,41,1000,0,0,0,0,0,1,0,0,0,0,0,0,0,"PortÃ© par les vagues  24686 : despawn"),
+(@ENTRY,0,10,0,64,0,100,1,0,0,0,0,33,38202,0,0,0,0,0,7,0,0,0,0,0,0,0,"PortÃ© par les vagues  24686 : credit");
 
 DELETE FROM `quest_objectives` WHERE (QuestID = 24686);
 INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `ObjectID`, `Amount`, `Flags`, `UnkFloat`, `Description`, `VerifiedBuild`) VALUES
@@ -799,7 +799,7 @@ SET @ENTRY := 9162;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,9,0,75,0,0,5,10000,10000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"Déchirure du tendon"),
+(@ENTRY,0,0,0,9,0,75,0,0,5,10000,10000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"DÃ©chirure du tendon"),
 (@ENTRY,0,1,0,0,0,50,0,3000,3500,5000,8000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure"),
 (@ENTRY,0,10,0,8,0,100,0,71775,0,3000,3000,29,3,0,0,0,0,0,7,0,0,0,0,0,0,0,"L'art d'accommoder les restes 24697 : suivre joueur"),
 (@ENTRY,0,15,20,75,0,100,1,0,38354,5,3000,33,38355,0,0,0,0,0,2,0,0,0,0,0,0,0,"L'art d'accommoder les restes 24697 : credit"),
@@ -814,7 +814,7 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 (21070862, 9162, 1, 0, 0, 1, 0, 0, 0, 0, -7436.53, -1415.36, -268.274, 0.83841, 300, 5, 0, 5110, 0, 1, 0, 0, 0, 0);
 
 /****************************************************************************************/
-/* Ci-gît Dadanga 24702 - désactivée */
+/* Ci-gÃ®t Dadanga 24702 - dÃ©sactivÃ©e */
 DELETE FROM `gameobject_queststarter` WHERE (quest = 24702);
 DELETE FROM `gameobject_questender` WHERE (quest = 24702);
 
@@ -824,7 +824,7 @@ REPLACE INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`, `VerifiedB
 (4501, 0, 0, -7545, -1502, 20253);
 
 /****************************************************************************************/
-/* Réparer A-Mi 01 24715 */
+/* RÃ©parer A-Mi 01 24715 */
 REPLACE INTO `item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES ('50238', '50236', '0', '100', '1', '1', '0', '1', '1', NULL);
 
 /****************************************************************************************/
@@ -839,52 +839,52 @@ REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 UPDATE `quest_template_addon` SET `PrevQuestID` = 24703 WHERE (ID = 24704);
 
 /****************************************************************************************/
-/* Recherche damoiselle en détresse 24705 */
+/* Recherche damoiselle en dÃ©tresse 24705 */
 UPDATE `quest_template_addon` SET `PrevQuestID` = 24703 WHERE (ID = 24705);
 
 REPLACE INTO `gossip_menu_option` (`menu_id`, `id`, `option_icon`, `option_text`, `OptionBroadcastTextID`, `option_id`, `npc_option_npcflag`, `action_menu_id`, `action_poi_id`, `box_coded`, `box_money`, `box_text`, `BoxBroadcastTextID`) VALUES 
 ('10995', '0', '0', 'Etes vous en danger gente damoiselle ?', '0', '1', '1', '0', '0', '0', '0', NULL, '0');
 
 REPLACE INTO `creature_text` (`entry`, `groupid`, `id`, `text`, `type`, `language`, `probability`, `emote`, `duration`, `sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
-(38238, 0, 0, "Ai je l'aire d'une damoiselle ?! ... C'est encore ce Maximillian de Comté-du-Nord qui vous envoi hein ! ... dites lui donc que je suis reparti a Lune d'argent et que je ne crains plus rien , et trouvez lui une paire de lunette ... je ne suis pas une DAMOISELLE ! ", 12, 0, 0, 1, 500, 0, 0, 0, "Recherche damoiselle en détresse 24705");
+(38238, 0, 0, "Ai je l'aire d'une damoiselle ?! ... C'est encore ce Maximillian de ComtÃ©-du-Nord qui vous envoi hein ! ... dites lui donc que je suis reparti a Lune d'argent et que je ne crains plus rien , et trouvez lui une paire de lunette ... je ne suis pas une DAMOISELLE ! ", 12, 0, 0, 1, 500, 0, 0, 0, "Recherche damoiselle en dÃ©tresse 24705");
 -- Damsel by the Shore SAI
 SET @ENTRY := 38238;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,10,0,62,0,100,0,10995,0,0,0,1,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en détresse 24705 : blabla"),
-(@ENTRY,0,15,0,62,0,100,0,10995,0,0,0,33,38238,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en détresse 24705 : credit");
+(@ENTRY,0,10,0,62,0,100,0,10995,0,0,0,1,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en dÃ©tresse 24705 : blabla"),
+(@ENTRY,0,15,0,62,0,100,0,10995,0,0,0,33,38238,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en dÃ©tresse 24705 : credit");
 
 UPDATE `creature_template` SET `gossip_menu_id` = 10995, `npcflag` = 1 WHERE (entry = 38239);
 REPLACE INTO `creature_text` (`entry`, `groupid`, `id`, `text`, `type`, `language`, `probability`, `emote`, `duration`, `sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
-(38239, 0, 0, "Ne me dites pas que c'est encore ce Maximachain du Comté-du-Nord qui vous envoi  ! ... Si je comprend bien a chaque nouvel aventurier qui passe par la je vais y avoir droit ... Dites lui que je suis REPARTIE sur vos conseils a Hurlevent !!!", 12, 0, 0, 1, 500, 0, 0, 0, "Recherche damoiselle en détresse 24705");
+(38239, 0, 0, "Ne me dites pas que c'est encore ce Maximachain du ComtÃ©-du-Nord qui vous envoi  ! ... Si je comprend bien a chaque nouvel aventurier qui passe par la je vais y avoir droit ... Dites lui que je suis REPARTIE sur vos conseils a Hurlevent !!!", 12, 0, 0, 1, 500, 0, 0, 0, "Recherche damoiselle en dÃ©tresse 24705");
 -- Damsel in the Cliffs SAI
 SET @ENTRY := 38239;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,10,0,62,0,100,0,10995,0,0,0,1,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en détresse 24705 : blabla"),
-(@ENTRY,0,15,0,62,0,100,0,10995,0,0,0,33,38239,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en détresse 24705 : credit");
+(@ENTRY,0,10,0,62,0,100,0,10995,0,0,0,1,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en dÃ©tresse 24705 : blabla"),
+(@ENTRY,0,15,0,62,0,100,0,10995,0,0,0,33,38239,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en dÃ©tresse 24705 : credit");
 
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES (38240, 0, 0, 0, 0, 0, '81041'); # Porte Sac
 UPDATE `creature_template` SET `gossip_menu_id` = 10995, `npcflag` = 1 WHERE (entry = 38240);
 REPLACE INTO `creature_text` (`entry`, `groupid`, `id`, `text`, `type`, `language`, `probability`, `emote`, `duration`, `sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
-(38240, 0, 0, "Ho non .. trois fois par jours ... je n'en peut plus de ce chevalier Maximachinchose ... Dites lui qu'il n'y a plus rien a sauver , qu'il arrive trop tard et que je me suis fais dévorer sous vos yeux par un énorrrrrme Pterreurdactyle !", 12, 0, 0, 1, 500, 0, 0, 0, "Recherche damoiselle en détresse 24705");
+(38240, 0, 0, "Ho non .. trois fois par jours ... je n'en peut plus de ce chevalier Maximachinchose ... Dites lui qu'il n'y a plus rien a sauver , qu'il arrive trop tard et que je me suis fais dÃ©vorer sous vos yeux par un Ã©norrrrrme Pterreurdactyle !", 12, 0, 0, 1, 500, 0, 0, 0, "Recherche damoiselle en dÃ©tresse 24705");
 -- Damsel of the North SAI
 SET @ENTRY := 38240;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,10,0,62,0,100,0,10995,0,0,0,1,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en détresse 24705 : blabla"),
-(@ENTRY,0,15,0,62,0,100,0,10995,0,0,0,33,38240,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en détresse 24705 : credit");
+(@ENTRY,0,10,0,62,0,100,0,10995,0,0,0,1,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en dÃ©tresse 24705 : blabla"),
+(@ENTRY,0,15,0,62,0,100,0,10995,0,0,0,33,38240,0,0,0,0,0,7,0,0,0,0,0,0,0,"Recherche damoiselle en dÃ©tresse 24705 : credit");
 
 /****************************************************************************************/
 /* Les esprits des sources de Golakka 24706 */
 UPDATE `quest_template_addon` SET `PrevQuestID` = 24703 WHERE (ID = 24706);
 UPDATE `quest_template` SET `RewardDisplaySpell` = 0, `RewardSpell` = 0 WHERE (ID = 24706);
 UPDATE `quest_template_addon` SET `SourceSpellID` = 0 WHERE (ID = 24706);
-UPDATE `world`.`quest_template_locale` SET `LogDescription` = 'Tuer 4 Furies de vapeur.', `QuestDescription` = 'Un peu de sérieux, maintenant, $n. Une mission importante s’offre à nous. Les perfides dragons qui tourmentent cette vallée continueront leurs exactions tant que nous n’aurons pas détruit leur répugnante matriarche. Mais avant même de tenter pareille entreprise, nous devons régler un autre probleme . Ce probleme je l’ai vue se manifester sous la forme d’esprits, flottant non loin des rives des sources de Golakka. ' WHERE `quest_template_locale`.`ID` = 24706 AND `quest_template_locale`.`locale` = 'frFR';
-UPDATE `world`.`quest_objectives_locale` SET `Description` = 'Furie de vapeur' WHERE `quest_objectives_locale`.`ID` = 266337 AND `quest_objectives_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `LogDescription` = 'Tuer 4 Furies de vapeur.', `QuestDescription` = 'Un peu de sÃ©rieux, maintenant, $n. Une mission importante sâ€™offre Ã  nous. Les perfides dragons qui tourmentent cette vallÃ©e continueront leurs exactions tant que nous nâ€™aurons pas dÃ©truit leur rÃ©pugnante matriarche. Mais avant mÃªme de tenter pareille entreprise, nous devons rÃ©gler un autre probleme . Ce probleme je lâ€™ai vue se manifester sous la forme dâ€™esprits, flottant non loin des rives des sources de Golakka. ' WHERE `quest_template_locale`.`ID` = 24706 AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_objectives_locale` SET `Description` = 'Furie de vapeur' WHERE `quest_objectives_locale`.`ID` = 266337 AND `quest_objectives_locale`.`locale` = 'frFR';
 DELETE FROM `quest_objectives` WHERE (QuestID = 24706) AND (ID IN (266337));
 INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `ObjectID`, `Amount`, `Flags`, `UnkFloat`, `Description`, `VerifiedBuild`) VALUES
 (266337, 24706, 0, 0, 38254, 4, 0, 0, 'Furies de vapeur', 20444);
@@ -904,10 +904,7 @@ INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `Object
 
 /****************************************************************************************/
 /* Gormashh le glutineux 24699 */
-REPLACE INTO `world`.`creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES ('38307', '50374', '0', '100', '1', '1', '0', '1', '1', NULL);
+REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES ('38307', '50374', '0', '100', '1', '1', '0', '1', '1', NULL);
 
 /****************************************************************************************/
-/* 
 
-/****************************************************************************************/
-/* 

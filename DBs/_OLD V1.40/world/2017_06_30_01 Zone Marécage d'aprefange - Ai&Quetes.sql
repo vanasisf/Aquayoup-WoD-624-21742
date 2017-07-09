@@ -1,9 +1,9 @@
 /****************************************************************************************************************************************/
 /*	Mise a jour de la DB Stitchland pour World of Draenor 6.24 - 21742 - Developpement du Repack & support sur http://aquayoup.123.fr */
-/* Autant que possible préférez la DB complete aux updates . Les updates ne comprennent que les modifications importantes 		 		    */
+/* Autant que possible prÃ©fÃ©rez la DB complete aux updates . Les updates ne comprennent que les modifications importantes 		 		    */
 /* comme les debugs de quetes mais ne comprend pas forcement des details cosmetiques ou petits spawns											    */
 /*																																																				    */
-/*	Stitch 2017-06 - V1.0				AI & Quetes    Marécage d'aprefange																				 		 			    */
+/*	Stitch 2017-06 - V1.0				AI & Quetes    MarÃ©cage d'aprefange																				 		 			    */
 /****************************************************************************************************************************************/
 
  SET NAMES utf8 ;
@@ -11,7 +11,7 @@
 /****************************************************************************************/
 /* 				Divers                                                                                                         					*/
 /****************************************************************************************/
-DELETE FROM `spell_script_names` WHERE `spell_script_names`.`spell_id` = 42492 AND `spell_script_names`.`ScriptName` = 'spell_energize_aoe';
+DELETE FROM `spell_script_names` WHERE `spell_id` = 42492 AND `ScriptName` = 'spell_energize_aoe';
 
 UPDATE `gameobject_template` SET `Data1` = 207475 WHERE (entry = 207475);
 REPLACE INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
@@ -45,14 +45,14 @@ REPLACE INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`,
 #---Portail
 DELETE FROM `creature_template` WHERE (entry = 15000210);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `femaleName`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `exp_unk`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `dmgschool`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `type_flags2`, `lootid`, `pickpocketloot`, `skinloot`, `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`, `spell1`, `spell2`, `spell3`, `spell4`, `spell5`, `spell6`, `spell7`, `spell8`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HoverHeight`, `HealthModifier`, `HealthModifierExtra`, `ManaModifier`, `ManaModifierExtra`, `ArmorModifier`, `DamageModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
-(15000210, 0, 0, 0, 0, 0, 26502, 0, 0, 0, 'Marécage d\'aprefange (H2)', '', '', '', 0, 85, 85, 0, 0, 35, 16777220, 1, 0.14285999536514, 0.75, 0, 0, 2000, 2000, 1, 1, 1, 131586, 2048, 0, 0, 0, 0, 0, 9, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69814, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 4, 1, 10, 1, 1, 1, 1, 1, 1, 0, 0, 1, 2296625, 2, '', 15595);
+(15000210, 0, 0, 0, 0, 0, 26502, 0, 0, 0, 'MarÃ©cage d\'aprefange (H2)', '', '', '', 0, 85, 85, 0, 0, 35, 16777220, 1, 0.14285999536514, 0.75, 0, 0, 2000, 2000, 1, 1, 1, 131586, 2048, 0, 0, 0, 0, 0, 9, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69814, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 4, 1, 10, 1, 1, 1, 1, 1, 1, 0, 0, 1, 2296625, 2, '', 15595);
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (21070985, 15000210, 1, 0, 0, 1, 0, 0, 0, 0, 1591.79, -4334.17, 21.2079, 3.69443, 300, 0, 0, 159740, 0, 0, 0, 0, 0, 0);
 
 /****************************************************************************************/
 /* Un vol pour Theramore 26702 (A2-Cabestan)  -  wp 11043805 - 16227 */
 
-UPDATE `quest_template_locale` SET `QuestDescription` = 'Écoutez, c''est vrai que je n''aime pas particulièrement l''Alliance… mais bon, je ne vous hais pas vraiment non plus.$b$bVotre argent est aussi bon que celui d''un autre. Et quelquefois, même meilleur.$b$bJeyne m''a laissé quelques pièces pour régler vos frais de voyage. Je pense que la personne que vous cherchez en Âprefange se nomme Calia Hastings. Et le meilleur moyen de se rendre là-bas est de parler à notre maître des dirigeable , Elglib Balon. Il vous conduira à elle, si vous voulez. Et ce sera un vol gratuit, grâce à votre amie.' WHERE `quest_template_locale`.`ID` = 26702 AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `QuestDescription` = 'Ã‰coutez, c''est vrai que je n''aime pas particuliÃ¨rement l''Allianceâ€¦ mais bon, je ne vous hais pas vraiment non plus.$b$bVotre argent est aussi bon que celui d''un autre. Et quelquefois, mÃªme meilleur.$b$bJeyne m''a laissÃ© quelques piÃ¨ces pour rÃ©gler vos frais de voyage. Je pense que la personne que vous cherchez en Ã‚prefange se nomme Calia Hastings. Et le meilleur moyen de se rendre lÃ -bas est de parler Ã  notre maÃ®tre des dirigeable , Elglib Balon. Il vous conduira Ã  elle, si vous voulez. Et ce sera un vol gratuit, grÃ¢ce Ã  votre amie.' WHERE `quest_template_locale`.`ID` = 26702 AND `quest_template_locale`.`locale` = 'frFR';
 
 SET @GOSSIP :=65064 ;
 SET @ENTRY := 15000196; 
@@ -248,7 +248,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,9,0,100,0,0,15,21000,25000,11,43130,0,0,0,0,0,2,0,0,0,0,0,0,0,"Withervine Creeper - Within 0-15 Range - Cast 'Creeping Vines'"),
-(@ENTRY,0,10,0,9,0,100,0,0,10,6000,10000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"Piétinement");
+(@ENTRY,0,10,0,9,0,100,0,0,10,6000,10000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"PiÃ©tinement");
 
 UPDATE `creature_template` SET `speed_run` = 1,`ArmorModifier` = 2, `DamageModifier` = 3 WHERE (entry = 4385);
 -- Withervine Rager SAI
@@ -258,7 +258,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,5,10,2,0,100,1,0,25,3000,3000,11,8599,0,0,0,0,0,1,0,0,0,0,0,0,0,"Withervine Rager - Between 0-25% Health - Cast 'Enrage' (No Repeat)"),
 (@ENTRY,0,10,0,61,0,100,0,0,0,0,0,11,80182,0,0,0,0,0,2,0,0,0,0,0,0,0,"Uppercut"),
-(@ENTRY,0,15,0,9,0,100,0,0,10,6000,10000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"Piétinement");
+(@ENTRY,0,15,0,9,0,100,0,0,10,6000,10000,11,83378,0,0,0,0,0,2,0,0,0,0,0,0,0,"PiÃ©tinement");
 
 
 UPDATE `creature_template` SET `faction` = 1077,`unit_flags` = 0, `type_flags` = 4096 WHERE (entry =5184);
@@ -526,7 +526,7 @@ SET @ENTRY := 4401;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,9,0,100,0,0,5,10000,15000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"Déchirure du tendon"),
+(@ENTRY,0,0,0,9,0,100,0,0,5,10000,15000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"DÃ©chirure du tendon"),
 (@ENTRY,0,1,0,2,0,50,1,0,15,2000,2000,25,1,0,0,0,0,0,1,0,0,0,0,0,0,0,"Muckshell Clacker - Between 0-15% Health - Flee For Assist (No Repeat)"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,4000,6000,11,118140,0,0,0,0,0,2,0,0,0,0,0,0,0,"Pince");
 
@@ -536,7 +536,7 @@ SET @ENTRY := 4341;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,9,0,75,0,0,5,14000,14000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"Déchirure du tendon"),
+(@ENTRY,0,0,0,9,0,75,0,0,5,14000,14000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"DÃ©chirure du tendon"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,6000,8000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure");
 
 UPDATE `creature_template` SET `ArmorModifier` = 2 WHERE (entry = 4404);
@@ -565,7 +565,7 @@ SET @ENTRY := 44390;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,0,0,100,0,2000,3000,15000,15000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"Déchirure du tendon"),
+(@ENTRY,0,0,0,0,0,100,0,2000,3000,15000,15000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"DÃ©chirure du tendon"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,6000,10000,11,118140,0,0,0,0,0,2,0,0,0,0,0,0,0,"Pince");
 
 UPDATE `creature_template` SET `KillCredit1` = 23861 WHERE (entry = 23554);
@@ -574,8 +574,8 @@ SET @ENTRY := 23554;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,0,0,0,0,0,11,43127,2,0,0,0,0,2,0,0,0,0,0,0,0,"Présence immatérielle"),
-(@ENTRY,0,1,0,6,0,100,1,0,0,0,0,12,23861,2,15000,0,0,0,1,0,0,0,0,0,0,0,"Qui hante la Colline des sorcières ? 27188 : Invoc Apparition"),
+(@ENTRY,0,0,0,4,0,100,0,0,0,0,0,11,43127,2,0,0,0,0,2,0,0,0,0,0,0,0,"PrÃ©sence immatÃ©rielle"),
+(@ENTRY,0,1,0,6,0,100,1,0,0,0,0,12,23861,2,15000,0,0,0,1,0,0,0,0,0,0,0,"Qui hante la Colline des sorciÃ¨resÂ ? 27188 : Invoc Apparition"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,4000,6000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"griffe");
 
 UPDATE `creature_template` SET `KillCredit1` = 23861 WHERE (entry = 23555);
@@ -583,9 +583,9 @@ SET @ENTRY := 23555;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,1,2,0,100,0,0,40,10000,10000,11,37933,0,0,0,0,0,2,0,0,0,0,0,0,0,"Dévoreur de chair 0-40% Health"),
+(@ENTRY,0,0,1,2,0,100,0,0,40,10000,10000,11,37933,0,0,0,0,0,2,0,0,0,0,0,0,0,"DÃ©voreur de chair 0-40% Health"),
 (@ENTRY,0,1,0,61,0,100,0,0,0,0,0,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,"Risen Husk - Between 0-40% Health - Say Line 0"),
-(@ENTRY,0,5,0,6,0,100,0,0,0,0,0,12,23861,2,15000,0,0,0,1,0,0,0,0,0,0,0,"Qui hante la Colline des sorcières ? 27188 : Invoc Apparition"),
+(@ENTRY,0,5,0,6,0,100,0,0,0,0,0,12,23861,2,15000,0,0,0,1,0,0,0,0,0,0,0,"Qui hante la Colline des sorciÃ¨resÂ ? 27188 : Invoc Apparition"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,4000,6000,11,24187,0,0,0,0,0,2,0,0,0,0,0,0,0,"griffe");
 
 -- Mirefin Murloc SAI
@@ -650,7 +650,7 @@ SET @ENTRY := 4344;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,0,0,100,0,0,0,3500,3500,11,90171,0,0,0,0,0,2,0,0,0,0,0,0,0,"Morsure de la dent ébréchée");
+(@ENTRY,0,0,0,0,0,100,0,0,0,3500,3500,11,90171,0,0,0,0,0,2,0,0,0,0,0,0,0,"Morsure de la dent Ã©brÃ©chÃ©e");
 
 UPDATE `creature_template` SET `DamageModifier` = 2.75 WHERE (entry = 4345);
 -- Drywallow Daggermaw SAI
@@ -696,7 +696,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,0,0,5000,5000,11,13445,32,0,0,0,0,2,0,0,0,0,0,0,0,"Pourfendre"),
-(@ENTRY,0,1,0,9,0,100,0,0,5,20000,20000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"Déchirure du tendon"),
+(@ENTRY,0,1,0,9,0,100,0,0,5,20000,20000,11,3604,0,0,0,0,0,2,0,0,0,0,0,0,0,"DÃ©chirure du tendon"),
 (@ENTRY,0,10,0,0,0,100,0,0,0,4000,6000,11,113687,0,0,0,0,0,2,0,0,0,0,0,0,0,"morsure");
 
 UPDATE `creature_template` SET `modelid1` = 949, `scale` = 0.9, `DamageModifier` = 2.5 WHERE (entry = 4356);
@@ -715,7 +715,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,3000,4500,18000,24000,11,6607,0,0,0,0,0,2,0,0,0,0,0,0,0,"Fouet"),
-(@ENTRY,0,10,0,9,0,100,0,0,5,15000,15000,11,33126,0,0,0,0,0,2,0,0,0,0,0,0,0,"Désarmé"),
+(@ENTRY,0,10,0,9,0,100,0,0,5,15000,15000,11,33126,0,0,0,0,0,2,0,0,0,0,0,0,0,"DÃ©sarmÃ©"),
 (@ENTRY,0,15,0,4,0,50,0,0,0,0,0,11,89712,0,0,0,0,0,2,0,0,0,0,0,0,0,"Griffure bondissante");
 
 -- Firemane Scalebane SAI
@@ -768,7 +768,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 /****************************************************************************************/
 /* 				QUETES              																								 */
 /****************************************************************************************/
-/* quête est marquée comme obsolète */
+/* quÃªte est marquÃ©e comme obsolÃ¨te */
 DELETE FROM `creature_questender` WHERE `quest` = 1281;
 DELETE FROM `creature_questender` WHERE `quest` = 1220;
 DELETE FROM `creature_questender` WHERE `quest` = 1283;
@@ -793,7 +793,7 @@ DELETE FROM `gameobject_queststarter` WHERE  `gameobject_queststarter`.`quest` =
 DELETE FROM `gameobject_queststarter` WHERE  `gameobject_queststarter`.`quest` = 1284;
 DELETE FROM `gameobject_queststarter` WHERE  `gameobject_queststarter`.`quest` = 1238;
 
-/* ------ Suites de quête ------*/
+/* ------ Suites de quÃªte ------*/
 UPDATE `quest_template_addon` SET `PrevQuestID` = 27254 WHERE (ID = 27258);
 
 
@@ -816,10 +816,10 @@ DELETE FROM `creature_queststarter` WHERE (quest = 11204) AND (id IN (4943));
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4943, 11204);
 
 /****************************************************************************************/
-/* Plus qu'une coïncidence 11200 */
+/* Plus qu'une coÃ¯ncidence 11200 */
 DELETE FROM `creature_queststarter` WHERE (quest = 11200) AND (id IN (4926));
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4926, 11200);
-UPDATE `quest_template_locale` SET `LogTitle` = 'Plus qu''une coïncidence' WHERE `quest_template_locale`.`ID` = 11200 AND `quest_template_locale`.`locale` = 'frFR';
+UPDATE `quest_template_locale` SET `LogTitle` = 'Plus qu''une coÃ¯ncidence' WHERE `quest_template_locale`.`ID` = 11200 AND `quest_template_locale`.`locale` = 'frFR';
 
 /****************************************************************************************/
 /* Questionner Reethe 1273 */
@@ -833,23 +833,23 @@ DELETE FROM `creature_queststarter` WHERE (quest = 1282) AND (id IN (4921));
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4921, 1282);
 
 /****************************************************************************************/
-/* Discréditer les déserteurs 27212 */
+/* DiscrÃ©diter les dÃ©serteurs 27212 */
 REPLACE INTO `gossip_menu_option` (`menu_id`, `id`, `option_icon`, `option_text`, `OptionBroadcastTextID`, `option_id`, `npc_option_npcflag`, `action_menu_id`, `action_poi_id`, `box_coded`, `box_money`, `box_text`, `BoxBroadcastTextID`) VALUES
-(8851, 4, 0, "Vous avez l’air de quelqu’un d’intelligent. Lisez donc un de nos pamphlets et réfléchissez-y, d’accord ?", 0, 1, 1, 0, 0, 0, 0, '', 0);
+(8851, 4, 0, "Vous avez lâ€™air de quelquâ€™un dâ€™intelligent. Lisez donc un de nos pamphlets et rÃ©flÃ©chissez-y, dâ€™accordÂ ?", 0, 1, 1, 0, 0, 0, 0, '', 0);
 UPDATE `creature_template` SET `InhabitType` = 1 WHERE (entry = 4979);
 -- Theramore Guard SAI
 SET @ENTRY := 4979;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,10,0,62,0,100,1,8851,4,3000,3000,33,4979,0,0,0,0,0,7,0,0,0,0,0,0,0,"Discréditer les déserteurs 27212 : credit"),
-(@ENTRY,0,15,0,62,0,100,0,8851,4,0,0,41,10,0,0,0,0,0,1,0,0,0,0,0,0,0,"Discréditer les déserteurs 27212 : fermer menu");
+(@ENTRY,0,10,0,62,0,100,1,8851,4,3000,3000,33,4979,0,0,0,0,0,7,0,0,0,0,0,0,0,"DiscrÃ©diter les dÃ©serteurs 27212 : credit"),
+(@ENTRY,0,15,0,62,0,100,0,8851,4,0,0,41,10,0,0,0,0,0,1,0,0,0,0,0,0,0,"DiscrÃ©diter les dÃ©serteurs 27212 : fermer menu");
 
 /****************************************************************************************/
-/* Des traîtres sont parmi nous 27210 */
+/* Des traÃ®tres sont parmi nous 27210 */
 DELETE FROM `gossip_menu_option` WHERE `gossip_menu_option`.`menu_id` = 8762 ;
 INSERT INTO `gossip_menu_option` (`menu_id`, `id`, `option_icon`, `option_text`, `OptionBroadcastTextID`, `option_id`, `npc_option_npcflag`, `action_menu_id`, `action_poi_id`, `box_coded`, `box_money`, `box_text`, `BoxBroadcastTextID`) VALUES
-(8762, 1, 0, 'Votre propagande ne fonctionne pas sur moi. Jaillissez vos ordures traîtres ailleurs, traître !', 0, 1, 1, 0, 0, 0, 0, '', 0);
+(8762, 1, 0, 'Votre propagande ne fonctionne pas sur moi. Jaillissez vos ordures traÃ®tres ailleurs, traÃ®tre !', 0, 1, 1, 0, 0, 0, 0, '', 0);
 UPDATE `creature_template` SET `unit_flags` = 0 WHERE (entry = 23602);
 -- Deserter Agitator SAI
 SET @ENTRY := 23602;
@@ -859,27 +859,27 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,0,11,0,100,0,0,0,0,0,2,894,0,0,0,0,0,1,0,0,0,0,0,0,0,"Deserter Agitator - On Reset - Set Faction 0 (No Repeat) (Normal Dungeon)"),
 (@ENTRY,0,1,0,1,0,50,0,0,1,30000,120000,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,"Deserter Agitator - Out of Combat - Say Line 0 (No Repeat) (Normal Dungeon)"),
 (@ENTRY,0,2,3,62,0,100,0,8762,1,0,0,5,15,42203,0,0,0,0,7,0,0,0,0,0,0,0,"Deserter Agitator - On Gossip Option 1 Selected - Cast 'Discovered'"),
-(@ENTRY,0,3,10,61,0,100,0,0,0,0,0,72,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"Des traîtres sont parmi nous 27210 : fermer gossip"),
+(@ENTRY,0,3,10,61,0,100,0,0,0,0,0,72,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"Des traÃ®tres sont parmi nous 27210 : fermer gossip"),
 (@ENTRY,0,4,5,8,0,100,0,42219,0,3500,3500,66,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"Deserter Agitator - On Spellhit 'Discovered (Sub)' - Set Orientation Invoker"),
 (@ENTRY,0,5,6,61,0,100,0,0,0,0,0,1,1,0,0,0,0,0,7,0,0,0,0,0,0,0,"Deserter Agitator - On Spellhit 'Discovered (Sub)' - Say Line 1"),
 (@ENTRY,0,6,0,61,0,100,0,0,0,0,0,87,@ENTRY*100+00,@ENTRY*100+01,0,0,0,0,1,0,0,0,0,0,0,0,"Deserter Agitator - On Spellhit 'Discovered (Sub)' - Run Random Script"),
-(@ENTRY,0,10,11,61,0,100,0,0,0,0,0,2,103,0,0,0,0,0,1,0,0,0,0,0,0,0,"Des traîtres sont parmi nous 27210 : faction agro"),
-(@ENTRY,0,11,0,61,0,100,0,0,0,0,0,20,1,0,0,0,0,0,7,0,0,0,0,0,0,0,"Des traîtres sont parmi nous 27210 : agro joueur"),
+(@ENTRY,0,10,11,61,0,100,0,0,0,0,0,2,103,0,0,0,0,0,1,0,0,0,0,0,0,0,"Des traÃ®tres sont parmi nous 27210 : faction agro"),
+(@ENTRY,0,11,0,61,0,100,0,0,0,0,0,20,1,0,0,0,0,0,7,0,0,0,0,0,0,0,"Des traÃ®tres sont parmi nous 27210 : agro joueur"),
 (@ENTRY,0,1000,0,75,0,80,0,0,4979,5,3000,10,3,5,6,24,25,71,1,0,0,0,0,0,0,0,"  Random emote ");
 
 /****************************************************************************************/
-/* Le marché de Nat 27220 */
+/* Le marchÃ© de Nat 27220 */
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (21071166, 23928, 1, 0, 0, 1, 0, 0, 0, 1, -4240.9, -3911.4, -5.01298, 3.99722, 300, 0, 0, 5332, 0, 0, 0, 0, 0, 0);
 
 /****************************************************************************************/
-/* Il faut tuer Tethyr ! 27222 */
-UPDATE `quest_template_locale` SET `QuestDescription` = 'Monstre marin ou pas, nous n’allons pas risquer notre cargaison. J’ai ordonné à nos meilleurs tireurs de se préparer pour une confrontation avec ce Tethyr. Les artilleurs ont ajouté cinqs mortiers aux défenses du port.$B$BLa faim a poussé Tethyr a rentrer dans le port meme , heureusement pour nous il a peur de sortir de son élément , autant en profiter . Si Tethyr attaque effectivement, votre travail sera d’actionner les mortiers pour l’abattre avant qu’il ne tue tous les tireurs. Mais, à votre place, j’éviterais de rester trop longtemps au même endroit. L’utilisation des mortiers attirera sans doute son attention.' WHERE `quest_template_locale`.`ID` = 27222 AND `quest_template_locale`.`locale` = 'frFR';
+/* Il faut tuer TethyrÂ ! 27222 */
+UPDATE `quest_template_locale` SET `QuestDescription` = 'Monstre marin ou pas, nous nâ€™allons pas risquer notre cargaison. Jâ€™ai ordonnÃ© Ã  nos meilleurs tireurs de se prÃ©parer pour une confrontation avec ce Tethyr. Les artilleurs ont ajoutÃ© cinqs mortiers aux dÃ©fenses du port.$B$BLa faim a poussÃ© Tethyr a rentrer dans le port meme , heureusement pour nous il a peur de sortir de son Ã©lÃ©ment , autant en profiter . Si Tethyr attaque effectivement, votre travail sera dâ€™actionner les mortiers pour lâ€™abattre avant quâ€™il ne tue tous les tireurs. Mais, Ã  votre place, jâ€™Ã©viterais de rester trop longtemps au mÃªme endroit. Lâ€™utilisation des mortiers attirera sans doute son attention.' WHERE `quest_template_locale`.`ID` = 27222 AND `quest_template_locale`.`locale` = 'frFR';
 
 -- DIFF `quest_objectives` of QuestID 27222
 DELETE FROM `quest_objectives` WHERE (QuestID = 27222) AND (ID IN (15500013));
 INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `ObjectID`, `Amount`, `Flags`, `UnkFloat`, `Description`, `VerifiedBuild`) VALUES
-(15500013, 27222, 0, 0, 23899, 1, 0, 0, 'Protéger les docks de Theramore de Tethyr', 0);
+(15500013, 27222, 0, 0, 23899, 1, 0, 0, 'ProtÃ©ger les docks de Theramore de Tethyr', 0);
 
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (21071171, 23899, 1, 0, 0, 1, 0, 0, 0, 0, -3900.03, -4687.69, 0.0000780016, 0.81478, 60, 0, 0, 294800, 0, 0, 0, 0, 0, 0);
@@ -893,14 +893,14 @@ REPLACE INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`,
 UPDATE `creature_template` SET `scale` = 0.75, `unit_flags` = 557120, `unit_flags2` = 0, `HoverHeight` = 0, `HealthModifier` = 99, `DamageModifier` = 7 WHERE (entry = 23899);
 DELETE FROM `waypoints` WHERE `waypoints`.`entry` = 11043799 OR `waypoints`.`entry` = 23899 ; 
 INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `position_z`, `point_comment`) VALUES 
-(23899, 1, -3893.34, -4681.75, 0.00106197, "Il faut tuer Tethyr ! 27222"),
-(23899, 2, -3869.52, -4656.25, 0.000948491, "Il faut tuer Tethyr ! 27222"),
-(23899, 3, -3856.34, -4679.21, 0.001952, "Il faut tuer Tethyr ! 27222"),
-(23899, 4, -3891.73, -4712.88, 0.00124638, "Il faut tuer Tethyr ! 27222"),
-(23899, 5, -3937.49, -4709.48, 0.00150175, "Il faut tuer Tethyr ! 27222"),
-(23899, 6, -3928.38, -4683.65, 0.000918641, "Il faut tuer Tethyr ! 27222"),
-(23899, 7, -3905.48, -4655.3, 0.00114706, "Il faut tuer Tethyr ! 27222"),
-(23899, 8, -3899.09, -4749.1, 0.00194242, "Il faut tuer Tethyr ! 27222");
+(23899, 1, -3893.34, -4681.75, 0.00106197, "Il faut tuer TethyrÂ ! 27222"),
+(23899, 2, -3869.52, -4656.25, 0.000948491, "Il faut tuer TethyrÂ ! 27222"),
+(23899, 3, -3856.34, -4679.21, 0.001952, "Il faut tuer TethyrÂ ! 27222"),
+(23899, 4, -3891.73, -4712.88, 0.00124638, "Il faut tuer TethyrÂ ! 27222"),
+(23899, 5, -3937.49, -4709.48, 0.00150175, "Il faut tuer TethyrÂ ! 27222"),
+(23899, 6, -3928.38, -4683.65, 0.000918641, "Il faut tuer TethyrÂ ! 27222"),
+(23899, 7, -3905.48, -4655.3, 0.00114706, "Il faut tuer TethyrÂ ! 27222"),
+(23899, 8, -3899.09, -4749.1, 0.00194242, "Il faut tuer TethyrÂ ! 27222");
 
 -- Tethyr SAI
 SET @ENTRY := 23899;
@@ -944,18 +944,18 @@ REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (4397, 5883, 0, 100, 1, 1, 0, 1, 1, NULL);
 
 /****************************************************************************************/
-/* Qui hante la Colline des sorcières ? 27188 */
+/* Qui hante la Colline des sorciÃ¨resÂ ? 27188 */
 UPDATE `creature_template` SET `KillCredit1` = 23861 WHERE (entry = 23554);
 UPDATE `creature_template` SET `KillCredit1` = 23861 WHERE (entry = 23555);
 
 REPLACE INTO `locales_creature_text` (`entry`, `groupid`, `id`, `text_loc1`, `text_loc2`, `text_loc3`, `text_loc4`, `text_loc5`, `text_loc6`, `text_loc7`, `text_loc8`) VALUES
-(23861, 0, 0, 'Go away,whoever you are!Witch Hill is mine...mine!', 'Allez-vous en , qui que vous soyez ! ... la sorcière des colline  est à moi ... à moi !', NULL, NULL, NULL, NULL, NULL, NULL),
-(23861, 0, 1, 'Why have you come here,outsider?You will only find pain!Our fate will be yours...', 'Pourquoi êtes-vous venu ici étranger ? Vous ne trouverez pas que ...', NULL, NULL, NULL, NULL, NULL, NULL),
+(23861, 0, 0, 'Go away,whoever you are!Witch Hill is mine...mine!', 'Allez-vous en , qui que vous soyez ! ... la sorciÃ¨re des colline  est Ã  moi ... Ã  moi !', NULL, NULL, NULL, NULL, NULL, NULL),
+(23861, 0, 1, 'Why have you come here,outsider?You will only find pain!Our fate will be yours...', 'Pourquoi Ãªtes-vous venu ici Ã©tranger ? Vous ne trouverez pas que ...', NULL, NULL, NULL, NULL, NULL, NULL),
 (23861, 0, 2, 'It is too late for Jarl...its hold is too strong...', 'Il est trop tard pour Jarl ... sa force est trop forte .....', NULL, NULL, NULL, NULL, NULL, NULL),
-(23861, 0, 3, 'The darkness...the corruption...they came too quickly for anyone to know...', 'L''obscurité ... la corruption ... ils sont venus trop vite pour que quelqu''un puisse réagir ...', NULL, NULL, NULL, NULL, NULL, NULL),
-(23861, 0, 4, 'The manor...someone else...will soon be consumed...', 'Le manoir ... quelqu''un d''autre ... sera bientôt dévoré ...', NULL, NULL, NULL, NULL, NULL, NULL),
-(23861, 0, 5, 'The darkness will consume all...all the living...', ' L''obscurité consommera tout ... tous les vivants ...', NULL, NULL, NULL, NULL, NULL, NULL),
-(23861, 0, 6, 'It was... terrible... the demon...', 'C''était ... terrible ... Un démon ...', NULL, NULL, NULL, NULL, NULL, NULL),
+(23861, 0, 3, 'The darkness...the corruption...they came too quickly for anyone to know...', 'L''obscuritÃ© ... la corruption ... ils sont venus trop vite pour que quelqu''un puisse rÃ©agir ...', NULL, NULL, NULL, NULL, NULL, NULL),
+(23861, 0, 4, 'The manor...someone else...will soon be consumed...', 'Le manoir ... quelqu''un d''autre ... sera bientÃ´t dÃ©vorÃ© ...', NULL, NULL, NULL, NULL, NULL, NULL),
+(23861, 0, 5, 'The darkness will consume all...all the living...', ' L''obscuritÃ© consommera tout ... tous les vivants ...', NULL, NULL, NULL, NULL, NULL, NULL),
+(23861, 0, 6, 'It was... terrible... the demon...', 'C''Ã©tait ... terrible ... Un dÃ©mon ...', NULL, NULL, NULL, NULL, NULL, NULL),
 (23861, 0, 7, 'It is too late for Jarl... its hold is too strong...', 'Il est trop tard ...', NULL, NULL, NULL, NULL, NULL, NULL);
 
 /****************************************************************************************/
@@ -964,23 +964,23 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 (21071213, 23569, 1, 0, 0, 1, 0, 0, 0, 0, -2639.89, -4345.22, -7.36125, 5.53772, 300, 0, 0, 5332, 1142, 0, 0, 0, 0, 0);
 
 /****************************************************************************************/
-/* Équipement de plongée d’occasion 27236 */
+/* Ã‰quipement de plongÃ©e dâ€™occasion 27236 */
 REPLACE INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `VerifiedBuild`) VALUES
 (21025074, 186273, 1, 0, 0, 1, 0, 0, -2670.78, -4214.57, 0.757031, 0.436556, 0, 0, 0.216549, 0.976272, 300, 0, 1, 0),
 (21025073, 186272, 1, 0, 0, 1, 0, 0, -2691.7, -4279.73, 3.60659, 4.86227, 0, 0, 0.652179, -0.758065, 300, 0, 1, 0);
 
 /****************************************************************************************/
-/*  Nettoyer la Colline des sorcières 27190 */
+/*  Nettoyer la Colline des sorciÃ¨res 27190 */
 REPLACE INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `VerifiedBuild`) VALUES
 (21025075, 186424, 1, 0, 0, 1, 0, 0, -2967.7, -3871.63, 31.0044, 2.16052, 0, 0, 0.88208, 0.4711, 300, 0, 1, 0);
 
 /****************************************************************************************/
-/* Survoler l’île d’Alcaz 27239  Cassa Cramoissaile tué*/
+/* Survoler lâ€™Ã®le dâ€™Alcaz 27239  Cassa Cramoissaile tuÃ©*/
 DELETE FROM `gossip_menu_option` WHERE `gossip_menu_option`.`menu_id` = 8782 AND `gossip_menu_option`.`id` = 0;
 REPLACE INTO `gossip_menu_option` (`menu_id`, `id`, `option_icon`, `option_text`, `OptionBroadcastTextID`, `option_id`, `npc_option_npcflag`, `action_menu_id`, `action_poi_id`, `box_coded`, `box_money`, `box_text`, `BoxBroadcastTextID`) VALUES
 (8782, 1, 0, 'Lady Jaina told me to speak to you about using a gryphon to survey Alcaz Island.', 0, 1, 1, 0, 0, 0, 0, '', 0);
 REPLACE INTO `locales_gossip_menu_option` (`menu_id`, `id`, `option_text_loc1`, `option_text_loc2`, `option_text_loc3`, `option_text_loc4`, `option_text_loc5`, `option_text_loc6`, `option_text_loc7`, `option_text_loc8`, `box_text_loc1`, `box_text_loc2`, `box_text_loc3`, `box_text_loc4`, `box_text_loc5`, `box_text_loc6`, `box_text_loc7`, `box_text_loc8`) VALUES
-(8782, 1, 'Lady Jaina told me to speak to you about using a gryphon to survey Alcaz Island.', ' Lady Jaina m''a dit de vous parler de l''utilisation d''un gryphon pour enquêter sur l''île Alcaz.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(8782, 1, 'Lady Jaina told me to speak to you about using a gryphon to survey Alcaz Island.', ' Lady Jaina m''a dit de vous parler de l''utilisation d''un gryphon pour enquÃªter sur l''Ã®le Alcaz.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- Cassa Crimsonwing SAI
 SET @ENTRY := 23704;
@@ -992,7 +992,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,2,0,61,0,100,0,0,0,0,0,33,23704,0,0,0,0,0,7,0,0,0,0,0,0,0,"Cassa Crimsonwing - On Linked Actions - credit");
 
 /****************************************************************************************/
-/* Rasez le poste de Navrecorne ! 27429 (a2) - 27296 (h2) */
+/* Rasez le poste de NavrecorneÂ ! 27429 (a2) - 27296 (h2) */
 REPLACE INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `VerifiedBuild`) VALUES
 (21025093, 186310, 1, 0, 0, 1, 0, 0, -3641.36, -3422.53, 37.197, 0.178265, 0, 0, 0.0890143, 0.99603, 300, 0, 1, 0),
 (21025092, 186310, 1, 0, 0, 1, 0, 0, -3700.14, -3468, 37.2846, 4.0817, 0, 0, 0.891545, -0.452933, 300, 0, 1, 0),
@@ -1004,7 +1004,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,10,8,0,100,0,42356,0,3500,3500,33,23751,0,0,0,0,0,7,0,0,0,0,0,0,0,"North Tent - On Spellhit 'Burn Direhorn Post' - Quest Credit 'Raze Direhorn Post!'"),
-(@ENTRY,0,10,0,61,0,100,0,0,0,0,0,12,15000065,2,20000,0,0,0,9,15000079,0,15,0,0,0,0,"Rasez le poste de Navrecorne ! 27429 (a2) - 27296 (h2) : visuel flammes");
+(@ENTRY,0,10,0,61,0,100,0,0,0,0,0,12,15000065,2,20000,0,0,0,9,15000079,0,15,0,0,0,0,"Rasez le poste de NavrecorneÂ ! 27429 (a2) - 27296 (h2) : visuel flammes");
 
 -- North Tent SAI
 SET @ENTRY := 23752;
@@ -1012,7 +1012,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,10,8,0,100,0,42356,0,3500,3500,33,23752,0,0,0,0,0,7,0,0,0,0,0,0,0,"North Tent - On Spellhit 'Burn Direhorn Post' - Quest Credit 'Raze Direhorn Post!'"),
-(@ENTRY,0,10,0,61,0,100,0,0,0,0,0,12,15000065,2,20000,0,0,0,9,15000079,0,15,0,0,0,0,"Rasez le poste de Navrecorne ! 27429 (a2) - 27296 (h2) : visuel flammes");
+(@ENTRY,0,10,0,61,0,100,0,0,0,0,0,12,15000065,2,20000,0,0,0,9,15000079,0,15,0,0,0,0,"Rasez le poste de NavrecorneÂ ! 27429 (a2) - 27296 (h2) : visuel flammes");
 
 -- North Tent SAI
 SET @ENTRY := 23753;
@@ -1020,7 +1020,7 @@ UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,10,8,0,100,0,42356,0,3500,3500,33,23753,0,0,0,0,0,7,0,0,0,0,0,0,0,"North Tent - On Spellhit 'Burn Direhorn Post' - Quest Credit 'Raze Direhorn Post!'"),
-(@ENTRY,0,10,0,61,0,100,0,0,0,0,0,12,15000065,2,20000,0,0,0,9,15000079,0,15,0,0,0,0,"Rasez le poste de Navrecorne ! 27429 (a2) - 27296 (h2) : visuel flammes");
+(@ENTRY,0,10,0,61,0,100,0,0,0,0,0,12,15000065,2,20000,0,0,0,9,15000079,0,15,0,0,0,0,"Rasez le poste de NavrecorneÂ ! 27429 (a2) - 27296 (h2) : visuel flammes");
 
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (21071247, 15000079, 1, 0, 0, 1, 0, 0, 11686, 0, -3700.87, -3465.38, 37.285, 1.76083, 300, 0, 0, 160, 0, 0, 0, 33685510, 0, 0),
@@ -1054,7 +1054,7 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 
 
 /****************************************************************************************/
-/* Lâcher de raptors 27243 */
+/* LÃ¢cher de raptors 27243 */
 UPDATE `quest_template_addon` SET `PrevQuestID` = 27242 WHERE (ID = 27243);
 
 /****************************************************************************************/
@@ -1073,7 +1073,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,15,0,11,0,100,0,0,0,0,0,41,15000,0,0,0,0,0,1,0,0,0,0,0,0,0,"auto despawn 15s");
 
 /****************************************************************************************/
-/* Prévention de la corrosion 27347 */
+/* PrÃ©vention de la corrosion 27347 */
 UPDATE `creature_template` SET `KillCredit1` = 23797 WHERE (entry = 4393);
 UPDATE `creature_template` SET `KillCredit1` = 23797 WHERE (entry = 4394);
 
@@ -1118,12 +1118,12 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,15,0,0,0,25,0,0,0,3000,6000,11,123649,0,0,0,0,0,2,0,0,0,0,0,0,0,"Coup de masse    ");
 
 /****************************************************************************************/
-/* Un défi au Vol noir 27411 */
+/* Un dÃ©fi au Vol noir 27411 */
 REPLACE INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `VerifiedBuild`) VALUES
 (21025143, 186336, 1, 0, 0, 1, 0, 0, -4706.62, -3726.18, 54.6398, 3.79402, 0, 0, 0.947262, -0.320461, 300, 0, 1, 0);
 
 /****************************************************************************************/
-/* Voyage à la Nouvelle-Thalanaar 25479 */
+/* Voyage Ã  la Nouvelle-Thalanaar 25479 */
 REPLACE INTO `gossip_menu_option` (`menu_id`, `id`, `option_icon`, `option_text`, `OptionBroadcastTextID`, `option_id`, `npc_option_npcflag`, `action_menu_id`, `action_poi_id`, `box_coded`, `box_money`, `box_text`, `BoxBroadcastTextID`) VALUES ('11372', '2', '0', 'Aller a la nouvelle-Thalanaar ( A2 )', '0', '1', '1', '0', '0', '0', '0', NULL, '0');
 -- Dyslix Silvergrub SAI
 SET @ENTRY := 40358;
@@ -1138,12 +1138,12 @@ INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `Object
 (253318, 25479, 0, 0, 39897, 0, 0, 0, 'Hippogryph to New Thalanaar', 20444);
 
 /****************************************************************************************/
-/* Prévenir les proches 25292 */
+/* PrÃ©venir les proches 25292 */
 DELETE FROM `creature_queststarter` WHERE (quest = 25292) AND (id IN (39144));
 
 
 /****************************************************************************************/
-/* Défier le seigneur Mok'Morokk 27418 */
+/* DÃ©fier le seigneur Mok'Morokk 27418 */
 
 DELETE FROM `quest_objectives` WHERE (QuestID = 27418) AND (ID IN (15500015));
 INSERT INTO `quest_objectives` (`ID`, `QuestID`, `Type`, `StorageIndex`, `ObjectID`, `Amount`, `Flags`, `UnkFloat`, `Description`, `VerifiedBuild`) VALUES
@@ -1155,15 +1155,15 @@ SET @ENTRY := 4500;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,10,11,19,0,100,0,27418,0,0,0,2,103,0,0,0,0,0,1,0,0,0,0,0,0,0,"Défier le seigneur Mok'Morokk 27418 : faction agressive"),
-(@ENTRY,0,15,0,25,0,100,0,27418,0,0,0,2,29,0,0,0,0,0,1,0,0,0,0,0,0,0,"Défier le seigneur Mok'Morokk 27418 : faction amicale"),
+(@ENTRY,0,10,11,19,0,100,0,27418,0,0,0,2,103,0,0,0,0,0,1,0,0,0,0,0,0,0,"DÃ©fier le seigneur Mok'Morokk 27418 : faction agressive"),
+(@ENTRY,0,15,0,25,0,100,0,27418,0,0,0,2,29,0,0,0,0,0,1,0,0,0,0,0,0,0,"DÃ©fier le seigneur Mok'Morokk 27418 : faction amicale"),
 (@ENTRY,0,25,0,9,0,100,0,0,5,15000,15000,11,6749,0,0,0,0,0,2,0,0,0,0,0,0,0,"Grand balayage"),
-(@ENTRY,0,30,35,2,0,100,0,1,25,3000,3000,33,4500,0,0,0,0,0,2,0,0,0,0,0,0,0,"Défier le seigneur Mok'Morokk 27418 : Credit"),
-(@ENTRY,0,35,0,61,0,100,0,0,0,0,0,24,29,0,0,0,0,0,2,0,0,0,0,0,0,0,"Défier le seigneur Mok'Morokk 27418 : evade si 25% pv"),
-(@ENTRY,0,11,0,61,0,100,0,0,0,0,0,49,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"Défier le seigneur Mok'Morokk 27418 : attaque joueur");
+(@ENTRY,0,30,35,2,0,100,0,1,25,3000,3000,33,4500,0,0,0,0,0,2,0,0,0,0,0,0,0,"DÃ©fier le seigneur Mok'Morokk 27418 : Credit"),
+(@ENTRY,0,35,0,61,0,100,0,0,0,0,0,24,29,0,0,0,0,0,2,0,0,0,0,0,0,0,"DÃ©fier le seigneur Mok'Morokk 27418 : evade si 25% pv"),
+(@ENTRY,0,11,0,61,0,100,0,0,0,0,0,49,0,0,0,0,0,0,7,0,0,0,0,0,0,0,"DÃ©fier le seigneur Mok'Morokk 27418 : attaque joueur");
 
 /****************************************************************************************/
-/*  L'identification de la portée 27414 */
+/*  L'identification de la portÃ©e 27414 */
 REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (4323, 5840, 0, 75, 1, 1, 0, 1, 1, NULL),
 (4324, 5840, 0, 75, 1, 1, 0, 1, 1, NULL),

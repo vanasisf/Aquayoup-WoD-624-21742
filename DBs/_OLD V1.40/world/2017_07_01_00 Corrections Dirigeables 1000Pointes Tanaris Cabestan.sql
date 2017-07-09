@@ -60,7 +60,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,10,0,62,0,100,0,@GOSSIP,0,0,0,12,@ENTRY+1,2,600000,0,0,0,8,0,0,0,-8298.466797,-3282.359375,26.478380,10.2487,"Camp de recrutement Cognedune vers Gadgetzan");
 
 REPLACE INTO `gossip_menu_option` (`menu_id`, `id`, `option_icon`, `option_text`, `OptionBroadcastTextID`, `option_id`, `npc_option_npcflag`, `action_menu_id`, `action_poi_id`, `box_coded`, `box_money`, `box_text`, `BoxBroadcastTextID`) VALUES 
-(@GOSSIP, 0, 0, "Aller a Gadgetzan", 0, 1, 1, 0, 0, 0, 0, '', 0);
+(@GOSSIP, 0, 0, "Aller à Gadgetzan", 0, 1, 1, 0, 0, 0, 0, '', 0);
 UPDATE `creature_template` SET `faction` = 35 WHERE (entry = 15000199);
 #------
 SET @ENTRY := 15000200 ; # WP 11043801
@@ -84,7 +84,7 @@ UPDATE `creature_template` SET `unit_flags2` = 2048 WHERE (entry = 15000197);
 UPDATE `creature_template` SET `unit_flags2` = 2048 WHERE (entry = 15000198);
 UPDATE `creature_template` SET `unit_flags2` = 2048 WHERE (entry = 15000200);
 
-DELETE FROM `waypoints` WHERE `waypoints`.`entry` = 11043799 OR `waypoints`.`entry` = 11043800 OR `waypoints`.`entry` = 11043801; 
+DELETE FROM `waypoints` WHERE `entry` = 11043799 OR `entry` = 11043800 OR `entry` = 11043801; 
 INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `position_z`, `point_comment`) VALUES 
 (11043799, 1, -7080.17, -3899.63, 16.2243, "Dirigeable - Tanaris (Gadgetzan & Camp ... Cognedune)"),
 (11043799, 2, -7080.17, -3899.63, 31.9813, "Dirigeable - Tanaris (Gadgetzan & Camp ... Cognedune)"),
@@ -188,7 +188,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,10,0,62,0,100,0,@GOSSIP,0,0,0,12,@ENTRY+1,2,600000,0,0,0,8,0,0,0,-894.726685,-3766.032227,11.861821,2.9496,"Cabestan vers Theramore ");
 REPLACE INTO `gossip_menu_option` (`menu_id`, `id`, `option_icon`, `option_text`, `OptionBroadcastTextID`, `option_id`, `npc_option_npcflag`, `action_menu_id`, `action_poi_id`, `box_coded`, `box_money`, `box_text`, `BoxBroadcastTextID`) VALUES 
-(@GOSSIP, 0, 0, "Aller a Theramore", 0, 1, 1, 0, 0, 0, 0, '', 0);
+(@GOSSIP, 0, 0, "Aller à Theramore", 0, 1, 1, 0, 0, 0, 0, '', 0);
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (21071163, 15000196, 1, 0, 0, 1, 0, 0, 0, 0, -898.872, -3763.25, 11.8286, 6.13841, 300, 0, 0, 122886, 0, 0, 0, 0, 0, 0);
 
@@ -207,7 +207,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,20,0,28,0,100,0,0,0,0,0,41,100,0,0,0,0,0,1,0,0,0,0,0,0,0,"despawn si plus de passager"),
 (@ENTRY,0,10,0,27,0,100,0,0,0,0,0,53,1,11043805,0,0,1000,0,1,0,0,0,0,0,0,0,"Demarre WP si passager");
 
-DELETE FROM `waypoints` WHERE `waypoints`.`entry` = 11043805  ; 
+DELETE FROM `waypoints` WHERE `entry` = 11043805  ; 
 INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `position_z`, `point_comment`) VALUES 
 (11043805, 1, -896.077, -3766.64, 17.1843, "Cabestan vers Theramore"),
 (11043805, 2, -896.077, -3766.64, 33.3543, "Cabestan vers Theramore"),
@@ -235,7 +235,7 @@ INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `positi
 (11043805, 24, -3825.78, -4519.55, 22.0188, "Cabestan vers Theramore"),
 (11043805, 25, -3825.72, -4519.54, 10.5601, "Cabestan vers Theramore");
 
-DELETE FROM `creature` WHERE `creature`.`guid` = 21071163;
+DELETE FROM `creature` WHERE `guid` = 21071163;
 REPLACE INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `VerifiedBuild`) VALUES
 (21071275, 15000211, 1, 0, 0, 1, 0, 0, 0, 0, -899.12, -3761.72, 11.8306, 0.151702, 300, 0, 0, 122886, 0, 0, 0, 0, 0, 0);
 
@@ -247,7 +247,7 @@ SET @ENTRY := 15000191;
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@ENTRY AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,10,0,62,0,100,0,65059,0,0,0,12,15000192,2,600000,0,0,0,8,0,0,0,-5675.97,-2473.21,2.62922,5.0375,"1000 pointes Poste de Librevent -> P�niche de course"),
+(@ENTRY,0,10,0,62,0,100,0,65059,0,0,0,12,15000192,2,600000,0,0,0,8,0,0,0,-5675.97,-2473.21,2.62922,5.0375,"1000 pointes Poste de Librevent -> Péniche de course"),
 (@ENTRY,0,15,0,62,0,100,0,65059,1,0,0,12,15000193,2,600000,0,0,0,8,0,0,0,-5675.97,-2473.21,2.62922,5.0375,"1000 pointes Poste de Librevent -> Haut Perchoir");
 
 UPDATE `creature_template` SET `faction` = 35 WHERE (entry = 15000187); 
