@@ -39,7 +39,7 @@ UPDATE `creature_template_addon` SET `auras` = NULL WHERE `creature_template_add
 UPDATE `creature_template_addon` SET `auras` = NULL WHERE `creature_template_addon`.`auras` = 89304; # Generic Quest Invisibility 29
 UPDATE `creature_template_addon` SET `auras` = NULL WHERE `creature_template_addon`.`auras` = 93696; # Generic Quest Invisibility 29 (Vehicle)
 
-UPDATE `world`.`creature_template_addon` SET `auras` = '46598' WHERE `creature_template_addon`.`entry` = 45400;
+UPDATE `creature_template_addon` SET `auras` = '46598' WHERE `creature_template_addon`.`entry` = 45400;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES
 (41154, 0, 0, 65536, 1, 0, '76991'),
 (41256, 0, 0, 65536, 1, 0, '29266'),
@@ -47,8 +47,8 @@ REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `
 (43985, 0, 0, 65536, 1, 0, '29266'),
 (47606, 0, 0, 65536, 1, 0, '76651 88703'),
 (52886, 0, 0, 65536, 1, 0, '97767');
-UPDATE `world`.`creature_template_addon` SET `auras` = '97768' WHERE `creature_template_addon`.`entry` = 52887;
-UPDATE `world`.`creature_template_addon` SET `auras` = '97770' WHERE `creature_template_addon`.`entry` = 52889;
+UPDATE `creature_template_addon` SET `auras` = '97768' WHERE `creature_template_addon`.`entry` = 52887;
+UPDATE `creature_template_addon` SET `auras` = '97770' WHERE `creature_template_addon`.`entry` = 52889;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES
 (48563, 0, 0, 65536, 1, 0, '88639'),
 (48598, 0, 0, 65536, 1, 0, '29266'),
@@ -58,7 +58,7 @@ REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `
 (52890, 0, 0, 65536, 1, 0, '97772'),
 (52936, 0, 0, 65536, 1, 0, '96733'),
 (53736, 0, 0, 65536, 1, 0, '99927');
-UPDATE `world`.`creature_template_addon` SET `auras` = '99628' WHERE `creature_template_addon`.`entry` = 53649;
+UPDATE `creature_template_addon` SET `auras` = '99628' WHERE `creature_template_addon`.`entry` = 53649;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES
 (42389, 0, 0, 65536, 1, 0, '74096 75602'),
 (44631, 0, 0, 3, 1, 0, '78148 78150'),
@@ -67,7 +67,7 @@ REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `
 (49414, 0, 0, 65536, 1, 0, '88435'),
 (49415, 0, 0, 65536, 1, 0, '88435'),
 (52309, 0, 0, 65536, 1, 0, '84531');
-UPDATE `world`.`creature_template_addon` SET `auras` = '95843' WHERE `creature_template_addon`.`entry` = 49284;
+UPDATE `creature_template_addon` SET `auras` = '95843' WHERE `creature_template_addon`.`entry` = 49284;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES
 (47940, 0, 0, 65536, 1, 0, '89196'),
 (52948, 0, 0, 65536, 1, 0, '97921 96824'),
@@ -87,14 +87,14 @@ REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `
 (45511, 0, 0, 65536, 1, 0, '85632'),
 (45693, 0, 0, 65536, 1, 0, '85633'),
 (45694, 0, 0, 65536, 1, 0, '85630');
-UPDATE `world`.`creature_template_addon` SET `auras` = '51329' WHERE `creature_template_addon`.`entry` = 53659;
-UPDATE `world`.`creature_template_addon` SET `auras` = '29266' WHERE `creature_template_addon`.`entry` = 51196;
-UPDATE `world`.`creature_template_addon` SET `auras` = '29266 94523' WHERE `creature_template_addon`.`entry` = 50634;
+UPDATE `creature_template_addon` SET `auras` = '51329' WHERE `creature_template_addon`.`entry` = 53659;
+UPDATE `creature_template_addon` SET `auras` = '29266' WHERE `creature_template_addon`.`entry` = 51196;
+UPDATE `creature_template_addon` SET `auras` = '29266 94523' WHERE `creature_template_addon`.`entry` = 50634;
 REPLACE INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES
 (50672, 0, 0, 65536, 1, 214, '89695'),
 (53373, 0, 0, 65536, 1, 0, '98891 99037');
-UPDATE `world`.`creature_template_addon` SET `auras` = '100480' WHERE `creature_template_addon`.`entry` = 53905;
-UPDATE `world`.`creature_template_addon` SET `auras` = '63048' WHERE `creature_template_addon`.`entry` = 48027;
+UPDATE `creature_template_addon` SET `auras` = '100480' WHERE `creature_template_addon`.`entry` = 53905;
+UPDATE `creature_template_addon` SET `auras` = '63048' WHERE `creature_template_addon`.`entry` = 48027;
 
 
 
