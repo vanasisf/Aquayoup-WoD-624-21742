@@ -1800,7 +1800,7 @@ void Player::RegenerateAll()
 {	//STITCH Regen ( Heal & Power ) - defaut 500
 
 	if (m_regenTimer <= 500 && (getClass() == CLASS_WARRIOR))    return; 
-	if (m_regenTimer <= 100000 && (getClass() == CLASS_PALADIN))    return; 
+	if (m_regenTimer <= 5000 && (getClass() == CLASS_PALADIN))    return; 
 	if (m_regenTimer <= 500 && (getClass() == CLASS_HUNTER))    return; 
 	if (m_regenTimer <= 1500 && (getClass() == CLASS_ROGUE))    return; 
 	if (m_regenTimer <= 10000 && (getClass() == CLASS_PRIEST))    return;
