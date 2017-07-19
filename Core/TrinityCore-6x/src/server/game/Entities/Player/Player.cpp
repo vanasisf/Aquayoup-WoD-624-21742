@@ -1945,7 +1945,7 @@ void Player::Regenerate(Powers power)
 //			if (IsInCombat()) 	{  addvalue += ((0.01f * m_regenTimer) + CalculatePct(0.01f, meleeHaste)*10) * sWorld->getRate(RATE_POWER_RAGE_INCOME);  }
 			if (IsInCombat()) 	{ 
 				float RageDecreaseRate = sWorld->getRate(RATE_POWER_RAGE_LOSS);
-				addvalue += 50 * RageDecreaseRate / meleeHaste; }
+				addvalue += 125 * RageDecreaseRate / meleeHaste; }
 
 
 
