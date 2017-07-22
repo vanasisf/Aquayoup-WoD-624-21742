@@ -37,7 +37,7 @@ enum WhisperwindLasher
     NPC_WHISPERWIND_LASHER = 47747,
     NPC_CORRUPTED_LASHER   = 48387,
     FACTION_HOSTILE        = 14,
-    CHANCE_HOSTILE         = 30
+    CHANCE_HOSTILE         = 75
 };
 
 class npc_whisperwind_lasher : public CreatureScript
